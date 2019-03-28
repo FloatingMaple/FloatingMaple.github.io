@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>新建文章 | Maple&#39;s Blog</title>
+  <title>AHU HPC培训 | Maple&#39;s Blog</title>
   <meta name="description" content="A blog of Maple W">
   <meta name="keywords" content="blog,IT,Maple">
   <meta name="HandheldFriendly" content="True">
@@ -12,18 +12,18 @@
   <link rel="shortcut icon" href="/images/favicon.ico">
   <link rel="alternate" href="/atom.xml" title="Maple's Blog">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A blog of Maple W">
-<meta name="keywords" content="blog,IT,Maple">
+  <meta name="description" content="介绍 域名hpcc.ahu.edu.cn 配置情况     CPU 26 *     gpu1 1 *   gpu2 1 2卡   gpu8 3 8卡    Linux下操作命令 登录到结点  ssh [gpu01]   登陆后查看  top  free    查看历史命令  .bash_history   环境变量  .bashrc .bash_profile   常用环境变量  设置可执行程序">
+<meta name="keywords" content="linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="新建文章">
+<meta property="og:title" content="AHU HPC培训">
 <meta property="og:url" content="http://yoursite.com/2019/03/25/新建文章/index.html">
 <meta property="og:site_name" content="Maple&#39;s Blog">
-<meta property="og:description" content="A blog of Maple W">
+<meta property="og:description" content="介绍 域名hpcc.ahu.edu.cn 配置情况     CPU 26 *     gpu1 1 *   gpu2 1 2卡   gpu8 3 8卡    Linux下操作命令 登录到结点  ssh [gpu01]   登陆后查看  top  free    查看历史命令  .bash_history   环境变量  .bashrc .bash_profile   常用环境变量  设置可执行程序">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-25T09:00:10.860Z">
+<meta property="og:updated_time" content="2019-03-28T08:44:23.873Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="新建文章">
-<meta name="twitter:description" content="A blog of Maple W">
+<meta name="twitter:title" content="AHU HPC培训">
+<meta name="twitter:description" content="介绍 域名hpcc.ahu.edu.cn 配置情况     CPU 26 *     gpu1 1 *   gpu2 1 2卡   gpu8 3 8卡    Linux下操作命令 登录到结点  ssh [gpu01]   登陆后查看  top  free    查看历史命令  .bash_history   环境变量  .bashrc .bash_profile   常用环境变量  设置可执行程序">
     
   <link href="https://fonts.googleapis.com/css?family=Inconsolata|Titillium+Web" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
@@ -138,7 +138,7 @@
 	<section class="meta">
 	<h2 class="title">
   	<a href="/2019/03/25/新建文章/">
-    	新建文章
+    	AHU HPC培训
     </a>
   </h2>
 	<time>
@@ -147,13 +147,195 @@
 	
 	</section>
 	
-		<section class="toc-wrapper"></section>
+		<section class="toc-wrapper"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux下操作命令"><span class="toc-number">2.</span> <span class="toc-text">Linux下操作命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#slurm作业管理器"><span class="toc-number">3.</span> <span class="toc-text">slurm作业管理器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Q-amp-A"><span class="toc-number">4.</span> <span class="toc-text">Q&amp;A</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#提交AI作业"><span class="toc-number">5.</span> <span class="toc-text">提交AI作业</span></a></li></ol></section>
 	
 	<section class="article typo">
   	<div class="article-entry" itemprop="articleBody">
-    	
+    	<h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><ul>
+<li>域名<br>hpcc.ahu.edu.cn</li>
+<li>配置情况</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>26</th>
+<th>*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gpu1</td>
+<td>1</td>
+<td>*</td>
+</tr>
+<tr>
+<td>gpu2</td>
+<td>1</td>
+<td>2卡</td>
+</tr>
+<tr>
+<td>gpu8</td>
+<td>3</td>
+<td>8卡</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Linux下操作命令"><a href="#Linux下操作命令" class="headerlink" title="Linux下操作命令"></a>Linux下操作命令</h4><ul>
+<li><p>登录到结点</p>
+<ul>
+<li>ssh [gpu01]</li>
+</ul>
+</li>
+<li><p>登陆后查看</p>
+<ul>
+<li>top </li>
+<li>free </li>
+</ul>
+</li>
+<li><p>查看历史命令</p>
+<ul>
+<li>.bash_history</li>
+</ul>
+</li>
+<li><p>环境变量</p>
+<ul>
+<li>.bashrc</li>
+<li>.bash_profile</li>
+</ul>
+</li>
+<li><p>常用环境变量</p>
+<ul>
+<li><p>设置可执行程序的查找路径<br>  export PATH=/:$PATH</p>
+<p>  e.g. export PATH=/Share/apps/matlab//R2016a/bin:$PATH<br>  # 直接在窗口输入时只在当前窗口有效<br>  # 可以写入到 ~/.bashrc文件中<br>  # 或写入到自定义.sh文件中，然后通过source加载</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="slurm作业管理器"><a href="#slurm作业管理器" class="headerlink" title="slurm作业管理器"></a>slurm作业管理器</h4><ul>
+<li>sinfo查看当前各节点资源<ul>
+<li>timelimit 时间限制</li>
+<li>State 状态<ul>
+<li>mix 有人用但是没有满</li>
+<li>alloc 被占满</li>
+<li>idle 空闲</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>squeue查看任务队列<ul>
+<li>-u 账号名</li>
+</ul>
+</li>
+<li>srun交互式提交<ul>
+<li>-p 节点名</li>
+<li>-N 节点数</li>
+<li>-n 核心数</li>
+<li>-c 指定每个进程使用的cpu核数</li>
+<li>-gres=gpu:1 指定使用GPU卡 ※必须</li>
+<li>程序命令</li>
+</ul>
+</li>
+<li>sbatch后台提交作业<ul>
+<li>shell脚本<ul>
+<li>固定格式<br>#!/bin/bash</li>
+</ul>
+</li>
+<li>参数同srun</li>
+</ul>
+</li>
+<li>默认输出<ul>
+<li>slurm-作业号.out文件</li>
+</ul>
+</li>
+<li>scancel取消作业<ul>
+<li>参数：作业号</li>
+<li>-u 用户名</li>
+<li>-n 作业名NAME</li>
+</ul>
+</li>
+<li>scontrol show job查看正在运行的作业信息<ul>
+<li>参数：作业号</li>
+</ul>
+</li>
+<li>sacct查看历史任务信息<ul>
+<li>-u 用户名</li>
+</ul>
+</li>
+<li>salloc申请结点资源</li>
+</ul>
+<h4 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h4><ul>
+<li>安大集群软件<ul>
+<li>/Share/apps</li>
+</ul>
+</li>
+<li>常见问题<ul>
+<li>节点、核数不匹配</li>
+<li>缺库 .so.x </li>
+</ul>
+</li>
+</ul>
+<h4 id="提交AI作业"><a href="#提交AI作业" class="headerlink" title="提交AI作业"></a>提交AI作业</h4><ul>
+<li>容器Singularity<ul>
+<li>主程序路径<ul>
+<li>/Share/apps/singularity/bin/singularity</li>
+</ul>
+</li>
+<li>镜像文件<ul>
+<li>/Share/imgs/ahu_ai.img</li>
+</ul>
+</li>
+<li>GPU型号<ul>
+<li>V100,显存16G，共28张卡</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>实例<ul>
+<li>PyTorch脚本<ul>
+<li>#SBATCH –job-name=pytorch    作业名称</li>
+<li>#SBATCH -N 1    节点数</li>
+<li>#SBATCH –gres=gpu:1      GPU卡数 :star:</li>
+<li>#SBATCH -mem=20G     内存大小</li>
+<li>#SBATCH -p GPU8     队列名（分区）</li>
+</ul>
+</li>
+<li>查看GPU使用情况<ul>
+<li>nvidia-smi</li>
+</ul>
+</li>
+<li>Tensorflow使用<ul>
+<li>安装位置<ul>
+<li>/usr/local/lib/python3.6/dist-packages/tensorlfow</li>
+</ul>
+</li>
+<li>脚本<ul>
+<li>类似PyTorch</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>安装软件<ul>
+<li>./install</li>
+<li>configure  -&gt;  make  -&gt;  make install</li>
+<li>cmake  -&gt;  ccmake  -&gt;  make  –&gt;  make install </li>
+<li>pip install </li>
+<li>容器安装</li>
+<li>没有root权限但是有安装常用软件的权限 :star:</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
   	</div>
 	  
+	  <div class="article-tags tags">
+      
+        <a href="/tags/linux/">linux</a>
+      
+	  </div>
+    
 		
 	
 		<div class="art-item-footer">
@@ -170,7 +352,7 @@
 </article>
 <script>
 	window.subData = {
-		title: '新建文章',
+		title: 'AHU HPC培训',
 		tools: true
 	}
 </script>
@@ -184,7 +366,7 @@
 
 <div class="header">Maple W</div>
 <div class="content">
-<div class="desc">Tempora mutantur, nos et mutamur in illis ...</div>
+<div class="desc">The future commences now</div>
 </div>
 </section>
 
@@ -221,6 +403,13 @@
 </section>
 
   
+<div class="m_widget tagcloud">
+    <div class="header">Tags</div>
+    <div class="content">
+        <a href="/tags/linux/" style="font-size: 14px; color: #808080">linux</a>
+    </div>
+</div>
+
 
 
       </aside>
@@ -232,16 +421,8 @@
 	<div class="social-wrapper">
   	
       
-        <a href="https://github.com/stkevintan" class="social github" target="_blank" rel="external">
+        <a href="https://github.com/FloatingMaple" class="social github" target="_blank" rel="external">
           <span class="icon icon-github"></span>
-        </a>
-      
-        <a href="https://twitter.com/kevinsfork" class="social twitter" target="_blank" rel="external">
-          <span class="icon icon-twitter"></span>
-        </a>
-      
-        <a href="/atom.xml" class="social rss" target="_blank" rel="external">
-          <span class="icon icon-rss"></span>
         </a>
       
     
