@@ -3,19 +3,20 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Maple&#39;s Blog</title>
+  <title>Python-NLP-Chapter2 | Maple&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A blog of Maple W">
-<meta name="keywords" content="blog,IT,Maple">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Maple&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Chapter 2 NLP前置技术解析list 选择Python作为NLP开发语言 安装与使用Anaconda 正则表达式 Numpy  Python语言 官方中文文档  正则表达式在NLP的基本应用作用： ​    将非结构化、半结构化文本转为结构化以方便后续的文本挖掘；去除“噪声” 正则表达式中一些特殊符号可以处理常用逻辑   符号 含义     . 匹配任意一个字符“.” 代替任何单个字符，">
+<meta name="keywords" content="NLP,Python,Numpy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python-NLP-Chapter2">
+<meta property="og:url" content="http://yoursite.com/2019/03/31/Python-NLP-Chapter2/index.html">
 <meta property="og:site_name" content="Maple&#39;s Blog">
-<meta property="og:description" content="A blog of Maple W">
+<meta property="og:description" content="Chapter 2 NLP前置技术解析list 选择Python作为NLP开发语言 安装与使用Anaconda 正则表达式 Numpy  Python语言 官方中文文档  正则表达式在NLP的基本应用作用： ​    将非结构化、半结构化文本转为结构化以方便后续的文本挖掘；去除“噪声” 正则表达式中一些特殊符号可以处理常用逻辑   符号 含义     . 匹配任意一个字符“.” 代替任何单个字符，">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-31T09:57:44.284Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Maple&#39;s Blog">
-<meta name="twitter:description" content="A blog of Maple W">
+<meta name="twitter:title" content="Python-NLP-Chapter2">
+<meta name="twitter:description" content="Chapter 2 NLP前置技术解析list 选择Python作为NLP开发语言 安装与使用Anaconda 正则表达式 Numpy  Python语言 官方中文文档  正则表达式在NLP的基本应用作用： ​    将非结构化、半结构化文本转为结构化以方便后续的文本挖掘；去除“噪声” 正则表达式中一些特殊符号可以处理常用逻辑   符号 含义     . 匹配任意一个字符“.” 代替任何单个字符，">
   
     <link rel="alternate" href="/atom.xml" title="Maple&#39;s Blog" type="application/atom+xml">
   
@@ -68,9 +69,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Python-NLP-Chapter2" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Python-NLP-Chapter2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/31/Python-NLP-Chapter2/" class="article-date">
   <time datetime="2019-03-31T09:54:59.000Z" itemprop="datePublished">2019-03-31</time>
@@ -83,8 +82,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/31/Python-NLP-Chapter2/">Python-NLP-Chapter2</a>
+    <h1 class="article-title" itemprop="name">
+      Python-NLP-Chapter2
     </h1>
   
 
@@ -302,488 +301,74 @@
     </footer>
   </div>
   
-</article>
- 
-
-
-  
-    <article id="post-Python-NLP-Chapter1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/31/Python-NLP-Chapter1/" class="article-date">
-  <time datetime="2019-03-31T09:54:53.000Z" itemprop="datePublished">2019-03-31</time>
-</a>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/31/Python-NLP-Chapter1/">Python-NLP-Chapter1</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <h1 id="Chapter-1-NLP基础"><a href="#Chapter-1-NLP基础" class="headerlink" title="Chapter 1 NLP基础"></a>Chapter 1 NLP基础</h1><h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><ul>
-<li>NLP基础概念</li>
-<li>NLP的发展与应用</li>
-<li>NLP常用术语以及扩展介绍</li>
-</ul>
-<h2 id="NLP的概念"><a href="#NLP的概念" class="headerlink" title="NLP的概念"></a>NLP的概念</h2><p>NLP（Natural Language Processing ，自然语言处理），研究用计算机来 <em>处理、理解以及运用人类语言</em> ，达到人与计算机之间进行有效通讯。</p>
-<h2 id="NLP的基本分类"><a href="#NLP的基本分类" class="headerlink" title="NLP的基本分类"></a>NLP的基本分类</h2><ul>
-<li>自然语言理解<ul>
-<li>音系学</li>
-<li>词态学</li>
-<li>句法学</li>
-<li>语义句法学</li>
-<li>语用学</li>
-</ul>
-</li>
-<li>自然语言生成<ul>
-<li>自然语言文本</li>
-</ul>
-</li>
-</ul>
-<h2 id="NLP的研究任务"><a href="#NLP的研究任务" class="headerlink" title="NLP的研究任务"></a>NLP的研究任务</h2><ul>
-<li><p>机器翻译</p>
-<p>计算机具备将一种语言翻译成另一种语言的能力</p>
-</li>
-<li><p>情感分析</p>
-<p>计算机能够判断用户评论是否积极</p>
-</li>
-<li><p>智能问答</p>
-<p>计算机能够正确回答输入的问题</p>
-</li>
-<li><p>文摘生成</p>
-<p>计算机能够准确归纳、总结并产生文本摘要</p>
-</li>
-<li><p>文本分类</p>
-<p>计算机能够菜鸡各种文章，进行主题分析，进而进行自动分类</p>
-</li>
-<li><p>舆论分析</p>
-<p>计算机能够判断目前舆论的导向</p>
-</li>
-<li><p>知识图谱</p>
-<p>知识点相互连接而成的语义网络</p>
-</li>
-</ul>
-<h2 id="NLP相关知识构成"><a href="#NLP相关知识构成" class="headerlink" title="NLP相关知识构成"></a>NLP相关知识构成</h2><h3 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h3><ol>
-<li><p>分词 segment</p>
-<p>词是<strong>最小的</strong>能够<strong>独立活动</strong>的<strong>有意义的</strong>语言成分，中文分词问题比较重要</p>
-<p><strong>常用手段</strong>：基于字典的最长串匹配</p>
-<p>问题：歧义分词</p>
-</li>
-<li><p>词性标注 part-of-speech tagging</p>
-<p>词性一般指动词、名词、形容词等。</p>
-<p>目的：表征词的一种<strong>隐藏状态</strong>，隐藏状态构成的转移就构成了<strong>状态转移序列</strong></p>
-</li>
-<li><p>命名实体识别 NER Named Entity Recognition</p>
-<p>从文本中识别具有<strong>特定类别</strong>的实体，通常是名词</p>
-</li>
-<li><p>句法分析 syntax parsing</p>
-<p>往往是一种<strong>基于规则</strong>的专家系统</p>
-</li>
-<li><p>指代消解 anaphora resolution</p>
-<p>中文中代词出现的频率很高，指代消解即是辨明代词所代表的意思</p>
-</li>
-<li><p>情感识别 emotion recognition</p>
-<p>本质上是<strong>分类问题</strong>，一般分为正面、负面，或加上中性。</p>
-<p>方法：词袋模型+分类器、词向量模型+RNN等</p>
-</li>
-<li><p>纠错 correction</p>
-<p>自动纠错多应用在搜索技术及输入法中</p>
-<p>方法：基于N-Gram进行纠错、通过字典树、有限状态机</p>
-</li>
-<li><p>问答系统 QA system</p>
-<p>较为复杂，需要语音识别、合成，自然语言理解、知识图谱等多项技术配合</p>
-</li>
-</ol>
-<h3 id="知识结构"><a href="#知识结构" class="headerlink" title="知识结构"></a>知识结构</h3><ul>
-<li><p>句法语义分析</p>
-<p>针对目标句子，进行各种句法分析，如分词、词性标记、命名实体识别、链接，句法分析、语义角色识别、多义词消歧等</p>
-</li>
-<li><p>关键词抽取</p>
-<p>抽取目标文本中的主要信息，如从一条新闻中抽取。</p>
-<p>涉及实体识别、时间抽取、因果关系抽取等</p>
-</li>
-<li><p>文本挖掘</p>
-<p>对文本的聚类、分类、信息抽取、摘要、情感分析以及对挖掘信息和知识的可视化、交互式的呈现界面</p>
-</li>
-<li><p>机器翻译</p>
-<p>可分为文本翻译、语音翻译、手语翻译、图形翻译等</p>
-</li>
-<li><p>信息检索</p>
-<p>对大规模的文档进行索引。</p>
-</li>
-<li><p>问答系统</p>
-<p>对自然语言查询语句进行语义分析，包括实体链接、关系识别，形成逻辑表达式，然后到知识库中查找可能的候选答案并根据排序机制找出最佳答案</p>
-</li>
-<li><p>对话系统</p>
-</li>
-</ul>
-<h2 id="语料库-中文"><a href="#语料库-中文" class="headerlink" title="语料库(中文)"></a>语料库(中文)</h2><ul>
-<li><p><a href="https://dumps.wikimedia.org/zhwiki/" target="_blank" rel="noopener">中文维基百科</a></p>
-</li>
-<li><p><a href="http://download.labs./sougou.com/resource/ca.php" target="_blank" rel="noopener">搜狗新闻语料库</a></p>
-<p>提供URL和正文信息</p>
-</li>
-<li><p><a href="https://www.kaggle.com/tmdb/tmdb-movie-metadata" target="_blank" rel="noopener">IMDB情感分析语料库</a></p>
-<p>包括影片的众多信息、演员、片长、内容介绍、分级、评论等</p>
-</li>
-</ul>
-<h2 id="探讨NLP的几个层面"><a href="#探讨NLP的几个层面" class="headerlink" title="探讨NLP的几个层面"></a>探讨NLP的几个层面</h2><ol>
-<li><p>词法分析</p>
-<p>分词、词性标注</p>
-</li>
-<li><p>句法分析</p>
-</li>
-<li><p>语义分析</p>
-<p>语义角色标注(semantic role labeling)</p>
-</li>
-</ol>
-
-      
+ <script src="/jquery/jquery.min.js"></script>
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/31/Python-NLP-Chapter1/" data-id="cjtwr4lxr00054gwdjim254qo" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP/">NLP</a></li></ul>
-
-    </footer>
   </div>
+
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/31/Python-NLP-Chapter1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Python-NLP-Chapter1</div>
+    </a>
+  
+</nav>
+
   
 </article>
  
-
-
-  
-    <article id="post-Python-NLP-Abstract" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/31/Python-NLP-Abstract/" class="article-date">
-  <time datetime="2019-03-31T09:54:18.000Z" itemprop="datePublished">2019-03-31</time>
-</a>
+     
+  <div class="comments" id="comments">
     
+     
+       
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+       
+      
+      
   </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/31/Python-NLP-Abstract/">Python-NLP-Abstract</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <h1 id="Abstract-内容简介"><a href="#Abstract-内容简介" class="headerlink" title="Abstract 内容简介"></a>Abstract 内容简介</h1><hr>
-<h2 id="Part-1"><a href="#Part-1" class="headerlink" title="Part 1"></a>Part 1</h2><p>介绍NLP所需要了解的Python科学包、正则表达式、Solr检索</p>
-<h3 id="Section-1"><a href="#Section-1" class="headerlink" title="Section 1"></a>Section 1</h3><h3 id="Section-2"><a href="#Section-2" class="headerlink" title="Section 2"></a>Section 2</h3><h3 id="Section-11"><a href="#Section-11" class="headerlink" title="Section 11"></a>Section 11</h3><hr>
-<h2 id="Part2"><a href="#Part2" class="headerlink" title="Part2"></a>Part2</h2><p>介绍NLP相关的各个知识点</p>
-<h3 id="Section3-5"><a href="#Section3-5" class="headerlink" title="Section3~5"></a>Section3~5</h3><p><em>词法分析</em> 层面的一些技术，是NLP技术的基础</p>
-<h3 id="Section6"><a href="#Section6" class="headerlink" title="Section6"></a>Section6</h3><p><em>句法分析</em> 技术</p>
-<h3 id="Section7"><a href="#Section7" class="headerlink" title="Section7"></a>Section7</h3><p>常用的 <em>向量化</em> 方法，常用于各种NLP任务的输入</p>
-<h3 id="Section8"><a href="#Section8" class="headerlink" title="Section8"></a>Section8</h3><p><em>情感分析</em> 相关概念、场景以及一般做情感分析的流程</p>
-<h3 id="Section9"><a href="#Section9" class="headerlink" title="Section9"></a>Section9</h3><p><em>机器学习</em> 的一些基本概念，重点突出NLP常用的 <em>分类算法</em> 、<em>聚类算法</em> </p>
-<h3 id="Section10"><a href="#Section10" class="headerlink" title="Section10"></a>Section10</h3><p>介绍NLP中常用的 <em>深度学习算法</em>  </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/31/Python-NLP-Abstract/" data-id="cjtwr4lxo00034gwd5pwl0tdz" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP/">NLP</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
  
-
-
-  
-    <article id="post-AHU HPC培训" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/25/AHU HPC培训/" class="article-date">
-  <time datetime="2019-03-25T09:00:10.000Z" itemprop="datePublished">2019-03-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/25/AHU HPC培训/">AHU HPC培训</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><ul>
-<li>域名<br>hpcc.ahu.edu.cn</li>
-<li>配置情况</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>CPU</th>
-<th>26</th>
-<th>*</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>gpu1</td>
-<td>1</td>
-<td>*</td>
-</tr>
-<tr>
-<td>gpu2</td>
-<td>1</td>
-<td>2卡</td>
-</tr>
-<tr>
-<td>gpu8</td>
-<td>3</td>
-<td>8卡</td>
-</tr>
-</tbody>
-</table>
-<h4 id="Linux下操作命令"><a href="#Linux下操作命令" class="headerlink" title="Linux下操作命令"></a>Linux下操作命令</h4><ul>
-<li><p>登录到结点</p>
-<ul>
-<li>ssh [gpu01]</li>
-</ul>
-</li>
-<li><p>登陆后查看</p>
-<ul>
-<li>top </li>
-<li>free </li>
-</ul>
-</li>
-<li><p>查看历史命令</p>
-<ul>
-<li>.bash_history</li>
-</ul>
-</li>
-<li><p>环境变量</p>
-<ul>
-<li>.bashrc</li>
-<li>.bash_profile</li>
-</ul>
-</li>
-<li><p>常用环境变量</p>
-<ul>
-<li><p>设置可执行程序的查找路径<br>  export PATH=/:$PATH</p>
-<p>  e.g. export PATH=/Share/apps/matlab//R2016a/bin:$PATH<br>  # 直接在窗口输入时只在当前窗口有效<br>  # 可以写入到 ~/.bashrc文件中<br>  # 或写入到自定义.sh文件中，然后通过source加载</p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="slurm作业管理器"><a href="#slurm作业管理器" class="headerlink" title="slurm作业管理器"></a>slurm作业管理器</h4><ul>
-<li>sinfo查看当前各节点资源<ul>
-<li>timelimit 时间限制</li>
-<li>State 状态<ul>
-<li>mix 有人用但是没有满</li>
-<li>alloc 被占满</li>
-<li>idle 空闲</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>squeue查看任务队列<ul>
-<li>-u 账号名</li>
-</ul>
-</li>
-<li>srun交互式提交<ul>
-<li>-p 节点名</li>
-<li>-N 节点数</li>
-<li>-n 核心数</li>
-<li>-c 指定每个进程使用的cpu核数</li>
-<li>-gres=gpu:1 指定使用GPU卡 ※必须</li>
-<li>程序命令</li>
-</ul>
-</li>
-<li>sbatch后台提交作业<ul>
-<li>shell脚本<ul>
-<li>固定格式<br>#!/bin/bash</li>
-</ul>
-</li>
-<li>参数同srun</li>
-</ul>
-</li>
-<li>默认输出<ul>
-<li>slurm-作业号.out文件</li>
-</ul>
-</li>
-<li>scancel取消作业<ul>
-<li>参数：作业号</li>
-<li>-u 用户名</li>
-<li>-n 作业名NAME</li>
-</ul>
-</li>
-<li>scontrol show job查看正在运行的作业信息<ul>
-<li>参数：作业号</li>
-</ul>
-</li>
-<li>sacct查看历史任务信息<ul>
-<li>-u 用户名</li>
-</ul>
-</li>
-<li>salloc申请结点资源</li>
-</ul>
-<h4 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h4><ul>
-<li>安大集群软件<ul>
-<li>/Share/apps</li>
-</ul>
-</li>
-<li>常见问题<ul>
-<li>节点、核数不匹配</li>
-<li>缺库 .so.x </li>
-</ul>
-</li>
-</ul>
-<h4 id="提交AI作业"><a href="#提交AI作业" class="headerlink" title="提交AI作业"></a>提交AI作业</h4><ul>
-<li>容器Singularity<ul>
-<li>主程序路径<ul>
-<li>/Share/apps/singularity/bin/singularity</li>
-</ul>
-</li>
-<li>镜像文件<ul>
-<li>/Share/imgs/ahu_ai.img</li>
-</ul>
-</li>
-<li>GPU型号<ul>
-<li>V100,显存16G，共28张卡</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>实例<ul>
-<li>PyTorch脚本<ul>
-<li>#SBATCH –job-name=pytorch    作业名称</li>
-<li>#SBATCH -N 1    节点数</li>
-<li>#SBATCH –gres=gpu:1      GPU卡数 :star:</li>
-<li>#SBATCH -mem=20G     内存大小</li>
-<li>#SBATCH -p GPU8     队列名（分区）</li>
-</ul>
-</li>
-<li>查看GPU使用情况<ul>
-<li>nvidia-smi</li>
-</ul>
-</li>
-<li>Tensorflow使用<ul>
-<li>安装位置<ul>
-<li>/usr/local/lib/python3.6/dist-packages/tensorlfow</li>
-</ul>
-</li>
-<li>脚本<ul>
-<li>类似PyTorch</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>安装软件<ul>
-<li>./install</li>
-<li>configure  -&gt;  make  -&gt;  make install</li>
-<li>cmake  -&gt;  ccmake  -&gt;  make  –&gt;  make install </li>
-<li>pip install </li>
-<li>容器安装</li>
-<li>没有root权限但是有安装常用软件的权限 :star:</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/25/AHU HPC培训/" data-id="cjtwr4lx100004gwdghl3nil8" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/25/hello-world/" class="article-date">
-  <time datetime="2019-03-25T08:41:51.318Z" itemprop="datePublished">2019-03-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/25/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/25/hello-world/" data-id="cjtwr4lxs00074gwd44ve286n" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
- 
-
-
   
 
 </section>
@@ -791,77 +376,29 @@
     <aside id="sidebar">
   
     
-  <div class="widget-wrap">
-     
-        <h3 class="follow-title ">Follow me</h3>
-     
-    <div class="widget follow">
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
       
-              <a class="github" aria-hidden="true" href="https://github.com/floatingmaple" target="_blank" title="Github"></a>
-      
-      
-      
-      
-            <a class="email" aria-hidden="true" href="mailto:maple_w@qq.com" target="_blank" title="邮箱"></a>
-      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-2-NLP前置技术解析"><span class="toc-number">1.</span> <span class="toc-text">Chapter 2 NLP前置技术解析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#list"><span class="toc-number">1.1.</span> <span class="toc-text">list</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python语言"><span class="toc-number">1.2.</span> <span class="toc-text">Python语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则表达式在NLP的基本应用"><span class="toc-number">1.3.</span> <span class="toc-text">正则表达式在NLP的基本应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式中一些特殊符号可以处理常用逻辑"><span class="toc-number">1.3.1.</span> <span class="toc-text">正则表达式中一些特殊符号可以处理常用逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#匹配字符串"><span class="toc-number">1.3.2.</span> <span class="toc-text">匹配字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例-匹配任意一个字符"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">例 匹配任意一个字符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#例-匹配起始和结尾字符串"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">例 匹配起始和结尾字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#例-匹配多个字符"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">例 匹配多个字符</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转义字符”-”匹配"><span class="toc-number">1.3.3.</span> <span class="toc-text">转义字符”\”匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#抽取文本中的数字"><span class="toc-number">1.3.4.</span> <span class="toc-text">抽取文本中的数字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Numpy使用详解"><span class="toc-number">1.4.</span> <span class="toc-text">Numpy使用详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建Numpy数组"><span class="toc-number">1.4.1.</span> <span class="toc-text">创建Numpy数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取Numpy数组的维度"><span class="toc-number">1.4.2.</span> <span class="toc-text">获取Numpy数组的维度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取本地数据"><span class="toc-number">1.4.3.</span> <span class="toc-text">获取本地数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正确读取数据"><span class="toc-number">1.4.4.</span> <span class="toc-text">正确读取数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Numpy数组索引"><span class="toc-number">1.4.5.</span> <span class="toc-text">Numpy数组索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切片"><span class="toc-number">1.4.6.</span> <span class="toc-text">切片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组比较"><span class="toc-number">1.4.7.</span> <span class="toc-text">数组比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#替代值"><span class="toc-number">1.4.8.</span> <span class="toc-text">替代值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据类型转换"><span class="toc-number">1.4.9.</span> <span class="toc-text">数据类型转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Numpy的统计计算方法"><span class="toc-number">1.4.10.</span> <span class="toc-text">Numpy的统计计算方法</span></a></li></ol></li></ol></li></ol>
+          </div>
+      </div>
     </div>
-  </div>
 
+  
+    
 
   
     
   
     
-
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title tagcloud">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/NLP/" style="font-size: 25px; color: #ee82ee">NLP</a> <a href="/tags/Numpy/" style="font-size: 14px; color: #00f">Numpy</a> <a href="/tags/Python/" style="font-size: 14px; color: #00f">Python</a> <a href="/tags/linux/" style="font-size: 14px; color: #00f">linux</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title recent-posts">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/03/31/Python-NLP-Chapter2/">Python-NLP-Chapter2</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/31/Python-NLP-Chapter1/">Python-NLP-Chapter1</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/31/Python-NLP-Abstract/">Python-NLP-Abstract</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/25/AHU HPC培训/">AHU HPC培训</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/25/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title archive">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">5</span></li></ul>
-    </div>
-  </div>
-
 
   
     <form class="search" action method="get" accept-charset="utf-8">

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>Python-NLP-Chapter1 | Maple&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Chapter 1 NLP基础List NLP基础概念 NLP的发展与应用 NLP常用术语以及扩展介绍  NLP的概念NLP（Natural Language Processing ，自然语言处理），研究用计算机来 处理、理解以及运用人类语言 ，达到人与计算机之间进行有效通讯。 NLP的基本分类 自然语言理解 音系学 词态学 句法学 语义句法学 语用学   自然语言生成 自然语言文本    NLP">
+<meta name="keywords" content="NLP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python-NLP-Chapter1">
+<meta property="og:url" content="http://yoursite.com/2019/03/31/Python-NLP-Chapter1/index.html">
+<meta property="og:site_name" content="Maple&#39;s Blog">
+<meta property="og:description" content="Chapter 1 NLP基础List NLP基础概念 NLP的发展与应用 NLP常用术语以及扩展介绍  NLP的概念NLP（Natural Language Processing ，自然语言处理），研究用计算机来 处理、理解以及运用人类语言 ，达到人与计算机之间进行有效通讯。 NLP的基本分类 自然语言理解 音系学 词态学 句法学 语义句法学 语用学   自然语言生成 自然语言文本    NLP">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-31T09:56:58.985Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python-NLP-Chapter1">
+<meta name="twitter:description" content="Chapter 1 NLP基础List NLP基础概念 NLP的发展与应用 NLP常用术语以及扩展介绍  NLP的概念NLP（Natural Language Processing ，自然语言处理），研究用计算机来 处理、理解以及运用人类语言 ，达到人与计算机之间进行有效通讯。 NLP的基本分类 自然语言理解 音系学 词态学 句法学 语义句法学 语用学   自然语言生成 自然语言文本    NLP">
+  
+    <link rel="alternate" href="/atom.xml" title="Maple&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon(2).ico">
+  
+  
+    
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Maple&#39;s Blog</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Python-NLP-Chapter1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/31/Python-NLP-Chapter1/" class="article-date">
+  <time datetime="2019-03-31T09:54:53.000Z" itemprop="datePublished">2019-03-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python-NLP-Chapter1
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h1 id="Chapter-1-NLP基础"><a href="#Chapter-1-NLP基础" class="headerlink" title="Chapter 1 NLP基础"></a>Chapter 1 NLP基础</h1><h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><ul>
+<li>NLP基础概念</li>
+<li>NLP的发展与应用</li>
+<li>NLP常用术语以及扩展介绍</li>
+</ul>
+<h2 id="NLP的概念"><a href="#NLP的概念" class="headerlink" title="NLP的概念"></a>NLP的概念</h2><p>NLP（Natural Language Processing ，自然语言处理），研究用计算机来 <em>处理、理解以及运用人类语言</em> ，达到人与计算机之间进行有效通讯。</p>
+<h2 id="NLP的基本分类"><a href="#NLP的基本分类" class="headerlink" title="NLP的基本分类"></a>NLP的基本分类</h2><ul>
+<li>自然语言理解<ul>
+<li>音系学</li>
+<li>词态学</li>
+<li>句法学</li>
+<li>语义句法学</li>
+<li>语用学</li>
+</ul>
+</li>
+<li>自然语言生成<ul>
+<li>自然语言文本</li>
+</ul>
+</li>
+</ul>
+<h2 id="NLP的研究任务"><a href="#NLP的研究任务" class="headerlink" title="NLP的研究任务"></a>NLP的研究任务</h2><ul>
+<li><p>机器翻译</p>
+<p>计算机具备将一种语言翻译成另一种语言的能力</p>
+</li>
+<li><p>情感分析</p>
+<p>计算机能够判断用户评论是否积极</p>
+</li>
+<li><p>智能问答</p>
+<p>计算机能够正确回答输入的问题</p>
+</li>
+<li><p>文摘生成</p>
+<p>计算机能够准确归纳、总结并产生文本摘要</p>
+</li>
+<li><p>文本分类</p>
+<p>计算机能够菜鸡各种文章，进行主题分析，进而进行自动分类</p>
+</li>
+<li><p>舆论分析</p>
+<p>计算机能够判断目前舆论的导向</p>
+</li>
+<li><p>知识图谱</p>
+<p>知识点相互连接而成的语义网络</p>
+</li>
+</ul>
+<h2 id="NLP相关知识构成"><a href="#NLP相关知识构成" class="headerlink" title="NLP相关知识构成"></a>NLP相关知识构成</h2><h3 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h3><ol>
+<li><p>分词 segment</p>
+<p>词是<strong>最小的</strong>能够<strong>独立活动</strong>的<strong>有意义的</strong>语言成分，中文分词问题比较重要</p>
+<p><strong>常用手段</strong>：基于字典的最长串匹配</p>
+<p>问题：歧义分词</p>
+</li>
+<li><p>词性标注 part-of-speech tagging</p>
+<p>词性一般指动词、名词、形容词等。</p>
+<p>目的：表征词的一种<strong>隐藏状态</strong>，隐藏状态构成的转移就构成了<strong>状态转移序列</strong></p>
+</li>
+<li><p>命名实体识别 NER Named Entity Recognition</p>
+<p>从文本中识别具有<strong>特定类别</strong>的实体，通常是名词</p>
+</li>
+<li><p>句法分析 syntax parsing</p>
+<p>往往是一种<strong>基于规则</strong>的专家系统</p>
+</li>
+<li><p>指代消解 anaphora resolution</p>
+<p>中文中代词出现的频率很高，指代消解即是辨明代词所代表的意思</p>
+</li>
+<li><p>情感识别 emotion recognition</p>
+<p>本质上是<strong>分类问题</strong>，一般分为正面、负面，或加上中性。</p>
+<p>方法：词袋模型+分类器、词向量模型+RNN等</p>
+</li>
+<li><p>纠错 correction</p>
+<p>自动纠错多应用在搜索技术及输入法中</p>
+<p>方法：基于N-Gram进行纠错、通过字典树、有限状态机</p>
+</li>
+<li><p>问答系统 QA system</p>
+<p>较为复杂，需要语音识别、合成，自然语言理解、知识图谱等多项技术配合</p>
+</li>
+</ol>
+<h3 id="知识结构"><a href="#知识结构" class="headerlink" title="知识结构"></a>知识结构</h3><ul>
+<li><p>句法语义分析</p>
+<p>针对目标句子，进行各种句法分析，如分词、词性标记、命名实体识别、链接，句法分析、语义角色识别、多义词消歧等</p>
+</li>
+<li><p>关键词抽取</p>
+<p>抽取目标文本中的主要信息，如从一条新闻中抽取。</p>
+<p>涉及实体识别、时间抽取、因果关系抽取等</p>
+</li>
+<li><p>文本挖掘</p>
+<p>对文本的聚类、分类、信息抽取、摘要、情感分析以及对挖掘信息和知识的可视化、交互式的呈现界面</p>
+</li>
+<li><p>机器翻译</p>
+<p>可分为文本翻译、语音翻译、手语翻译、图形翻译等</p>
+</li>
+<li><p>信息检索</p>
+<p>对大规模的文档进行索引。</p>
+</li>
+<li><p>问答系统</p>
+<p>对自然语言查询语句进行语义分析，包括实体链接、关系识别，形成逻辑表达式，然后到知识库中查找可能的候选答案并根据排序机制找出最佳答案</p>
+</li>
+<li><p>对话系统</p>
+</li>
+</ul>
+<h2 id="语料库-中文"><a href="#语料库-中文" class="headerlink" title="语料库(中文)"></a>语料库(中文)</h2><ul>
+<li><p><a href="https://dumps.wikimedia.org/zhwiki/" target="_blank" rel="noopener">中文维基百科</a></p>
+</li>
+<li><p><a href="http://download.labs./sougou.com/resource/ca.php" target="_blank" rel="noopener">搜狗新闻语料库</a></p>
+<p>提供URL和正文信息</p>
+</li>
+<li><p><a href="https://www.kaggle.com/tmdb/tmdb-movie-metadata" target="_blank" rel="noopener">IMDB情感分析语料库</a></p>
+<p>包括影片的众多信息、演员、片长、内容介绍、分级、评论等</p>
+</li>
+</ul>
+<h2 id="探讨NLP的几个层面"><a href="#探讨NLP的几个层面" class="headerlink" title="探讨NLP的几个层面"></a>探讨NLP的几个层面</h2><ol>
+<li><p>词法分析</p>
+<p>分词、词性标注</p>
+</li>
+<li><p>句法分析</p>
+</li>
+<li><p>语义分析</p>
+<p>语义角色标注(semantic role labeling)</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/31/Python-NLP-Chapter1/" data-id="cjtwr4lxr00054gwdjim254qo" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP/">NLP</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ <script src="/jquery/jquery.min.js"></script>
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2019/03/31/Python-NLP-Chapter2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Python-NLP-Chapter2
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/31/Python-NLP-Abstract/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Python-NLP-Abstract</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+       
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-1-NLP基础"><span class="toc-number">1.</span> <span class="toc-text">Chapter 1 NLP基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#List"><span class="toc-number">1.1.</span> <span class="toc-text">List</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NLP的概念"><span class="toc-number">1.2.</span> <span class="toc-text">NLP的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NLP的基本分类"><span class="toc-number">1.3.</span> <span class="toc-text">NLP的基本分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NLP的研究任务"><span class="toc-number">1.4.</span> <span class="toc-text">NLP的研究任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NLP相关知识构成"><span class="toc-number">1.5.</span> <span class="toc-text">NLP相关知识构成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本术语"><span class="toc-number">1.5.1.</span> <span class="toc-text">基本术语</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#知识结构"><span class="toc-number">1.5.2.</span> <span class="toc-text">知识结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语料库-中文"><span class="toc-number">1.6.</span> <span class="toc-text">语料库(中文)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#探讨NLP的几个层面"><span class="toc-number">1.7.</span> <span class="toc-text">探讨NLP的几个层面</span></a></li></ol></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    <form class="search" action method="get" accept-charset="utf-8">
+  <input type="text" class="st-default-search-input" maxlength="20" style="height:40px" placeholder="Search">
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','s6-6Ju7bTPhxkF1WdtXs','2.0.0');
+</script>
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2019 Maple W&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;maple_w@qq.com
+    </div>
+  </div>
+  <script type="text/javascript">
+    (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+    })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+    
+    _st('install','s6-6Ju7bTPhxkF1WdtXs','2.0.0');
+  </script>
+</footer>
+ <script src="/jquery/jquery.min.js"></script>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png">
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+  
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "e2fb4051c49842688ce669e634bc983f",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+    
+
+  
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      })
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      })
+    </script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+ <script src="/js/is.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/elevator.js"></script>
+  </div>
+</body>
+</html>

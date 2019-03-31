@@ -3,20 +3,20 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>AHU HPC培训 | Maple&#39;s Blog</title>
+  <title>Python-NLP-Abstract | Maple&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="介绍 域名hpcc.ahu.edu.cn 配置情况     CPU 26 *     gpu1 1 *   gpu2 1 2卡   gpu8 3 8卡    Linux下操作命令 登录到结点  ssh [gpu01]   登陆后查看  top  free    查看历史命令  .bash_history   环境变量  .bashrc .bash_profile   常用环境变量  设置可执行程序">
-<meta name="keywords" content="linux">
+  <meta name="description" content="Abstract 内容简介 Part 1介绍NLP所需要了解的Python科学包、正则表达式、Solr检索 Section 1Section 2Section 11 Part2介绍NLP相关的各个知识点 Section3~5词法分析 层面的一些技术，是NLP技术的基础 Section6句法分析 技术 Section7常用的 向量化 方法，常用于各种NLP任务的输入 Section8情感分析 相关概">
+<meta name="keywords" content="NLP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AHU HPC培训">
-<meta property="og:url" content="http://yoursite.com/2019/03/25/AHU HPC培训/index.html">
+<meta property="og:title" content="Python-NLP-Abstract">
+<meta property="og:url" content="http://yoursite.com/2019/03/31/Python-NLP-Abstract/index.html">
 <meta property="og:site_name" content="Maple&#39;s Blog">
-<meta property="og:description" content="介绍 域名hpcc.ahu.edu.cn 配置情况     CPU 26 *     gpu1 1 *   gpu2 1 2卡   gpu8 3 8卡    Linux下操作命令 登录到结点  ssh [gpu01]   登陆后查看  top  free    查看历史命令  .bash_history   环境变量  .bashrc .bash_profile   常用环境变量  设置可执行程序">
+<meta property="og:description" content="Abstract 内容简介 Part 1介绍NLP所需要了解的Python科学包、正则表达式、Solr检索 Section 1Section 2Section 11 Part2介绍NLP相关的各个知识点 Section3~5词法分析 层面的一些技术，是NLP技术的基础 Section6句法分析 技术 Section7常用的 向量化 方法，常用于各种NLP任务的输入 Section8情感分析 相关概">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-28T08:44:23.873Z">
+<meta property="og:updated_time" content="2019-03-31T09:59:06.098Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AHU HPC培训">
-<meta name="twitter:description" content="介绍 域名hpcc.ahu.edu.cn 配置情况     CPU 26 *     gpu1 1 *   gpu2 1 2卡   gpu8 3 8卡    Linux下操作命令 登录到结点  ssh [gpu01]   登陆后查看  top  free    查看历史命令  .bash_history   环境变量  .bashrc .bash_profile   常用环境变量  设置可执行程序">
+<meta name="twitter:title" content="Python-NLP-Abstract">
+<meta name="twitter:description" content="Abstract 内容简介 Part 1介绍NLP所需要了解的Python科学包、正则表达式、Solr检索 Section 1Section 2Section 11 Part2介绍NLP相关的各个知识点 Section3~5词法分析 层面的一些技术，是NLP技术的基础 Section6句法分析 技术 Section7常用的 向量化 方法，常用于各种NLP任务的输入 Section8情感分析 相关概">
   
     <link rel="alternate" href="/atom.xml" title="Maple&#39;s Blog" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-AHU HPC培训" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Python-NLP-Abstract" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/25/AHU HPC培训/" class="article-date">
-  <time datetime="2019-03-25T09:00:10.000Z" itemprop="datePublished">2019-03-25</time>
+    <a href="/2019/03/31/Python-NLP-Abstract/" class="article-date">
+  <time datetime="2019-03-31T09:54:18.000Z" itemprop="datePublished">2019-03-31</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      AHU HPC培训
+      Python-NLP-Abstract
     </h1>
   
 
@@ -93,191 +93,25 @@
       
         <!-- Table of Contents -->
         
-        <h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><ul>
-<li>域名<br>hpcc.ahu.edu.cn</li>
-<li>配置情况</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>CPU</th>
-<th>26</th>
-<th>*</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>gpu1</td>
-<td>1</td>
-<td>*</td>
-</tr>
-<tr>
-<td>gpu2</td>
-<td>1</td>
-<td>2卡</td>
-</tr>
-<tr>
-<td>gpu8</td>
-<td>3</td>
-<td>8卡</td>
-</tr>
-</tbody>
-</table>
-<h4 id="Linux下操作命令"><a href="#Linux下操作命令" class="headerlink" title="Linux下操作命令"></a>Linux下操作命令</h4><ul>
-<li><p>登录到结点</p>
-<ul>
-<li>ssh [gpu01]</li>
-</ul>
-</li>
-<li><p>登陆后查看</p>
-<ul>
-<li>top </li>
-<li>free </li>
-</ul>
-</li>
-<li><p>查看历史命令</p>
-<ul>
-<li>.bash_history</li>
-</ul>
-</li>
-<li><p>环境变量</p>
-<ul>
-<li>.bashrc</li>
-<li>.bash_profile</li>
-</ul>
-</li>
-<li><p>常用环境变量</p>
-<ul>
-<li><p>设置可执行程序的查找路径<br>  export PATH=/:$PATH</p>
-<p>  e.g. export PATH=/Share/apps/matlab//R2016a/bin:$PATH<br>  # 直接在窗口输入时只在当前窗口有效<br>  # 可以写入到 ~/.bashrc文件中<br>  # 或写入到自定义.sh文件中，然后通过source加载</p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="slurm作业管理器"><a href="#slurm作业管理器" class="headerlink" title="slurm作业管理器"></a>slurm作业管理器</h4><ul>
-<li>sinfo查看当前各节点资源<ul>
-<li>timelimit 时间限制</li>
-<li>State 状态<ul>
-<li>mix 有人用但是没有满</li>
-<li>alloc 被占满</li>
-<li>idle 空闲</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>squeue查看任务队列<ul>
-<li>-u 账号名</li>
-</ul>
-</li>
-<li>srun交互式提交<ul>
-<li>-p 节点名</li>
-<li>-N 节点数</li>
-<li>-n 核心数</li>
-<li>-c 指定每个进程使用的cpu核数</li>
-<li>-gres=gpu:1 指定使用GPU卡 ※必须</li>
-<li>程序命令</li>
-</ul>
-</li>
-<li>sbatch后台提交作业<ul>
-<li>shell脚本<ul>
-<li>固定格式<br>#!/bin/bash</li>
-</ul>
-</li>
-<li>参数同srun</li>
-</ul>
-</li>
-<li>默认输出<ul>
-<li>slurm-作业号.out文件</li>
-</ul>
-</li>
-<li>scancel取消作业<ul>
-<li>参数：作业号</li>
-<li>-u 用户名</li>
-<li>-n 作业名NAME</li>
-</ul>
-</li>
-<li>scontrol show job查看正在运行的作业信息<ul>
-<li>参数：作业号</li>
-</ul>
-</li>
-<li>sacct查看历史任务信息<ul>
-<li>-u 用户名</li>
-</ul>
-</li>
-<li>salloc申请结点资源</li>
-</ul>
-<h4 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h4><ul>
-<li>安大集群软件<ul>
-<li>/Share/apps</li>
-</ul>
-</li>
-<li>常见问题<ul>
-<li>节点、核数不匹配</li>
-<li>缺库 .so.x </li>
-</ul>
-</li>
-</ul>
-<h4 id="提交AI作业"><a href="#提交AI作业" class="headerlink" title="提交AI作业"></a>提交AI作业</h4><ul>
-<li>容器Singularity<ul>
-<li>主程序路径<ul>
-<li>/Share/apps/singularity/bin/singularity</li>
-</ul>
-</li>
-<li>镜像文件<ul>
-<li>/Share/imgs/ahu_ai.img</li>
-</ul>
-</li>
-<li>GPU型号<ul>
-<li>V100,显存16G，共28张卡</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>实例<ul>
-<li>PyTorch脚本<ul>
-<li>#SBATCH –job-name=pytorch    作业名称</li>
-<li>#SBATCH -N 1    节点数</li>
-<li>#SBATCH –gres=gpu:1      GPU卡数 :star:</li>
-<li>#SBATCH -mem=20G     内存大小</li>
-<li>#SBATCH -p GPU8     队列名（分区）</li>
-</ul>
-</li>
-<li>查看GPU使用情况<ul>
-<li>nvidia-smi</li>
-</ul>
-</li>
-<li>Tensorflow使用<ul>
-<li>安装位置<ul>
-<li>/usr/local/lib/python3.6/dist-packages/tensorlfow</li>
-</ul>
-</li>
-<li>脚本<ul>
-<li>类似PyTorch</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>安装软件<ul>
-<li>./install</li>
-<li>configure  -&gt;  make  -&gt;  make install</li>
-<li>cmake  -&gt;  ccmake  -&gt;  make  –&gt;  make install </li>
-<li>pip install </li>
-<li>容器安装</li>
-<li>没有root权限但是有安装常用软件的权限 :star:</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+        <h1 id="Abstract-内容简介"><a href="#Abstract-内容简介" class="headerlink" title="Abstract 内容简介"></a>Abstract 内容简介</h1><hr>
+<h2 id="Part-1"><a href="#Part-1" class="headerlink" title="Part 1"></a>Part 1</h2><p>介绍NLP所需要了解的Python科学包、正则表达式、Solr检索</p>
+<h3 id="Section-1"><a href="#Section-1" class="headerlink" title="Section 1"></a>Section 1</h3><h3 id="Section-2"><a href="#Section-2" class="headerlink" title="Section 2"></a>Section 2</h3><h3 id="Section-11"><a href="#Section-11" class="headerlink" title="Section 11"></a>Section 11</h3><hr>
+<h2 id="Part2"><a href="#Part2" class="headerlink" title="Part2"></a>Part2</h2><p>介绍NLP相关的各个知识点</p>
+<h3 id="Section3-5"><a href="#Section3-5" class="headerlink" title="Section3~5"></a>Section3~5</h3><p><em>词法分析</em> 层面的一些技术，是NLP技术的基础</p>
+<h3 id="Section6"><a href="#Section6" class="headerlink" title="Section6"></a>Section6</h3><p><em>句法分析</em> 技术</p>
+<h3 id="Section7"><a href="#Section7" class="headerlink" title="Section7"></a>Section7</h3><p>常用的 <em>向量化</em> 方法，常用于各种NLP任务的输入</p>
+<h3 id="Section8"><a href="#Section8" class="headerlink" title="Section8"></a>Section8</h3><p><em>情感分析</em> 相关概念、场景以及一般做情感分析的流程</p>
+<h3 id="Section9"><a href="#Section9" class="headerlink" title="Section9"></a>Section9</h3><p><em>机器学习</em> 的一些基本概念，重点突出NLP常用的 <em>分类算法</em> 、<em>聚类算法</em> </p>
+<h3 id="Section10"><a href="#Section10" class="headerlink" title="Section10"></a>Section10</h3><p>介绍NLP中常用的 <em>深度学习算法</em>  </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/25/AHU HPC培训/" data-id="cjtwr4lx100004gwdghl3nil8" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/03/31/Python-NLP-Abstract/" data-id="cjtwr4lxo00034gwd5pwl0tdz" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP/">NLP</a></li></ul>
 
     </footer>
   </div>
@@ -327,19 +161,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/03/31/Python-NLP-Abstract/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/03/31/Python-NLP-Chapter1/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          Python-NLP-Abstract
+          Python-NLP-Chapter1
         
       </div>
     </a>
   
   
-    <a href="/2019/03/25/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/03/25/AHU HPC培训/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">AHU HPC培训</div>
     </a>
   
 </nav>
@@ -375,7 +209,7 @@
       
         <strong class="toc-title">文章目录</strong>
         <div class="toc-widget-list">
-              <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux下操作命令"><span class="toc-number">2.</span> <span class="toc-text">Linux下操作命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#slurm作业管理器"><span class="toc-number">3.</span> <span class="toc-text">slurm作业管理器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Q-amp-A"><span class="toc-number">4.</span> <span class="toc-text">Q&amp;A</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#提交AI作业"><span class="toc-number">5.</span> <span class="toc-text">提交AI作业</span></a></li></ol>
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Abstract-内容简介"><span class="toc-number">1.</span> <span class="toc-text">Abstract 内容简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-1"><span class="toc-number">1.1.</span> <span class="toc-text">Part 1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Section-1"><span class="toc-number">1.1.1.</span> <span class="toc-text">Section 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Section-2"><span class="toc-number">1.1.2.</span> <span class="toc-text">Section 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Section-11"><span class="toc-number">1.1.3.</span> <span class="toc-text">Section 11</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part2"><span class="toc-number">1.2.</span> <span class="toc-text">Part2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Section3-5"><span class="toc-number">1.2.1.</span> <span class="toc-text">Section3~5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Section6"><span class="toc-number">1.2.2.</span> <span class="toc-text">Section6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Section7"><span class="toc-number">1.2.3.</span> <span class="toc-text">Section7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Section8"><span class="toc-number">1.2.4.</span> <span class="toc-text">Section8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Section9"><span class="toc-number">1.2.5.</span> <span class="toc-text">Section9</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Section10"><span class="toc-number">1.2.6.</span> <span class="toc-text">Section10</span></a></li></ol></li></ol></li></ol>
           </div>
       </div>
     </div>
