@@ -1,103 +1,235 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
-  <title>Python-NLP-Chapter3 | Maple&#39;s Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Chapter3 中文分词技术List 中文分词的概念与种类 常用分词（规则分词、统计分词、混合分词等）的技术介绍 开源中文分词工具——Jieba简介 实战分词之高频词提取  中文分词简介 主要流派  规则分词 人工设立词库，按照一定方式进行匹配切分 难以处理新词   统计分词 过于依赖语料质量   混合分词（规则+统计）   主要困难：分词歧义   规则分词基于规则的分词是一种机械分词方法，通过">
-<meta name="keywords" content="NLP,Python,Jieba,中文分词">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Python-NLP-Chapter3">
-<meta property="og:url" content="http://yoursite.com/2019/04/02/Python-NLP-Chapter3/index.html">
-<meta property="og:site_name" content="Maple&#39;s Blog">
-<meta property="og:description" content="Chapter3 中文分词技术List 中文分词的概念与种类 常用分词（规则分词、统计分词、混合分词等）的技术介绍 开源中文分词工具——Jieba简介 实战分词之高频词提取  中文分词简介 主要流派  规则分词 人工设立词库，按照一定方式进行匹配切分 难以处理新词   统计分词 过于依赖语料质量   混合分词（规则+统计）   主要困难：分词歧义   规则分词基于规则的分词是一种机械分词方法，通过">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-02T08:40:35.683Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python-NLP-Chapter3">
-<meta name="twitter:description" content="Chapter3 中文分词技术List 中文分词的概念与种类 常用分词（规则分词、统计分词、混合分词等）的技术介绍 开源中文分词工具——Jieba简介 实战分词之高频词提取  中文分词简介 主要流派  规则分词 人工设立词库，按照一定方式进行匹配切分 难以处理新词   统计分词 过于依赖语料质量   混合分词（规则+统计）   主要困难：分词歧义   规则分词基于规则的分词是一种机械分词方法，通过">
-  
-    <link rel="alternate" href="/atom.xml" title="Maple&#39;s Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon(2).ico">
-  
-  
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    <meta name="google-site-verification" content="cyNQUDlHaMwGNl5QY-arT68kgoG0r8DlIn-O3sXKdus">
+    
+    
+    <meta name="keywords" content="blog, IT, Maple">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Maple's Blog" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
 
-</head>
-</html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
     
-    <div id="header-inner" class="inner">
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ["$","$"], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      }
+    });
+    </script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += " has-jax";
+      }
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>Python-NLP-Chapter3 | Maple's Blog - The future commences now</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Maple's Blog</a></h1>
+        <h2 class="subtitle">The future commences now</h2>
       </div>
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">首页</a>
-        
-          <a class="main-nav-link" href="/archives">归档</a>
-        
-          <a class="main-nav-link" href="/about">关于</a>
-        
-      </nav>
       
     </div>
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Maple&#39;s Blog</a>
-      </h1>
-      
-    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
   </div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-Python-NLP-Chapter3" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/04/02/Python-NLP-Chapter3/" class="article-date">
-  <time datetime="2019-04-02T08:35:42.000Z" itemprop="datePublished">2019-04-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python自然语言处理实战/">Python自然语言处理实战</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Python-NLP-Chapter3
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/Python-NLP-Chapter3/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Maple W">
+       <meta itemprop="description" content="A blog of Maple W">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Maple's Blog">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Python-NLP-Chapter3</h1>
+      <div class="post-meta">
         
-        <h1 id="Chapter3-中文分词技术"><a href="#Chapter3-中文分词技术" class="headerlink" title="Chapter3 中文分词技术"></a>Chapter3 中文分词技术</h1><h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><ul>
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-04-02T16:35:42+08:00">2019-04-02 16:35:42</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python自然语言处理实战/" itemprop="url" rel="index"><span itemprop="name">Python自然语言处理实战</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="Chapter3-中文分词技术"><a href="#Chapter3-中文分词技术" class="headerlink" title="Chapter3 中文分词技术"></a>Chapter3 中文分词技术</h1><h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><ul>
 <li>中文分词的概念与种类</li>
 <li>常用分词（规则分词、统计分词、混合分词等）的技术介绍</li>
 <li>开源中文分词工具——Jieba简介</li>
@@ -136,9 +268,9 @@
 <p>如果不存在，将字段中最后一个字去掉，重新进行匹配；如此进行，直到匹配成功。然后取下一个<code>i</code>字字串进行匹配处理，直到文档被扫描完</p>
 </li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MM</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment">#设置词典中最长字串为3</span></span><br><span class="line">        self.window_size = <span class="number">3</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cut</span><span class="params">(self,text)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        对文本进行切片并匹配</span></span><br><span class="line"><span class="string">        :param text:要进行匹配的文本</span></span><br><span class="line"><span class="string">        :return: 匹配到的结果</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        result = []</span><br><span class="line">        index = <span class="number">0</span></span><br><span class="line">        text_length = len(text)</span><br><span class="line">        <span class="comment">#定义词典</span></span><br><span class="line">        dic = [<span class="string">'研究'</span>,<span class="string">'研究生'</span>,<span class="string">'生命'</span>,<span class="string">'命'</span>,<span class="string">'的'</span>,<span class="string">'起源'</span>]</span><br><span class="line">        <span class="keyword">while</span> text_length &gt; index:</span><br><span class="line">            piece = <span class="string">''</span></span><br><span class="line">            <span class="comment">#range(start,stop,step) =&gt; range(4,0,-1) =&gt; size in (4,3,2,1)</span></span><br><span class="line">            <span class="keyword">for</span> size <span class="keyword">in</span> range(self.window_size + index,index,<span class="number">-1</span>):    <span class="comment">#4,0,-1</span></span><br><span class="line">                <span class="comment">#对text进行切片，切size大小</span></span><br><span class="line">                piece = text[index:size]</span><br><span class="line">                <span class="keyword">if</span> piece <span class="keyword">in</span> dic:</span><br><span class="line">                    <span class="comment">#在词典中匹配到之后，后移继续切片</span></span><br><span class="line">                    index = size - <span class="number">1</span></span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            <span class="comment">#没有匹配到，则往后移动</span></span><br><span class="line">            index = index + <span class="number">1</span></span><br><span class="line">            result.append(piece+<span class="string">'----'</span>)</span><br><span class="line">        print(result)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    text = <span class="string">'研究生命的起源'</span></span><br><span class="line">    <span class="comment"># text = '研究你生命的起源'</span></span><br><span class="line">    tokenizer = MM()</span><br><span class="line">    tokenizer.cut(text)</span><br></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MM</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment">#设置词典中最长字串为3</span></span><br><span class="line">        self.window_size = <span class="number">3</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cut</span><span class="params">(self,text)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        对文本进行切片并匹配</span></span><br><span class="line"><span class="string">        :param text:要进行匹配的文本</span></span><br><span class="line"><span class="string">        :return: 匹配到的结果</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        result = []</span><br><span class="line">        index = <span class="number">0</span></span><br><span class="line">        text_length = len(text)</span><br><span class="line">        <span class="comment">#定义词典</span></span><br><span class="line">        dic = [<span class="string">'研究'</span>,<span class="string">'研究生'</span>,<span class="string">'生命'</span>,<span class="string">'命'</span>,<span class="string">'的'</span>,<span class="string">'起源'</span>]</span><br><span class="line">        <span class="keyword">while</span> text_length &gt; index:</span><br><span class="line">            piece = <span class="string">''</span></span><br><span class="line">            <span class="comment">#range(start,stop,step) =&gt; range(4,0,-1) =&gt; size in (4,3,2,1)</span></span><br><span class="line">            <span class="keyword">for</span> size <span class="keyword">in</span> range(self.window_size + index,index,<span class="number">-1</span>):    <span class="comment">#4,0,-1</span></span><br><span class="line">                <span class="comment">#对text进行切片，切size大小</span></span><br><span class="line">                piece = text[index:size]</span><br><span class="line">                <span class="keyword">if</span> piece <span class="keyword">in</span> dic:</span><br><span class="line">                    <span class="comment">#在词典中匹配到之后，后移继续切片</span></span><br><span class="line">                    index = size - <span class="number">1</span></span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            <span class="comment">#没有匹配到，则往后移动</span></span><br><span class="line">            index = index + <span class="number">1</span></span><br><span class="line">            result.append(piece+<span class="string">'----'</span>)</span><br><span class="line">        print(result)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    text = <span class="string">'研究生命的起源'</span></span><br><span class="line">    <span class="comment"># text = '研究你生命的起源'</span></span><br><span class="line">    tokenizer = MM()</span><br><span class="line">    tokenizer.cut(text)</span><br></pre></td></tr></table></figure>
 <p>输出结果：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'研究生----'</span>, <span class="string">'命----'</span>, <span class="string">'的----'</span>, <span class="string">'起源----'</span>]</span><br></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'研究生----'</span>, <span class="string">'命----'</span>, <span class="string">'的----'</span>, <span class="string">'起源----'</span>]</span><br></pre></td></tr></table></figure>
 <p>可以看出，当词典中有长词汇覆盖短词汇时表现较差。</p>
 <h3 id="逆向最大匹配法"><a href="#逆向最大匹配法" class="headerlink" title="逆向最大匹配法"></a>逆向最大匹配法</h3><p>Reverse Maximum Match Method RMM法</p>
 <p>基本原理与MM法相同，不同的是分词切分的方向与MM法<strong>相反</strong></p>
@@ -152,9 +284,9 @@
 </li>
 </ul>
 <p>由于汉语中偏正结构较多，逆向最大匹配法比正向匹配的误差要小。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RMM</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.window_size = <span class="number">3</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cut</span><span class="params">(self,text)</span>:</span></span><br><span class="line">        result = []</span><br><span class="line">        index = len(text)</span><br><span class="line">        dic = [<span class="string">'研究'</span>,<span class="string">'研究生'</span>,<span class="string">'生命'</span>,<span class="string">'命'</span>,<span class="string">'的'</span>,<span class="string">'起源'</span>]</span><br><span class="line">        <span class="keyword">while</span> index &gt; <span class="number">0</span>:</span><br><span class="line">            piece = <span class="string">''</span></span><br><span class="line">            <span class="keyword">for</span> size <span class="keyword">in</span> range(index - self.window_size,index):</span><br><span class="line">                piece = text[size:index]</span><br><span class="line">                <span class="keyword">if</span> piece <span class="keyword">in</span> dic:</span><br><span class="line">                    index = size + <span class="number">1</span></span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            index = index - <span class="number">1</span></span><br><span class="line">            result.append(piece + <span class="string">'----'</span>)</span><br><span class="line">        <span class="comment">#倒置result里面元素的位置</span></span><br><span class="line">        result.reverse()</span><br><span class="line">        print(result)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    text = <span class="string">'研究生命的起源'</span></span><br><span class="line">    tokenizer = RMM()</span><br><span class="line">    tokenizer.cut(text)</span><br></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RMM</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.window_size = <span class="number">3</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cut</span><span class="params">(self,text)</span>:</span></span><br><span class="line">        result = []</span><br><span class="line">        index = len(text)</span><br><span class="line">        dic = [<span class="string">'研究'</span>,<span class="string">'研究生'</span>,<span class="string">'生命'</span>,<span class="string">'命'</span>,<span class="string">'的'</span>,<span class="string">'起源'</span>]</span><br><span class="line">        <span class="keyword">while</span> index &gt; <span class="number">0</span>:</span><br><span class="line">            piece = <span class="string">''</span></span><br><span class="line">            <span class="keyword">for</span> size <span class="keyword">in</span> range(index - self.window_size,index):</span><br><span class="line">                piece = text[size:index]</span><br><span class="line">                <span class="keyword">if</span> piece <span class="keyword">in</span> dic:</span><br><span class="line">                    index = size + <span class="number">1</span></span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            index = index - <span class="number">1</span></span><br><span class="line">            result.append(piece + <span class="string">'----'</span>)</span><br><span class="line">        <span class="comment">#倒置result里面元素的位置</span></span><br><span class="line">        result.reverse()</span><br><span class="line">        print(result)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    text = <span class="string">'研究生命的起源'</span></span><br><span class="line">    tokenizer = RMM()</span><br><span class="line">    tokenizer.cut(text)</span><br></pre></td></tr></table></figure>
 <p>输出结果：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'研究----'</span>, <span class="string">'生命----'</span>, <span class="string">'的----'</span>, <span class="string">'起源----'</span>]</span><br></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'研究----'</span>, <span class="string">'生命----'</span>, <span class="string">'的----'</span>, <span class="string">'起源----'</span>]</span><br></pre></td></tr></table></figure>
 <h3 id="双向最大匹配"><a href="#双向最大匹配" class="headerlink" title="双向最大匹配"></a>双向最大匹配</h3><p>Bi-directction Matching Method;</p>
 <p>将正向最大匹配得到的分词结果和逆向最大匹配得到的结果进行比较，然后按照最大匹配原则，选取词数切分最少的作为结果。</p>
 <ul>
@@ -168,9 +300,9 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MM</span><span class="params">(object)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">   </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RMM</span><span class="params">(object)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    text = <span class="string">'研究生命的起源'</span></span><br><span class="line">    tokenizer1 = MM()</span><br><span class="line">    tokenizer2 = RMM()</span><br><span class="line">    MMresult = tokenizer1.cut(text)</span><br><span class="line">    RMMresult = tokenizer2.cut(text)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> len(MMresult) == len(RMMresult):</span><br><span class="line">        print(<span class="string">"分词结果词数相同"</span>)</span><br><span class="line">        <span class="comment">#判定是否结果相同，否则返回单字较少的</span></span><br><span class="line">        <span class="keyword">if</span> MMresult == RMMresult:</span><br><span class="line">            print(<span class="string">"分词结果相同"</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment">#判断单字数量</span></span><br><span class="line">            print(<span class="string">"返回单字数量少的"</span>)</span><br><span class="line">    <span class="keyword">elif</span> len(MMresult) &lt; len(RMMresult):</span><br><span class="line">        print(<span class="string">"MMresult:"</span>)</span><br><span class="line">        print(MMresult)</span><br><span class="line">    <span class="keyword">elif</span> len(MMresult) &gt; len(RMMresult):</span><br><span class="line">        print(<span class="string">"RMMresult:"</span>)</span><br><span class="line">        print(RMMresult)</span><br></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MM</span><span class="params">(object)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">   </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RMM</span><span class="params">(object)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    text = <span class="string">'研究生命的起源'</span></span><br><span class="line">    tokenizer1 = MM()</span><br><span class="line">    tokenizer2 = RMM()</span><br><span class="line">    MMresult = tokenizer1.cut(text)</span><br><span class="line">    RMMresult = tokenizer2.cut(text)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> len(MMresult) == len(RMMresult):</span><br><span class="line">        print(<span class="string">"分词结果词数相同"</span>)</span><br><span class="line">        <span class="comment">#判定是否结果相同，否则返回单字较少的</span></span><br><span class="line">        <span class="keyword">if</span> MMresult == RMMresult:</span><br><span class="line">            print(<span class="string">"分词结果相同"</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment">#判断单字数量</span></span><br><span class="line">            print(<span class="string">"返回单字数量少的"</span>)</span><br><span class="line">    <span class="keyword">elif</span> len(MMresult) &lt; len(RMMresult):</span><br><span class="line">        print(<span class="string">"MMresult:"</span>)</span><br><span class="line">        print(MMresult)</span><br><span class="line">    <span class="keyword">elif</span> len(MMresult) &gt; len(RMMresult):</span><br><span class="line">        print(<span class="string">"RMMresult:"</span>)</span><br><span class="line">        print(RMMresult)</span><br></pre></td></tr></table></figure>
 <p>输出结果：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'研究生----'</span>, <span class="string">'命----'</span>, <span class="string">'的----'</span>, <span class="string">'起源----'</span>]</span><br><span class="line">[<span class="string">'研究----'</span>, <span class="string">'生命----'</span>, <span class="string">'的----'</span>, <span class="string">'起源----'</span>]</span><br><span class="line">分词结果词数相同</span><br><span class="line">返回单字数量少的</span><br></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'研究生----'</span>, <span class="string">'命----'</span>, <span class="string">'的----'</span>, <span class="string">'起源----'</span>]</span><br><span class="line">[<span class="string">'研究----'</span>, <span class="string">'生命----'</span>, <span class="string">'的----'</span>, <span class="string">'起源----'</span>]</span><br><span class="line">分词结果词数相同</span><br><span class="line">返回单字数量少的</span><br></pre></td></tr></table></figure>
 <h2 id="统计分词"><a href="#统计分词" class="headerlink" title="统计分词"></a>统计分词</h2><ul>
 <li><p>主要思想</p>
 <p>把每个词看做是由词的最小单位的各个字组成的，如果相连的字在不同的文本中出现的词数越多，就证明这相连的字很可能就是一个词。</p>
@@ -200,8 +332,8 @@
 <p>每个字在构造一个特定的词语时都占据着一个确定的构词位置（即<strong>词位</strong>），现规定每个字最多只有四个构词位置，即 <strong>B（词首）、M（词中）、E（词尾）、S（单独成词）</strong>。</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">中文 / 分词 / 是 / 文本处理 / 不可或缺 / 的 / 一步！</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">中/B 文/E 分/B 词/E 是/S 文/B 本/M 处/M 理/E 不/B 可/M 或/M 缺/E 的/S 一/B 步/E !/S</span><br></pre></td></tr></table></figure>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">中文 / 分词 / 是 / 文本处理 / 不可或缺 / 的 / 一步！</span><br></pre></td></tr></table></figure>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">中/B 文/E 分/B 词/E 是/S 文/B 本/M 处/M 理/E 不/B 可/M 或/M 缺/E 的/S 一/B 步/E !/S</span><br></pre></td></tr></table></figure>
 <p>用数学抽象表示：</p>
 <p>​    用$$ \lambda = \lambda_1\lambda_2···\lambda_n $$代表输入的句子，<strong><em>n</em></strong>为句子长度，$$\lambda_i$$表示字，$$o=o_1o_2···o_n$$代表输出的标签，那么理想的输出为：<br>$$<br>max = maxP(o_1o_2···o_n|\lambda_1\lambda_2···\lambda_n)<br>$$<br>在分词任务上，<strong><em>o</em></strong>即为B、M、E、S这四种标记，λ为注入“中” “文”等句子中的每一个字（包括标点等非中文字符）</p>
 <p>引入<strong>观测独立性假设</strong>：每个字的输出仅仅与当前字有关</p>
@@ -212,9 +344,9 @@
 <p>在<strong><em>HMM</em></strong>中，求解<strong><em>max</em>P(λ|o)P(o)</strong>的常用方法是<strong>Veterbi算法</strong>，它是一种动态规划方法，核心思想是：</p>
 <p>​    如果最终的最优路径经过某个$$o_i$$ ,那么从初始结点到$$o_{i-1}$$点的路径必然也是一个最优路径，因为每个节点$$o_i$$只    会影响前后两个$$P(o_{i-1}|o_i)$$ 和 $$P(o_i|o_{i+1})$$</p>
 <p>根据该思想，可通过地推的方法，在考虑每个$$o_i$$时只需要求出所有经过各$$o_{i-1}$$的候选点的最优路径，再与当前的$$o_i$$结合比较。每步只需要算不超过$$l^2$$次。Viterbi算法的效率是$$O(n·l^2)$$，$$l$$ 是候选数目最多的结点$$o_i$$的候选数目。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HMM</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">try_load_model</span><span class="params">(self,trained)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">(self,path)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">viterbi</span><span class="params">(self,text,states,strat_p,trans_p,emit_p)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cut</span><span class="params">(self,text)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HMM</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">        <span class="comment">#存取算法中间结果，不用每次都训练模型</span></span><br><span class="line">        self.model_file = <span class="string">'./data/hmm_model.pkl'</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#状态值集合</span></span><br><span class="line">        self.state_list = [<span class="string">'B'</span>,<span class="string">'M'</span>,<span class="string">'E'</span>,<span class="string">'S'</span>]</span><br><span class="line">        <span class="comment">#参数加载，用于判断是否需要重新加载model_file</span></span><br><span class="line">        self.load_para = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#加载已计算的中间结果，当需要重新训练时，需要初始化清空结果</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">try_load_model</span><span class="params">(self,trained)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> trained:</span><br><span class="line">            <span class="keyword">import</span> pickle</span><br><span class="line">            <span class="keyword">with</span> open(self.model_file,<span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">                self.A_dic = pickle.load(f)</span><br><span class="line">                self.B_dic = pickle.load(f)</span><br><span class="line">                self.Pi_dic = pickle.load(f)</span><br><span class="line">                self.load_para = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment">#状态转移概率 (状态-&gt;状态的条件概率)</span></span><br><span class="line">            self.A_dic = &#123;&#125;</span><br><span class="line">            <span class="comment">#发射概率 (状态-&gt;词语的条件概率)</span></span><br><span class="line">            self.B_dic = &#123;&#125;</span><br><span class="line">            <span class="comment">#状态的初始概率 (一句话第一个字被标记成S B E M的概率)</span></span><br><span class="line">            self.Pi_dic = &#123;&#125;</span><br><span class="line">            self.load_para = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#计算转移概率、发射概率、初始概率</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">(self,path)</span>:</span></span><br><span class="line">        <span class="comment">#重置几个概率矩阵</span></span><br><span class="line">        self.try_load_model(<span class="literal">False</span>)</span><br><span class="line">        <span class="comment">#统计状态出现次数，求P(o)</span></span><br><span class="line">        Count_dic = &#123;&#125;</span><br><span class="line">        <span class="comment">#初始化参数</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">init_parameters</span><span class="params">()</span>:</span></span><br><span class="line">            <span class="keyword">for</span> state <span class="keyword">in</span> self.state_list:</span><br><span class="line">                self.A_dic[state] = &#123;s:<span class="number">0.0</span> <span class="keyword">for</span> s <span class="keyword">in</span> self.state_list&#125;</span><br><span class="line">                self.Pi_dic[state] = <span class="number">0.0</span></span><br><span class="line">                self.B_dic[state] = &#123;&#125;</span><br><span class="line"></span><br><span class="line">                Count_dic[state] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">makeLabel</span><span class="params">(text)</span>:</span></span><br><span class="line">            out_text = []</span><br><span class="line">            <span class="keyword">if</span> len(text) == <span class="number">1</span>:</span><br><span class="line">                <span class="comment">#单独成词</span></span><br><span class="line">                out_text.append(<span class="string">'S'</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment">#词首、词中、词尾</span></span><br><span class="line">                out_text += [<span class="string">'B'</span>]+[<span class="string">'M'</span>]*(len(text)<span class="number">-2</span>)+[<span class="string">'E'</span>]</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> out_text</span><br><span class="line"></span><br><span class="line">        init_parameters()</span><br><span class="line">        line_num = <span class="number">-1</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#观察者集合，主要是字以及标点等</span></span><br><span class="line">        words = set()</span><br><span class="line">        <span class="keyword">with</span> open(path,encoding=<span class="string">'utf8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">                line_num += <span class="number">1</span></span><br><span class="line">                <span class="comment">#去除首位空格</span></span><br><span class="line">                line = line.strip()</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> line:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">                word_list = [i <span class="keyword">for</span> i <span class="keyword">in</span> line <span class="keyword">if</span> i != <span class="string">' '</span>]</span><br><span class="line">                words |= set(word_list) <span class="comment">#更新字的集合  | 位或运算符，按照二进制做或操作</span></span><br><span class="line"></span><br><span class="line">                linelist = line.split()</span><br><span class="line"></span><br><span class="line">                line_state = []</span><br><span class="line">                <span class="keyword">for</span> w <span class="keyword">in</span> linelist:</span><br><span class="line">                    line_state.extend(makeLabel(w))</span><br><span class="line"></span><br><span class="line">                <span class="comment">#assert断言，声明布尔值必须为真的判定，如果发生异常表明表达式为假</span></span><br><span class="line">                <span class="keyword">assert</span> len(word_list) == len(line_state)</span><br><span class="line"></span><br><span class="line">                <span class="keyword">for</span> k,v <span class="keyword">in</span> enumerate(line_state):</span><br><span class="line">                    Count_dic[v] += <span class="number">1</span></span><br><span class="line">                    <span class="keyword">if</span> k==<span class="number">0</span>:</span><br><span class="line">                        self.Pi_dic[v] += <span class="number">1</span>    <span class="comment">#每个句子的第一个字的状态，用于计算初始状态概率</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        self.A_dic[line_state[k<span class="number">-1</span>]][v] += <span class="number">1</span> <span class="comment">#计算转移概率</span></span><br><span class="line">                        self.B_dic[line_state[k]][word_list[k]] = \</span><br><span class="line">                            self.B_dic[line_state[k]].get(word_list[k],<span class="number">0</span>) + <span class="number">1.0</span>     <span class="comment">#计算发射概率</span></span><br><span class="line"></span><br><span class="line">        self.Pi_dic = &#123;k:v *<span class="number">1.0</span>/line_num <span class="keyword">for</span> k,v <span class="keyword">in</span> self.Pi_dic.items()&#125;</span><br><span class="line">        self.A_dic = &#123;k:&#123;k1:v1 / Count_dic[k] <span class="keyword">for</span> k1,v1 <span class="keyword">in</span> v.items()&#125; <span class="keyword">for</span> k,v <span class="keyword">in</span> self.A_dic.items()&#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#加1平滑</span></span><br><span class="line">        self.B_dic = &#123;k:&#123;k1:(v1+<span class="number">1</span>)/Count_dic[k] <span class="keyword">for</span> k1,v1 <span class="keyword">in</span> v.items()&#125; <span class="keyword">for</span> k,v <span class="keyword">in</span> self.B_dic.items()&#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#序列化</span></span><br><span class="line">        <span class="keyword">import</span> pickle</span><br><span class="line">        <span class="keyword">with</span> open(self.model_file,<span class="string">'wb'</span>) <span class="keyword">as</span> f :</span><br><span class="line">            <span class="comment">#使用pickle.dump序列化对象，并将结果数据流写到文件对象中</span></span><br><span class="line">            pickle.dump(self.A_dic,f)</span><br><span class="line">            pickle.dump(self.B_dic,f)</span><br><span class="line">            pickle.dump(self.Pi_dic,f)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">viterbi</span><span class="params">(self,text,states,start_p,trans_p,emit_p)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        Veterbi算法的实现，求最大概率的路径</span></span><br><span class="line"><span class="string">        :param text:</span></span><br><span class="line"><span class="string">        :param states:</span></span><br><span class="line"><span class="string">        :param start_p: 初始概率</span></span><br><span class="line"><span class="string">        :param trans_p: 转移概率</span></span><br><span class="line"><span class="string">        :param emit_p: 发射概率</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        V = [&#123;&#125;]</span><br><span class="line">        path = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> y <span class="keyword">in</span> states:</span><br><span class="line">            V[<span class="number">0</span>][y] = start_p[y] * emit_p[y].get(text[<span class="number">0</span>],<span class="number">0</span>)</span><br><span class="line">            path[y] = [y]</span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">1</span>,len(text)):</span><br><span class="line">            V.append(&#123;&#125;)</span><br><span class="line">            newpath = &#123;&#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">#检验训练的发射概率矩阵中是否有该字</span></span><br><span class="line">            <span class="comment">#python在一行后加 \ 作为换行标志符</span></span><br><span class="line">            neverSeen = text[t] <span class="keyword">not</span> <span class="keyword">in</span> emit_p[<span class="string">'S'</span>].keys() <span class="keyword">and</span> \</span><br><span class="line">                text[t] <span class="keyword">not</span> <span class="keyword">in</span> emit_p[<span class="string">'M'</span>].keys() <span class="keyword">and</span> \</span><br><span class="line">                text[t] <span class="keyword">not</span> <span class="keyword">in</span> emit_p[<span class="string">'E'</span>].keys() <span class="keyword">and</span> \</span><br><span class="line">                text[t] <span class="keyword">not</span> <span class="keyword">in</span> emit_p[<span class="string">'B'</span>].keys()</span><br><span class="line">            <span class="keyword">for</span> y <span class="keyword">in</span> states:</span><br><span class="line">                emitP = emit_p[y].get(text[t],<span class="number">0</span>) <span class="keyword">if</span> <span class="keyword">not</span> neverSeen <span class="keyword">else</span> <span class="number">1.0</span> <span class="comment">#设置未知字单独成词</span></span><br><span class="line">                (prob, state) = max(</span><br><span class="line">                    [(V[t - <span class="number">1</span>][y0] * trans_p[y0].get(y, <span class="number">0</span>) *</span><br><span class="line">                      emitP, y0)</span><br><span class="line">                     <span class="keyword">for</span> y0 <span class="keyword">in</span> states <span class="keyword">if</span> V[t - <span class="number">1</span>][y0] &gt; <span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">                V[t][y] = prob</span><br><span class="line">                newpath[y] = path[state] + [y]</span><br><span class="line">            path = newpath</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> emit_p[<span class="string">'M'</span>].get(text[<span class="number">-1</span>],<span class="number">0</span>)&gt;emit_p[<span class="string">'S'</span>].get(text[<span class="number">-1</span>],<span class="number">0</span>):</span><br><span class="line">            (prob,state) = max([(V[len(text) - <span class="number">1</span>][y],y) <span class="keyword">for</span> y <span class="keyword">in</span> (<span class="string">'E'</span>,<span class="string">'M'</span>)])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            (prob,state) = max([(V[len(text) - <span class="number">1</span>][y],y) <span class="keyword">for</span> y <span class="keyword">in</span> states])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> (prob,path[state])</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cut</span><span class="params">(self,text)</span>:</span></span><br><span class="line">        <span class="keyword">import</span> os</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.load_para:</span><br><span class="line">            self.try_load_model(os.path.exists(self.model_file))</span><br><span class="line">        prob,pos_list = self.viterbi(text,self.state_list,self.Pi_dic,self.A_dic,self.B_dic)</span><br><span class="line">        begin,next = <span class="number">0</span>,<span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i,char <span class="keyword">in</span> enumerate(text):</span><br><span class="line">            pos = pos_list[i]</span><br><span class="line">            <span class="keyword">if</span> pos == <span class="string">'B'</span>:</span><br><span class="line">                begin = i</span><br><span class="line">            <span class="keyword">elif</span> pos == <span class="string">'E'</span>:</span><br><span class="line">                <span class="comment">#python yield 生成器</span></span><br><span class="line">                <span class="keyword">yield</span> text[begin:i+<span class="number">1</span>]</span><br><span class="line">                next = i+<span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> pos == <span class="string">'S'</span>:</span><br><span class="line">                <span class="keyword">yield</span> char</span><br><span class="line">                next = i+<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> next&lt;len(text):</span><br><span class="line">            <span class="keyword">yield</span> text[next:]</span><br><span class="line"></span><br><span class="line">hmm = HMM()</span><br><span class="line">hmm.train(<span class="string">'./data/trainCorpus.txt_utf8'</span>)</span><br><span class="line"></span><br><span class="line">text=<span class="string">'这是一个非常棒的方案!'</span></span><br><span class="line">res = hmm.cut(text)</span><br><span class="line">print(text)</span><br><span class="line">print(str(list(res)))</span><br></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HMM</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">try_load_model</span><span class="params">(self,trained)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">(self,path)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">viterbi</span><span class="params">(self,text,states,strat_p,trans_p,emit_p)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cut</span><span class="params">(self,text)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HMM</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">        <span class="comment">#存取算法中间结果，不用每次都训练模型</span></span><br><span class="line">        self.model_file = <span class="string">'./data/hmm_model.pkl'</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#状态值集合</span></span><br><span class="line">        self.state_list = [<span class="string">'B'</span>,<span class="string">'M'</span>,<span class="string">'E'</span>,<span class="string">'S'</span>]</span><br><span class="line">        <span class="comment">#参数加载，用于判断是否需要重新加载model_file</span></span><br><span class="line">        self.load_para = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#加载已计算的中间结果，当需要重新训练时，需要初始化清空结果</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">try_load_model</span><span class="params">(self,trained)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> trained:</span><br><span class="line">            <span class="keyword">import</span> pickle</span><br><span class="line">            <span class="keyword">with</span> open(self.model_file,<span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">                self.A_dic = pickle.load(f)</span><br><span class="line">                self.B_dic = pickle.load(f)</span><br><span class="line">                self.Pi_dic = pickle.load(f)</span><br><span class="line">                self.load_para = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment">#状态转移概率 (状态-&gt;状态的条件概率)</span></span><br><span class="line">            self.A_dic = &#123;&#125;</span><br><span class="line">            <span class="comment">#发射概率 (状态-&gt;词语的条件概率)</span></span><br><span class="line">            self.B_dic = &#123;&#125;</span><br><span class="line">            <span class="comment">#状态的初始概率 (一句话第一个字被标记成S B E M的概率)</span></span><br><span class="line">            self.Pi_dic = &#123;&#125;</span><br><span class="line">            self.load_para = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#计算转移概率、发射概率、初始概率</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">(self,path)</span>:</span></span><br><span class="line">        <span class="comment">#重置几个概率矩阵</span></span><br><span class="line">        self.try_load_model(<span class="literal">False</span>)</span><br><span class="line">        <span class="comment">#统计状态出现次数，求P(o)</span></span><br><span class="line">        Count_dic = &#123;&#125;</span><br><span class="line">        <span class="comment">#初始化参数</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">init_parameters</span><span class="params">()</span>:</span></span><br><span class="line">            <span class="keyword">for</span> state <span class="keyword">in</span> self.state_list:</span><br><span class="line">                self.A_dic[state] = &#123;s:<span class="number">0.0</span> <span class="keyword">for</span> s <span class="keyword">in</span> self.state_list&#125;</span><br><span class="line">                self.Pi_dic[state] = <span class="number">0.0</span></span><br><span class="line">                self.B_dic[state] = &#123;&#125;</span><br><span class="line"></span><br><span class="line">                Count_dic[state] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">makeLabel</span><span class="params">(text)</span>:</span></span><br><span class="line">            out_text = []</span><br><span class="line">            <span class="keyword">if</span> len(text) == <span class="number">1</span>:</span><br><span class="line">                <span class="comment">#单独成词</span></span><br><span class="line">                out_text.append(<span class="string">'S'</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment">#词首、词中、词尾</span></span><br><span class="line">                out_text += [<span class="string">'B'</span>]+[<span class="string">'M'</span>]*(len(text)<span class="number">-2</span>)+[<span class="string">'E'</span>]</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> out_text</span><br><span class="line"></span><br><span class="line">        init_parameters()</span><br><span class="line">        line_num = <span class="number">-1</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#观察者集合，主要是字以及标点等</span></span><br><span class="line">        words = set()</span><br><span class="line">        <span class="keyword">with</span> open(path,encoding=<span class="string">'utf8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">                line_num += <span class="number">1</span></span><br><span class="line">                <span class="comment">#去除首位空格</span></span><br><span class="line">                line = line.strip()</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> line:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">                word_list = [i <span class="keyword">for</span> i <span class="keyword">in</span> line <span class="keyword">if</span> i != <span class="string">' '</span>]</span><br><span class="line">                words |= set(word_list) <span class="comment">#更新字的集合  | 位或运算符，按照二进制做或操作</span></span><br><span class="line"></span><br><span class="line">                linelist = line.split()</span><br><span class="line"></span><br><span class="line">                line_state = []</span><br><span class="line">                <span class="keyword">for</span> w <span class="keyword">in</span> linelist:</span><br><span class="line">                    line_state.extend(makeLabel(w))</span><br><span class="line"></span><br><span class="line">                <span class="comment">#assert断言，声明布尔值必须为真的判定，如果发生异常表明表达式为假</span></span><br><span class="line">                <span class="keyword">assert</span> len(word_list) == len(line_state)</span><br><span class="line"></span><br><span class="line">                <span class="keyword">for</span> k,v <span class="keyword">in</span> enumerate(line_state):</span><br><span class="line">                    Count_dic[v] += <span class="number">1</span></span><br><span class="line">                    <span class="keyword">if</span> k==<span class="number">0</span>:</span><br><span class="line">                        self.Pi_dic[v] += <span class="number">1</span>    <span class="comment">#每个句子的第一个字的状态，用于计算初始状态概率</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        self.A_dic[line_state[k<span class="number">-1</span>]][v] += <span class="number">1</span> <span class="comment">#计算转移概率</span></span><br><span class="line">                        self.B_dic[line_state[k]][word_list[k]] = \</span><br><span class="line">                            self.B_dic[line_state[k]].get(word_list[k],<span class="number">0</span>) + <span class="number">1.0</span>     <span class="comment">#计算发射概率</span></span><br><span class="line"></span><br><span class="line">        self.Pi_dic = &#123;k:v *<span class="number">1.0</span>/line_num <span class="keyword">for</span> k,v <span class="keyword">in</span> self.Pi_dic.items()&#125;</span><br><span class="line">        self.A_dic = &#123;k:&#123;k1:v1 / Count_dic[k] <span class="keyword">for</span> k1,v1 <span class="keyword">in</span> v.items()&#125; <span class="keyword">for</span> k,v <span class="keyword">in</span> self.A_dic.items()&#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#加1平滑</span></span><br><span class="line">        self.B_dic = &#123;k:&#123;k1:(v1+<span class="number">1</span>)/Count_dic[k] <span class="keyword">for</span> k1,v1 <span class="keyword">in</span> v.items()&#125; <span class="keyword">for</span> k,v <span class="keyword">in</span> self.B_dic.items()&#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#序列化</span></span><br><span class="line">        <span class="keyword">import</span> pickle</span><br><span class="line">        <span class="keyword">with</span> open(self.model_file,<span class="string">'wb'</span>) <span class="keyword">as</span> f :</span><br><span class="line">            <span class="comment">#使用pickle.dump序列化对象，并将结果数据流写到文件对象中</span></span><br><span class="line">            pickle.dump(self.A_dic,f)</span><br><span class="line">            pickle.dump(self.B_dic,f)</span><br><span class="line">            pickle.dump(self.Pi_dic,f)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">viterbi</span><span class="params">(self,text,states,start_p,trans_p,emit_p)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        Veterbi算法的实现，求最大概率的路径</span></span><br><span class="line"><span class="string">        :param text:</span></span><br><span class="line"><span class="string">        :param states:</span></span><br><span class="line"><span class="string">        :param start_p: 初始概率</span></span><br><span class="line"><span class="string">        :param trans_p: 转移概率</span></span><br><span class="line"><span class="string">        :param emit_p: 发射概率</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        V = [&#123;&#125;]</span><br><span class="line">        path = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> y <span class="keyword">in</span> states:</span><br><span class="line">            V[<span class="number">0</span>][y] = start_p[y] * emit_p[y].get(text[<span class="number">0</span>],<span class="number">0</span>)</span><br><span class="line">            path[y] = [y]</span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">1</span>,len(text)):</span><br><span class="line">            V.append(&#123;&#125;)</span><br><span class="line">            newpath = &#123;&#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">#检验训练的发射概率矩阵中是否有该字</span></span><br><span class="line">            <span class="comment">#python在一行后加 \ 作为换行标志符</span></span><br><span class="line">            neverSeen = text[t] <span class="keyword">not</span> <span class="keyword">in</span> emit_p[<span class="string">'S'</span>].keys() <span class="keyword">and</span> \</span><br><span class="line">                text[t] <span class="keyword">not</span> <span class="keyword">in</span> emit_p[<span class="string">'M'</span>].keys() <span class="keyword">and</span> \</span><br><span class="line">                text[t] <span class="keyword">not</span> <span class="keyword">in</span> emit_p[<span class="string">'E'</span>].keys() <span class="keyword">and</span> \</span><br><span class="line">                text[t] <span class="keyword">not</span> <span class="keyword">in</span> emit_p[<span class="string">'B'</span>].keys()</span><br><span class="line">            <span class="keyword">for</span> y <span class="keyword">in</span> states:</span><br><span class="line">                emitP = emit_p[y].get(text[t],<span class="number">0</span>) <span class="keyword">if</span> <span class="keyword">not</span> neverSeen <span class="keyword">else</span> <span class="number">1.0</span> <span class="comment">#设置未知字单独成词</span></span><br><span class="line">                (prob, state) = max(</span><br><span class="line">                    [(V[t - <span class="number">1</span>][y0] * trans_p[y0].get(y, <span class="number">0</span>) *</span><br><span class="line">                      emitP, y0)</span><br><span class="line">                     <span class="keyword">for</span> y0 <span class="keyword">in</span> states <span class="keyword">if</span> V[t - <span class="number">1</span>][y0] &gt; <span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">                V[t][y] = prob</span><br><span class="line">                newpath[y] = path[state] + [y]</span><br><span class="line">            path = newpath</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> emit_p[<span class="string">'M'</span>].get(text[<span class="number">-1</span>],<span class="number">0</span>)&gt;emit_p[<span class="string">'S'</span>].get(text[<span class="number">-1</span>],<span class="number">0</span>):</span><br><span class="line">            (prob,state) = max([(V[len(text) - <span class="number">1</span>][y],y) <span class="keyword">for</span> y <span class="keyword">in</span> (<span class="string">'E'</span>,<span class="string">'M'</span>)])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            (prob,state) = max([(V[len(text) - <span class="number">1</span>][y],y) <span class="keyword">for</span> y <span class="keyword">in</span> states])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> (prob,path[state])</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cut</span><span class="params">(self,text)</span>:</span></span><br><span class="line">        <span class="keyword">import</span> os</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.load_para:</span><br><span class="line">            self.try_load_model(os.path.exists(self.model_file))</span><br><span class="line">        prob,pos_list = self.viterbi(text,self.state_list,self.Pi_dic,self.A_dic,self.B_dic)</span><br><span class="line">        begin,next = <span class="number">0</span>,<span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i,char <span class="keyword">in</span> enumerate(text):</span><br><span class="line">            pos = pos_list[i]</span><br><span class="line">            <span class="keyword">if</span> pos == <span class="string">'B'</span>:</span><br><span class="line">                begin = i</span><br><span class="line">            <span class="keyword">elif</span> pos == <span class="string">'E'</span>:</span><br><span class="line">                <span class="comment">#python yield 生成器</span></span><br><span class="line">                <span class="keyword">yield</span> text[begin:i+<span class="number">1</span>]</span><br><span class="line">                next = i+<span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> pos == <span class="string">'S'</span>:</span><br><span class="line">                <span class="keyword">yield</span> char</span><br><span class="line">                next = i+<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> next&lt;len(text):</span><br><span class="line">            <span class="keyword">yield</span> text[next:]</span><br><span class="line"></span><br><span class="line">hmm = HMM()</span><br><span class="line">hmm.train(<span class="string">'./data/trainCorpus.txt_utf8'</span>)</span><br><span class="line"></span><br><span class="line">text=<span class="string">'这是一个非常棒的方案!'</span></span><br><span class="line">res = hmm.cut(text)</span><br><span class="line">print(text)</span><br><span class="line">print(str(list(res)))</span><br></pre></td></tr></table></figure>
 <p>输出结果：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这是一个非常棒的方案!</span><br><span class="line">[<span class="string">'这是'</span>, <span class="string">'一个'</span>, <span class="string">'非常'</span>, <span class="string">'棒'</span>, <span class="string">'的'</span>, <span class="string">'方案'</span>, <span class="string">'!'</span>]</span><br></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这是一个非常棒的方案!</span><br><span class="line">[<span class="string">'这是'</span>, <span class="string">'一个'</span>, <span class="string">'非常'</span>, <span class="string">'棒'</span>, <span class="string">'的'</span>, <span class="string">'方案'</span>, <span class="string">'!'</span>]</span><br></pre></td></tr></table></figure>
 <h3 id="其他统计分词算法"><a href="#其他统计分词算法" class="headerlink" title="其他统计分词算法"></a>其他统计分词算法</h3><p>条件随机场 CRF 也是一种基于马尔科夫思想的统计模型</p>
 <p>​    CRF使得每个状态不止与它前面的状态有关，还与它后面的状态有关</p>
 <p>神经网络分词算法，将深度学习方法应用</p>
@@ -233,259 +365,182 @@
 <li>全模式：把句子中所有可以成词的词语都扫描出来，速度快；但是不能解决歧义</li>
 <li>搜索引擎模式：在精确模式的基础上，对长词再次切分，提高召回率；适用于搜索引擎分词</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line">sent = <span class="string">'中文分词是文本处理不可或缺的一步！'</span></span><br><span class="line">seg_list1 = jieba.cut(sent,cut_all=<span class="literal">True</span>)</span><br><span class="line">print(<span class="string">'全模式：'</span>,<span class="string">'/'</span>.join(seg_list1))</span><br><span class="line">seg_list2 = jieba.cut(sent,cut_all=<span class="literal">False</span>)</span><br><span class="line">print(<span class="string">'精确模式：'</span>,<span class="string">'/'</span>.join(seg_list2))</span><br><span class="line">seg_list3 = jieba.cut(sent)</span><br><span class="line">print(<span class="string">'默认精确模式：'</span>,<span class="string">'/'</span>.join(seg_list3))</span><br><span class="line">seg_list4 = jieba.cut_for_search(sent)</span><br><span class="line">print(<span class="string">'搜索引擎模式：'</span>,<span class="string">'/ '</span>.join(seg_list4))</span><br></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line">sent = <span class="string">'中文分词是文本处理不可或缺的一步！'</span></span><br><span class="line">seg_list1 = jieba.cut(sent,cut_all=<span class="literal">True</span>)</span><br><span class="line">print(<span class="string">'全模式：'</span>,<span class="string">'/'</span>.join(seg_list1))</span><br><span class="line">seg_list2 = jieba.cut(sent,cut_all=<span class="literal">False</span>)</span><br><span class="line">print(<span class="string">'精确模式：'</span>,<span class="string">'/'</span>.join(seg_list2))</span><br><span class="line">seg_list3 = jieba.cut(sent)</span><br><span class="line">print(<span class="string">'默认精确模式：'</span>,<span class="string">'/'</span>.join(seg_list3))</span><br><span class="line">seg_list4 = jieba.cut_for_search(sent)</span><br><span class="line">print(<span class="string">'搜索引擎模式：'</span>,<span class="string">'/ '</span>.join(seg_list4))</span><br></pre></td></tr></table></figure>
 <p>输出结果：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">全模式： 中文/分词/是/文本/文本处理/本处/处理/不可/不可或缺/或缺/的/一步//</span><br><span class="line">精确模式： 中文/分词/是/文本处理/不可或缺/的/一步/！</span><br><span class="line">默认精确模式： 中文/分词/是/文本处理/不可或缺/的/一步/！</span><br><span class="line">搜索引擎模式： 中文/ 分词/ 是/ 文本/ 本处/ 处理/ 文本处理/ 不可/ 或缺/ 不可或缺/ 的/ 一步/ ！</span><br></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">全模式： 中文/分词/是/文本/文本处理/本处/处理/不可/不可或缺/或缺/的/一步//</span><br><span class="line">精确模式： 中文/分词/是/文本处理/不可或缺/的/一步/！</span><br><span class="line">默认精确模式： 中文/分词/是/文本处理/不可或缺/的/一步/！</span><br><span class="line">搜索引擎模式： 中文/ 分词/ 是/ 文本/ 本处/ 处理/ 文本处理/ 不可/ 或缺/ 不可或缺/ 的/ 一步/ ！</span><br></pre></td></tr></table></figure>
 <h3 id="实战：高频词提取"><a href="#实战：高频词提取" class="headerlink" title="实战：高频词提取"></a>实战：高频词提取</h3><p>高频词：指文档中出现频率较高且非无用的词语，在一定程度上代表了文档的焦点所在。 </p>
 <p>高频词提取：自然语言处理中的TF（Term Frequency）策略。</p>
 <p>​    干扰项：标点符号、停用词（“的”，“是”，“了”等无意义的常用词）</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_content</span><span class="params">(path)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    加载指定路径下的数据</span></span><br><span class="line"><span class="string">    :param path:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">with</span> open(path,<span class="string">'r'</span>,encoding=<span class="string">'gbk'</span>,errors=<span class="string">'ignore'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        content = <span class="string">''</span></span><br><span class="line">        <span class="keyword">for</span> l <span class="keyword">in</span> f :</span><br><span class="line">            l = l.strip()</span><br><span class="line">            content += l</span><br><span class="line">        <span class="keyword">return</span> content</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_TF</span> <span class="params">(words,topK=<span class="number">10</span>)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    高频词统计</span></span><br><span class="line"><span class="string">    :param words:</span></span><br><span class="line"><span class="string">    :param topK: 前N个高频词</span></span><br><span class="line"><span class="string">    :return: 高频词数组</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    tf_dic = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> w <span class="keyword">in</span> words:</span><br><span class="line">        tf_dic[w] = tf_dic.get(w,<span class="number">0</span>) + <span class="number">1</span></span><br><span class="line">    <span class="comment">#lambda 快速构建一个匿名函数</span></span><br><span class="line">    <span class="comment">#python sorted函数进行排序，返回一个新的list</span></span><br><span class="line">    <span class="comment">#key参数传入一个自定义lambda函数，x:x[1]即根据列表中每个元组的第二个元素进行排序</span></span><br><span class="line">    <span class="comment">#reverse设置为True进行倒序排列，从大到小</span></span><br><span class="line">    <span class="keyword">return</span> sorted(tf_dic.items(),key=<span class="keyword">lambda</span> x:x[<span class="number">1</span>],reverse=<span class="literal">True</span>)[:topK]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">import</span> glob</span><br><span class="line">    <span class="keyword">import</span> random</span><br><span class="line">    <span class="keyword">import</span> jieba</span><br><span class="line"></span><br><span class="line">    <span class="comment">#glob 通配符模块，对目录内容进行匹配</span></span><br><span class="line">    files = glob.glob(<span class="string">'./data/news/C000013/*.txt'</span>)</span><br><span class="line">    corpus = [get_content(x) <span class="keyword">for</span> x <span class="keyword">in</span> files]</span><br><span class="line"></span><br><span class="line">    <span class="comment">#randint生成一个范围内的指定随机整数</span></span><br><span class="line">    sample_inx = random.randint(<span class="number">0</span>,len(corpus))</span><br><span class="line">    split_words = list(jieba.cut(corpus[sample_inx]))</span><br><span class="line">    print(<span class="string">'样本之一：'</span>+corpus[sample_inx])</span><br><span class="line">    print(<span class="string">'样本分词效果：'</span>+<span class="string">'/'</span>.join(split_words))</span><br><span class="line">    print(<span class="string">'样本的TopK(10)词：'</span>+str(get_TF(split_words)))</span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_content</span><span class="params">(path)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    加载指定路径下的数据</span></span><br><span class="line"><span class="string">    :param path:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">with</span> open(path,<span class="string">'r'</span>,encoding=<span class="string">'gbk'</span>,errors=<span class="string">'ignore'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        content = <span class="string">''</span></span><br><span class="line">        <span class="keyword">for</span> l <span class="keyword">in</span> f :</span><br><span class="line">            l = l.strip()</span><br><span class="line">            content += l</span><br><span class="line">        <span class="keyword">return</span> content</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_TF</span> <span class="params">(words,topK=<span class="number">10</span>)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    高频词统计</span></span><br><span class="line"><span class="string">    :param words:</span></span><br><span class="line"><span class="string">    :param topK: 前N个高频词</span></span><br><span class="line"><span class="string">    :return: 高频词数组</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    tf_dic = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> w <span class="keyword">in</span> words:</span><br><span class="line">        tf_dic[w] = tf_dic.get(w,<span class="number">0</span>) + <span class="number">1</span></span><br><span class="line">    <span class="comment">#lambda 快速构建一个匿名函数</span></span><br><span class="line">    <span class="comment">#python sorted函数进行排序，返回一个新的list</span></span><br><span class="line">    <span class="comment">#key参数传入一个自定义lambda函数，x:x[1]即根据列表中每个元组的第二个元素进行排序</span></span><br><span class="line">    <span class="comment">#reverse设置为True进行倒序排列，从大到小</span></span><br><span class="line">    <span class="keyword">return</span> sorted(tf_dic.items(),key=<span class="keyword">lambda</span> x:x[<span class="number">1</span>],reverse=<span class="literal">True</span>)[:topK]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">import</span> glob</span><br><span class="line">    <span class="keyword">import</span> random</span><br><span class="line">    <span class="keyword">import</span> jieba</span><br><span class="line"></span><br><span class="line">    <span class="comment">#glob 通配符模块，对目录内容进行匹配</span></span><br><span class="line">    files = glob.glob(<span class="string">'./data/news/C000013/*.txt'</span>)</span><br><span class="line">    corpus = [get_content(x) <span class="keyword">for</span> x <span class="keyword">in</span> files]</span><br><span class="line"></span><br><span class="line">    <span class="comment">#randint生成一个范围内的指定随机整数</span></span><br><span class="line">    sample_inx = random.randint(<span class="number">0</span>,len(corpus))</span><br><span class="line">    split_words = list(jieba.cut(corpus[sample_inx]))</span><br><span class="line">    print(<span class="string">'样本之一：'</span>+corpus[sample_inx])</span><br><span class="line">    print(<span class="string">'样本分词效果：'</span>+<span class="string">'/'</span>.join(split_words))</span><br><span class="line">    print(<span class="string">'样本的TopK(10)词：'</span>+str(get_TF(split_words)))</span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
 <p>展示结果：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">样本之一：风油精含有薄荷脑、樟脑、桉叶油、丁香酚、水杨酸甲酯等成分，有消炎止痛、清凉止痒、杀菌、抗真菌等功效，所以常用于蚊虫叮咬及伤风感冒引起的头痛、头晕、晕车等症状。其实，它还可以用于轻度烫伤的治疗。烫伤最危险的是损伤部位由于细菌侵入而引起感染，而风油精中的薄荷脑、樟脑、桉叶油成分恰好对细菌有较好的杀灭作用，所以当受到小范围烫伤时，不妨试试风油精。不过，使用风油精前必须先分清烫伤的轻重。一般而言，只要是由火焰、热水、蒸汽、电流、放射线、激光、强酸、强碱等作用于人体所引起的损伤都可统称为烧烫伤。在临床上，烫伤被分为三级。Ⅰ度烫伤：为表皮烫伤，局部皮肤发红疼痛；Ⅱ度烫伤：浅Ⅱ度烫伤是真皮浅层烫伤，局部可出现水泡，泡壁薄，极度水肿，有剧痛；深Ⅱ度烫伤可达真皮深层，疼痛较轻，水泡较小，泡壁较厚，治愈后可留下瘢痕；Ⅲ度烫伤：烫伤深度达皮肤全层或更深，皮色苍白或形成焦痂，无痛感，经治疗后焦痂可脱落，但会形成肉芽创面，或引起局部畸形。可使用风油精治疗的烫伤主要指小范围浅Ⅱ度烫伤或Ⅰ度烫伤。其余类型烫伤必须送医院救治。使用方法：将风油精直接滴敷在烫伤部位，每隔<span class="number">3</span>—<span class="number">4</span>小时滴敷一次，不仅止痛效果明显，且不易发生感染，无结痂，愈后一般不会留下瘢痕。</span><br><span class="line">样本分词效果：风油精/含有/薄荷脑/、/樟脑/、/桉叶油/、/丁香酚/、/水杨酸甲酯/等/成分/，/有/消炎/止痛/、/清凉/止痒/、/杀菌/、/抗真菌/等/功效/，/所以/常用/于/蚊虫/叮咬/及/伤风感冒/引起/的/头痛/、/头晕/、/晕车/等/症状/。/其实/，/它/还/可以/用于/轻度/烫伤/的/治疗/。/烫伤/最/危险/的/是/损伤/部位/由于/细菌/侵入/而/引起/感染/，/而/风油精/中/的/薄荷脑/、/樟脑/、/桉叶油/成分/恰好/对/细菌/有/较/好/的/杀灭/作用/，/所以/当/受到/小/范围/烫伤/时/，/不妨/试试/风油精/。/不过/，/使用/风油精/前/必须/先/分清/烫伤/的/轻重/。/一般而言/，/只要/是/由/火焰/、/热水/、/蒸汽/、/电流/、/放射线/、/激光/、/强酸/、/强碱/等/作用/于/人体/所/引起/的/损伤/都/可/统称/为/烧烫伤/。/在/临床/上/，/烫伤/被/分为/三级/。/Ⅰ/度/烫伤/：/为/表皮/烫伤/，/局部/皮肤/发红/疼痛/；/Ⅱ/度/烫伤/：/浅/Ⅱ/度/烫伤/是/真皮/浅层/烫伤/，/局部/可/出现/水泡/，/泡壁/薄/，/极度/水肿/，/有/剧痛/；/深/Ⅱ/度/烫伤/可/达/真皮/深层/，/疼痛/较/轻/，/水泡/较/小/，/泡壁/较厚/，/治愈/后/可/留下/瘢痕/；/Ⅲ/度/烫伤/：/烫伤/深度/达/皮肤/全层/或/更深/，/皮色/苍白/或/形成/焦痂/，/无/痛感/，/经/治疗/后/焦痂/可/脱落/，/但会/形成/肉芽/创面/，/或/引起/局部/畸形/。/可/使用/风油精/治疗/的/烫伤/主要/指小/范围/浅/Ⅱ/度/烫伤/或/Ⅰ/度/烫伤/。/其余/类型/烫伤/必须/送/医院/救治/。/使用/方法/：/将/风油精/直接/滴/敷/在/烫伤/部位/，/每隔/<span class="number">3</span>/—/<span class="number">4</span>/小时/滴/敷/一次/，/不仅/止痛/效果/明显/，/且/不易/发生/感染/，/无/结痂/，/愈后/一般/不会/留下/瘢痕/。</span><br><span class="line">样本的TopK(<span class="number">10</span>)词：[(<span class="string">'，'</span>, <span class="number">28</span>), (<span class="string">'、'</span>, <span class="number">18</span>), (<span class="string">'烫伤'</span>, <span class="number">18</span>), (<span class="string">'。'</span>, <span class="number">10</span>), (<span class="string">'的'</span>, <span class="number">8</span>), (<span class="string">'度'</span>, <span class="number">7</span>), (<span class="string">'风油精'</span>, <span class="number">6</span>), (<span class="string">'可'</span>, <span class="number">6</span>), (<span class="string">'等'</span>, <span class="number">4</span>), (<span class="string">'引起'</span>, <span class="number">4</span>)]</span><br></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">样本之一：风油精含有薄荷脑、樟脑、桉叶油、丁香酚、水杨酸甲酯等成分，有消炎止痛、清凉止痒、杀菌、抗真菌等功效，所以常用于蚊虫叮咬及伤风感冒引起的头痛、头晕、晕车等症状。其实，它还可以用于轻度烫伤的治疗。烫伤最危险的是损伤部位由于细菌侵入而引起感染，而风油精中的薄荷脑、樟脑、桉叶油成分恰好对细菌有较好的杀灭作用，所以当受到小范围烫伤时，不妨试试风油精。不过，使用风油精前必须先分清烫伤的轻重。一般而言，只要是由火焰、热水、蒸汽、电流、放射线、激光、强酸、强碱等作用于人体所引起的损伤都可统称为烧烫伤。在临床上，烫伤被分为三级。Ⅰ度烫伤：为表皮烫伤，局部皮肤发红疼痛；Ⅱ度烫伤：浅Ⅱ度烫伤是真皮浅层烫伤，局部可出现水泡，泡壁薄，极度水肿，有剧痛；深Ⅱ度烫伤可达真皮深层，疼痛较轻，水泡较小，泡壁较厚，治愈后可留下瘢痕；Ⅲ度烫伤：烫伤深度达皮肤全层或更深，皮色苍白或形成焦痂，无痛感，经治疗后焦痂可脱落，但会形成肉芽创面，或引起局部畸形。可使用风油精治疗的烫伤主要指小范围浅Ⅱ度烫伤或Ⅰ度烫伤。其余类型烫伤必须送医院救治。使用方法：将风油精直接滴敷在烫伤部位，每隔<span class="number">3</span>—<span class="number">4</span>小时滴敷一次，不仅止痛效果明显，且不易发生感染，无结痂，愈后一般不会留下瘢痕。</span><br><span class="line">样本分词效果：风油精/含有/薄荷脑/、/樟脑/、/桉叶油/、/丁香酚/、/水杨酸甲酯/等/成分/，/有/消炎/止痛/、/清凉/止痒/、/杀菌/、/抗真菌/等/功效/，/所以/常用/于/蚊虫/叮咬/及/伤风感冒/引起/的/头痛/、/头晕/、/晕车/等/症状/。/其实/，/它/还/可以/用于/轻度/烫伤/的/治疗/。/烫伤/最/危险/的/是/损伤/部位/由于/细菌/侵入/而/引起/感染/，/而/风油精/中/的/薄荷脑/、/樟脑/、/桉叶油/成分/恰好/对/细菌/有/较/好/的/杀灭/作用/，/所以/当/受到/小/范围/烫伤/时/，/不妨/试试/风油精/。/不过/，/使用/风油精/前/必须/先/分清/烫伤/的/轻重/。/一般而言/，/只要/是/由/火焰/、/热水/、/蒸汽/、/电流/、/放射线/、/激光/、/强酸/、/强碱/等/作用/于/人体/所/引起/的/损伤/都/可/统称/为/烧烫伤/。/在/临床/上/，/烫伤/被/分为/三级/。/Ⅰ/度/烫伤/：/为/表皮/烫伤/，/局部/皮肤/发红/疼痛/；/Ⅱ/度/烫伤/：/浅/Ⅱ/度/烫伤/是/真皮/浅层/烫伤/，/局部/可/出现/水泡/，/泡壁/薄/，/极度/水肿/，/有/剧痛/；/深/Ⅱ/度/烫伤/可/达/真皮/深层/，/疼痛/较/轻/，/水泡/较/小/，/泡壁/较厚/，/治愈/后/可/留下/瘢痕/；/Ⅲ/度/烫伤/：/烫伤/深度/达/皮肤/全层/或/更深/，/皮色/苍白/或/形成/焦痂/，/无/痛感/，/经/治疗/后/焦痂/可/脱落/，/但会/形成/肉芽/创面/，/或/引起/局部/畸形/。/可/使用/风油精/治疗/的/烫伤/主要/指小/范围/浅/Ⅱ/度/烫伤/或/Ⅰ/度/烫伤/。/其余/类型/烫伤/必须/送/医院/救治/。/使用/方法/：/将/风油精/直接/滴/敷/在/烫伤/部位/，/每隔/<span class="number">3</span>/—/<span class="number">4</span>/小时/滴/敷/一次/，/不仅/止痛/效果/明显/，/且/不易/发生/感染/，/无/结痂/，/愈后/一般/不会/留下/瘢痕/。</span><br><span class="line">样本的TopK(<span class="number">10</span>)词：[(<span class="string">'，'</span>, <span class="number">28</span>), (<span class="string">'、'</span>, <span class="number">18</span>), (<span class="string">'烫伤'</span>, <span class="number">18</span>), (<span class="string">'。'</span>, <span class="number">10</span>), (<span class="string">'的'</span>, <span class="number">8</span>), (<span class="string">'度'</span>, <span class="number">7</span>), (<span class="string">'风油精'</span>, <span class="number">6</span>), (<span class="string">'可'</span>, <span class="number">6</span>), (<span class="string">'等'</span>, <span class="number">4</span>), (<span class="string">'引起'</span>, <span class="number">4</span>)]</span><br></pre></td></tr></table></figure>
 <p><strong>自定义词典优化：</strong></p>
 <p>​    将常用的停用词（包括标点符号）写入到文件中，并进行过滤</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">stop_words</span><span class="params">(path)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> open(path，encoding=<span class="string">'utf8'</span>) <span class="keyword">as</span> f :</span><br><span class="line">        <span class="keyword">return</span> [l.strip() <span class="keyword">for</span> l <span class="keyword">in</span> f]</span><br><span class="line"></span><br><span class="line"><span class="comment">#过滤停用词</span></span><br><span class="line">split_words = [x <span class="keyword">for</span> x <span class="keyword">in</span> jieba.cut(corpus[sample_inx]) <span class="keyword">if</span> x <span class="keyword">not</span> <span class="keyword">in</span> stop_words(<span class="string">'./data/stop_words.utf8'</span>)]</span><br></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">stop_words</span><span class="params">(path)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> open(path，encoding=<span class="string">'utf8'</span>) <span class="keyword">as</span> f :</span><br><span class="line">        <span class="keyword">return</span> [l.strip() <span class="keyword">for</span> l <span class="keyword">in</span> f]</span><br><span class="line"></span><br><span class="line"><span class="comment">#过滤停用词</span></span><br><span class="line">split_words = [x <span class="keyword">for</span> x <span class="keyword">in</span> jieba.cut(corpus[sample_inx]) <span class="keyword">if</span> x <span class="keyword">not</span> <span class="keyword">in</span> stop_words(<span class="string">'./data/stop_words.utf8'</span>)]</span><br></pre></td></tr></table></figure>
 <p>​    输出结果：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">样本之一：肺燥型咳嗽，干咳无痰或少痰者，宜吃以下之品。百合能润肺止咳。《上海常用中草药》中说：“百合治肺热咳嗽，干咳久咳。”可用鲜百合<span class="number">100</span>~<span class="number">150</span>克，加冰糖适量煎汤喝。也可用新百合<span class="number">120</span>克，蜂蜜<span class="number">50</span>克，拌和蒸熟后食用。甘蔗有生津、润肺、止咳的功效。肺燥咳嗽之人尤为适宜。可单饮甘蔗汁，或用蔗浆和粳米或糯米煮成稀薄粥食用。豆腐浆《随息居饮食谱》云：“豆浆清肺补胃，润燥化痰。”所以，燥热型干咳少痰者宜食。蜂蜜善于润燥，可治肺燥咳嗽。凡干咳无痰、燥咳不愈者，单用蜂蜜<span class="number">15</span>~<span class="number">30</span>克，开水冲服，早晚各<span class="number">1</span>次。也可用蜂蜜<span class="number">50</span>克，熟猪油<span class="number">50</span>克，同熬匀后备用，每日早晚开水冲服<span class="number">1</span>调羹。饴糖据《日华子本草》记载：“饴糖消痰止嗽，并润五脏。”凡燥咳无痰或少痰之人，宜用饴糖<span class="number">30</span>克，同白萝卜汁<span class="number">100</span>克，搅匀后蒸熟，分<span class="number">2</span>次服食，连吃<span class="number">3</span>~<span class="number">5</span>天，有很好的润肺止咳效果。白木耳能滋阴、润肺、生津、止咳，适宜肺燥干咳无痰之人食用。《增订伪药条辨》就有记载：“白木耳治肺热肺燥，干咳痰嗽。”柿霜有润燥、化痰、止咳的作用，能治肺热燥咳。《医学衷中参西录》中说得好：“柿霜入肺，而甘凉滑润。其甘也，能益肺气；其凉也，能清肺热；其滑也，能利肺痰；其润也，能滋肺燥。”可以每次用柿霜<span class="number">10</span>克，开水冲服，每日<span class="number">2</span>~<span class="number">3</span>次。北沙参能养阴清肺、祛痰止咳，适宜肺热燥咳者煎水喝。若用北沙参、麦门冬各<span class="number">10</span>克，川贝母<span class="number">6</span>克，同煎服则更妙。海松子能润肺燥，故肺燥于咳者宜食。《玄感传尸方》中有“风髓汤”一法：“治肺燥咳嗽：松子仁一两(<span class="number">30</span>克)，胡桃仁二两(<span class="number">100</span>克)。研膏，和熟蜜半两(<span class="number">15</span>克)收之。每服二钱(<span class="number">6</span>克)，食后沸汤点服。”或采用《士材三书》中的办法，用海松子仁<span class="number">30</span>克，同粳米<span class="number">50</span>克煮成稀薄粥食用。花生有润肺止咳作用，适宜燥咳之人服食。《药性考》中记载：“落花生，干咳者宜餐，滋燥润火。”民间常用花生仁、大枣、蜂蜜或冰糖各<span class="number">30</span>克，水煎，吃花生和枣并饮汤，日服<span class="number">2</span>次，对干咳无痰或少痰者颇宜。白砂糖能润肺生津，肺燥咳嗽之人宜服食。《本草纲目》云：“白砂糖润心肺燥热，治嗽消痰。”由白砂糖煎炼而成的冰块状结晶，也同样有润肺止咳作用，或含化，或煎水饮，对燥热者均宜。橄榄有清肺、生津、止咳的作用。《本草再新》中指出：“润肺滋阴，消痰理气，止咳嗽。”中国药科大学叶橘泉教授也认为橄榄“有清肺解毒化痰之功”。由于橄榄能润肺滋阴生津液，故燥咳之人宜食之，橄榄又有清肺消痰作用，所以肺热咳嗽者亦宜。榧子有润肺燥，止咳嗽的作用。《本草备要》记载：“榧子润肺杀虫”。《生生编》言其“治咳嗽”。《本草再新》中还说：“治肺火，止咳嗽”。所以，对燥热型咳嗽者，食之最宜。燕窝性味甘平，有养阴润燥作用。《本草从新》中曾说：“大养肺阴，化痰止嗽，补而能清”。《食物宜忌》也认为它能“润肺，消痰涎”。《本草再新》还指出：“大补元气，润肺滋阴，治虚劳咳嗽。”所以，对燥热咳嗽，久咳无痰或少痰之人，食之尤宜。芝麻性味甘辛，有润五脏的作用，故肺燥干咳之人宜食之。民间有用黑芝麻<span class="number">125</span>克，冰糖<span class="number">30</span>克，共捣烂，每次开水冲服<span class="number">15</span>~<span class="number">30</span>克，早晚各服一次，专治干咳症。黄精性子味甘，能润肺养阴生津，故肺燥型咳嗽久咳无痰者宜食之。《四川中药志》中就曾指出：“补肾润肺，益气滋阴，治肺虚咳嗽”，福建省民间常以此同冰糖炖食，以治肺燥干咳。石斛有生津养阴的作用。《药品化义》中说得好：“石斛气味轻清，合肺之性，性凉而清，得肺之宜。肺为娇脏，独此最为相配。主治肺气久虚，咳嗽不止。”凡肺虚肺燥久咳少痰之人，食之最宜。柿饼性味甘涩而凉。《本草通玄》中认为它能“润心肺，消痰”，古代医家常用以治疗肺燥干咳无痰或咳痰带血，民间也有用柿饼<span class="number">2</span>个，川贝母末<span class="number">9</span>克，柿饼挖开去核，纳入川贝末，饭上蒸熟，一次食尽，日服<span class="number">2</span>次。对肺燥型咳嗽者颇宜。猪肉有滋阴、润燥作用，尤其是肥猪肉，干咳燥咳者宜食之。正如《本草备要》所言：“猪肉生痰，惟风痰、湿痰、寒痰忌之，如老人燥痰干咳，更须肥浓以滋润之，不可拘泥于猪肉生痰之说也。”《随息居饮食谱》中还介绍：“治干嗽!猪肉煮汤，吹去油饮。”阿胶性子味甘，能滋阴，对肺燥干咳和肺阴虚所致的久咳不止者，食之尤宜。正如明·李时珍所言：“阿胶，大要只是补血与液，故能清肺益阴而治诸证。”《圣济总录》还有“阿胶饮”，就是以阿胶为主，“治久咳嗽”。甜杏仁性平味甘，能润肺止咳平喘，对燥咳虚喘者尤宜。《食物中药与便方》介绍：“肺病虚弱，老年咳嗽，干咳无痰：甜杏仁炒熟，每日早、晚嚼食<span class="number">7</span>～<span class="number">10</span>粒。或加砂糖一同捣烂细研，开水冲服，<span class="number">1</span>日<span class="number">2</span>次。”鸭肉性平，味甘咸，能滋阴止咳。《本草汇》中曾说它“滋阴除蒸，化虚痰，止咳嗽”。《随息居饮食谱》亦认为：“鸭肉滋五脏之阴，清虚劳之热，……止嗽。”故对肺燥型咳嗽，干咳无痰或少痰者，宜食之。鸭蛋亦有滋阴止咳作用，故肺燥咳嗽者亦宜。此外，风寒型咳嗽之人还宜吃些花生、赤砂糖、南瓜、大蒜、薤白、砂仁、桂皮、香醋、咖啡等。风热型咳嗽还宜服食苹果、草莓、菠萝、橄榄、椰子浆、菊花脑、瓠子、节瓜、苦瓜、地瓜、黄瓜、菜瓜、榧子、莴苣、茭白、薤菜、芹菜、绿豆芽等。肺燥型咳嗽者还宜吃牛奶、胖大海、青菜、无花果、梨子、桑椹、枇杷等。</span><br><span class="line">样本分词效果：肺燥/型/咳嗽/干咳/无痰/少/痰/宜吃/以下/之品/百合/润肺/止咳/上海/常用/中草药/中说/百合/治肺/热/咳嗽/干咳/久/可用/鲜/百合/<span class="number">100</span>/<span class="number">150</span>/克/加/冰糖/适量/煎/汤/喝/可用/新/百合/<span class="number">120</span>/克/蜂蜜/<span class="number">50</span>/克/拌和/蒸熟/食用/甘蔗/有生/津/润肺/止咳/功效/肺燥/咳嗽/尤为/适宜/可单/饮/甘蔗汁/或用/蔗浆/粳米/糯米/煮成/稀薄/粥/食用/豆腐/浆/随息/居/饮食/谱/云/豆浆/清肺/补胃/润燥/化痰/燥热/型/干咳/少/痰/宜食/蜂蜜/善于/润燥/可治/肺燥/咳嗽/干咳/无痰/燥/愈者/单/蜂蜜/<span class="number">15</span>/<span class="number">30</span>/克/开水/冲服/早晚/次/可用/蜂蜜/<span class="number">50</span>/克/熟猪油/<span class="number">50</span>/克/同熬/匀/后备/每日/早晚/开水/冲服/调羹/饴糖/日华子/本草/记载/饴糖/消痰/止嗽/并润/五脏/凡燥/痰/少/痰/宜用/饴糖/<span class="number">30</span>/克/白萝卜/汁/<span class="number">100</span>/克/搅匀/蒸熟/分/次/服食/吃/天/润肺/止咳/效果/白木耳/滋阴/润肺/生津/止咳/适宜/肺燥/干咳/无痰/食用/增订/伪药/条辨/记载/白木耳/治肺/热/肺燥/干/咳痰/嗽/柿霜/润燥/化痰/止咳/作用/能治肺/热燥/医学/衷中/参西录/中/说得好/柿霜/入/肺/甘凉/滑润/其甘/能益/肺气/其凉/清肺/热/其滑/能利/肺/痰/其润/能滋/肺燥/每次/柿霜/<span class="number">10</span>/克/开水/冲服/每日/次/北沙参/养阴清/肺/祛痰/止咳/适宜/肺热燥/咳者/煎/水/喝/若用/北沙参/麦门冬/<span class="number">10</span>/克/川贝母/克/煎/服则/更妙/海/松子/润肺/燥/肺燥/咳者/宜食/玄感传/尸方/中有/风髓/汤/一法/治/肺燥/咳嗽/松子/仁/一两/<span class="number">30</span>/克/胡桃/仁/二两/<span class="number">100</span>/克/研膏/熟蜜/半两/<span class="number">15</span>/克/收之/每服/二钱/克/食后/沸汤/点服/采用/士材/三书/中/办法/用海/松子/仁/<span class="number">30</span>/克/粳米/<span class="number">50</span>/克/煮成/稀薄/粥/食用/花生/润肺/止咳/作用/适宜/燥/咳之人/服食/药性/考/中/记载/落花生/干咳/宜餐/滋燥润火/民间/常用/花生仁/大枣/蜂蜜/冰糖/<span class="number">30</span>/克/水/煎/吃/花生/枣/饮汤/日服/次/干咳/无痰/少/痰/颇/宜/白砂糖/润肺/生津/肺燥/咳嗽/之人宜/服食/本草纲目/云/白砂糖/润/心肺/燥热/治嗽/消痰/白砂糖/煎/炼而成/冰块/状/结晶/同样/润肺/止咳/作用/含化/煎/水/饮/燥热/均/宜/橄榄/清肺/生津/止咳/作用/本草/新/中/指出/润肺/滋阴/消痰/理气/止/咳嗽/中国/药科/大学/叶橘/泉/教授/认为/橄榄/清肺/解毒/化痰/之功/橄榄/润肺/滋阴/生/津液/故燥/咳之人/宜食/橄榄/清肺/消痰/作用/肺热/咳嗽/宜/榧子/润肺/燥/止/咳嗽/作用/本草/备要/记载/榧子/润肺/杀虫/生/生编/言/治咳嗽/本草/新/中/治肺/火/止/咳嗽/燥热/型/咳嗽/食/最宜/燕窝/性味/甘平/养阴润/燥/作用/本草/新/中曾/大养/肺/阴/化痰/止嗽/补而能/清/食物/宜忌/认为/润肺/消痰/涎/本草/新/指出/大补/元气/润肺/滋阴/治/虚劳/咳嗽/燥热/咳嗽/久/痰/少/痰/食/尤宜/芝麻/性味/甘辛/有润/五脏/作用/肺燥/干咳/之人/宜食/民间/有用/黑芝麻/<span class="number">125</span>/克/冰糖/<span class="number">30</span>/克/共/捣烂/每次/开水/冲服/<span class="number">15</span>/<span class="number">30</span>/克/早晚/各服/一次/专治/干咳/症/黄精/性子/味甘/润肺/养阴生/津/肺燥/型/咳嗽/久/痰/宜食/四川/中药/志/中/指出/补肾/润肺/益气/滋阴/治肺/虚/咳嗽/福建省/民间/常/以此/冰糖/炖/食/以治/肺燥/干咳/石斛/有生/津养/阴/作用/药品/化义/中/说得好/石斛/气味/轻清/合肺/之性/性凉/清/肺之宜/肺为/娇脏/独此/最为/相配/主治/肺气久/虚/咳嗽/不止/肺/虚/肺燥/久/咳少/痰/食/最宜/柿饼/性味/甘涩/凉/本草/通玄/中/认为/润/心肺/消痰/古代/医家/常用/治疗/肺燥/干咳/无痰/咳痰/带血/民间/有用/柿饼/川贝母/末/克/柿饼/挖/开去/核/纳入/川贝/末/饭上/蒸熟/一次/食尽/日服/次/肺燥/型/咳嗽/颇/宜/猪肉/滋阴/润燥/作用/尤其/肥/猪肉/干咳/燥/咳者/宜食/本草/备要/言/猪肉/生痰/惟风/痰/湿痰/寒痰/忌/老人/燥/痰/干咳/更须/肥/浓以/滋润/不可/拘泥于/猪肉/生痰/随息/居/饮食/谱/中/介绍/治/干嗽/猪肉/煮汤/吹/油/饮/阿胶/性子/味甘/滋阴/肺燥/干咳/肺/阴虚/所致/久/不止/食/尤宜/明/·/李时珍/言/阿胶/补血/液/故能/清肺/益阴而治/诸证/圣济总录/阿胶/饮/阿胶/为主/治久/咳嗽/甜/杏仁/性/平味甘/润肺/止咳/平喘/对燥/咳虚喘者/尤宜/食物/中药/便方/介绍/肺病/虚弱/老年/咳嗽/干咳/无痰/甜/杏仁/炒熟/每日/早/晚嚼食/～/<span class="number">10</span>/粒/或加/砂糖/一同/捣烂/细研/开水/冲服/日/次/鸭肉/性平/味甘咸/滋阴/止咳/本草/汇/中曾/滋阴/除蒸/化虚/痰/止/咳嗽/随息/居/饮食/谱/认为/鸭肉/滋/五脏/之阴/清/虚劳/之热/止嗽/故对/肺燥/型/咳嗽/干咳/无痰/少/痰/宜食/鸭蛋/滋阴/止咳/作用/肺燥/咳嗽/宜/风寒/型/咳嗽/之人/宜吃些/花生/赤/砂糖/南瓜/大蒜/薤白/砂仁/桂皮/香醋/咖啡/风热型/咳嗽/还宜/服食/苹果/草莓/菠萝/橄榄/椰子/浆/菊花/脑/瓠子/节瓜/苦瓜/地瓜/黄瓜/菜瓜/榧子/莴苣/茭白/薤菜/芹菜/绿豆芽/肺燥/型/咳嗽/宜/吃/牛奶/胖大海/青菜/无花果/梨子/桑椹/枇杷</span><br><span class="line">样本的TopK(<span class="number">10</span>)词：[(<span class="string">'咳嗽'</span>, <span class="number">25</span>), (<span class="string">'克'</span>, <span class="number">22</span>), (<span class="string">'肺燥'</span>, <span class="number">19</span>), (<span class="string">'润肺'</span>, <span class="number">17</span>), (<span class="string">'干咳'</span>, <span class="number">16</span>), (<span class="string">'痰'</span>, <span class="number">14</span>), (<span class="string">'止咳'</span>, <span class="number">12</span>), (<span class="string">'作用'</span>, <span class="number">11</span>), (<span class="string">'滋阴'</span>, <span class="number">10</span>), (<span class="string">'本草'</span>, <span class="number">9</span>)]</span><br></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">样本之一：肺燥型咳嗽，干咳无痰或少痰者，宜吃以下之品。百合能润肺止咳。《上海常用中草药》中说：“百合治肺热咳嗽，干咳久咳。”可用鲜百合<span class="number">100</span>~<span class="number">150</span>克，加冰糖适量煎汤喝。也可用新百合<span class="number">120</span>克，蜂蜜<span class="number">50</span>克，拌和蒸熟后食用。甘蔗有生津、润肺、止咳的功效。肺燥咳嗽之人尤为适宜。可单饮甘蔗汁，或用蔗浆和粳米或糯米煮成稀薄粥食用。豆腐浆《随息居饮食谱》云：“豆浆清肺补胃，润燥化痰。”所以，燥热型干咳少痰者宜食。蜂蜜善于润燥，可治肺燥咳嗽。凡干咳无痰、燥咳不愈者，单用蜂蜜<span class="number">15</span>~<span class="number">30</span>克，开水冲服，早晚各<span class="number">1</span>次。也可用蜂蜜<span class="number">50</span>克，熟猪油<span class="number">50</span>克，同熬匀后备用，每日早晚开水冲服<span class="number">1</span>调羹。饴糖据《日华子本草》记载：“饴糖消痰止嗽，并润五脏。”凡燥咳无痰或少痰之人，宜用饴糖<span class="number">30</span>克，同白萝卜汁<span class="number">100</span>克，搅匀后蒸熟，分<span class="number">2</span>次服食，连吃<span class="number">3</span>~<span class="number">5</span>天，有很好的润肺止咳效果。白木耳能滋阴、润肺、生津、止咳，适宜肺燥干咳无痰之人食用。《增订伪药条辨》就有记载：“白木耳治肺热肺燥，干咳痰嗽。”柿霜有润燥、化痰、止咳的作用，能治肺热燥咳。《医学衷中参西录》中说得好：“柿霜入肺，而甘凉滑润。其甘也，能益肺气；其凉也，能清肺热；其滑也，能利肺痰；其润也，能滋肺燥。”可以每次用柿霜<span class="number">10</span>克，开水冲服，每日<span class="number">2</span>~<span class="number">3</span>次。北沙参能养阴清肺、祛痰止咳，适宜肺热燥咳者煎水喝。若用北沙参、麦门冬各<span class="number">10</span>克，川贝母<span class="number">6</span>克，同煎服则更妙。海松子能润肺燥，故肺燥于咳者宜食。《玄感传尸方》中有“风髓汤”一法：“治肺燥咳嗽：松子仁一两(<span class="number">30</span>克)，胡桃仁二两(<span class="number">100</span>克)。研膏，和熟蜜半两(<span class="number">15</span>克)收之。每服二钱(<span class="number">6</span>克)，食后沸汤点服。”或采用《士材三书》中的办法，用海松子仁<span class="number">30</span>克，同粳米<span class="number">50</span>克煮成稀薄粥食用。花生有润肺止咳作用，适宜燥咳之人服食。《药性考》中记载：“落花生，干咳者宜餐，滋燥润火。”民间常用花生仁、大枣、蜂蜜或冰糖各<span class="number">30</span>克，水煎，吃花生和枣并饮汤，日服<span class="number">2</span>次，对干咳无痰或少痰者颇宜。白砂糖能润肺生津，肺燥咳嗽之人宜服食。《本草纲目》云：“白砂糖润心肺燥热，治嗽消痰。”由白砂糖煎炼而成的冰块状结晶，也同样有润肺止咳作用，或含化，或煎水饮，对燥热者均宜。橄榄有清肺、生津、止咳的作用。《本草再新》中指出：“润肺滋阴，消痰理气，止咳嗽。”中国药科大学叶橘泉教授也认为橄榄“有清肺解毒化痰之功”。由于橄榄能润肺滋阴生津液，故燥咳之人宜食之，橄榄又有清肺消痰作用，所以肺热咳嗽者亦宜。榧子有润肺燥，止咳嗽的作用。《本草备要》记载：“榧子润肺杀虫”。《生生编》言其“治咳嗽”。《本草再新》中还说：“治肺火，止咳嗽”。所以，对燥热型咳嗽者，食之最宜。燕窝性味甘平，有养阴润燥作用。《本草从新》中曾说：“大养肺阴，化痰止嗽，补而能清”。《食物宜忌》也认为它能“润肺，消痰涎”。《本草再新》还指出：“大补元气，润肺滋阴，治虚劳咳嗽。”所以，对燥热咳嗽，久咳无痰或少痰之人，食之尤宜。芝麻性味甘辛，有润五脏的作用，故肺燥干咳之人宜食之。民间有用黑芝麻<span class="number">125</span>克，冰糖<span class="number">30</span>克，共捣烂，每次开水冲服<span class="number">15</span>~<span class="number">30</span>克，早晚各服一次，专治干咳症。黄精性子味甘，能润肺养阴生津，故肺燥型咳嗽久咳无痰者宜食之。《四川中药志》中就曾指出：“补肾润肺，益气滋阴，治肺虚咳嗽”，福建省民间常以此同冰糖炖食，以治肺燥干咳。石斛有生津养阴的作用。《药品化义》中说得好：“石斛气味轻清，合肺之性，性凉而清，得肺之宜。肺为娇脏，独此最为相配。主治肺气久虚，咳嗽不止。”凡肺虚肺燥久咳少痰之人，食之最宜。柿饼性味甘涩而凉。《本草通玄》中认为它能“润心肺，消痰”，古代医家常用以治疗肺燥干咳无痰或咳痰带血，民间也有用柿饼<span class="number">2</span>个，川贝母末<span class="number">9</span>克，柿饼挖开去核，纳入川贝末，饭上蒸熟，一次食尽，日服<span class="number">2</span>次。对肺燥型咳嗽者颇宜。猪肉有滋阴、润燥作用，尤其是肥猪肉，干咳燥咳者宜食之。正如《本草备要》所言：“猪肉生痰，惟风痰、湿痰、寒痰忌之，如老人燥痰干咳，更须肥浓以滋润之，不可拘泥于猪肉生痰之说也。”《随息居饮食谱》中还介绍：“治干嗽!猪肉煮汤，吹去油饮。”阿胶性子味甘，能滋阴，对肺燥干咳和肺阴虚所致的久咳不止者，食之尤宜。正如明·李时珍所言：“阿胶，大要只是补血与液，故能清肺益阴而治诸证。”《圣济总录》还有“阿胶饮”，就是以阿胶为主，“治久咳嗽”。甜杏仁性平味甘，能润肺止咳平喘，对燥咳虚喘者尤宜。《食物中药与便方》介绍：“肺病虚弱，老年咳嗽，干咳无痰：甜杏仁炒熟，每日早、晚嚼食<span class="number">7</span>～<span class="number">10</span>粒。或加砂糖一同捣烂细研，开水冲服，<span class="number">1</span>日<span class="number">2</span>次。”鸭肉性平，味甘咸，能滋阴止咳。《本草汇》中曾说它“滋阴除蒸，化虚痰，止咳嗽”。《随息居饮食谱》亦认为：“鸭肉滋五脏之阴，清虚劳之热，……止嗽。”故对肺燥型咳嗽，干咳无痰或少痰者，宜食之。鸭蛋亦有滋阴止咳作用，故肺燥咳嗽者亦宜。此外，风寒型咳嗽之人还宜吃些花生、赤砂糖、南瓜、大蒜、薤白、砂仁、桂皮、香醋、咖啡等。风热型咳嗽还宜服食苹果、草莓、菠萝、橄榄、椰子浆、菊花脑、瓠子、节瓜、苦瓜、地瓜、黄瓜、菜瓜、榧子、莴苣、茭白、薤菜、芹菜、绿豆芽等。肺燥型咳嗽者还宜吃牛奶、胖大海、青菜、无花果、梨子、桑椹、枇杷等。</span><br><span class="line">样本分词效果：肺燥/型/咳嗽/干咳/无痰/少/痰/宜吃/以下/之品/百合/润肺/止咳/上海/常用/中草药/中说/百合/治肺/热/咳嗽/干咳/久/可用/鲜/百合/<span class="number">100</span>/<span class="number">150</span>/克/加/冰糖/适量/煎/汤/喝/可用/新/百合/<span class="number">120</span>/克/蜂蜜/<span class="number">50</span>/克/拌和/蒸熟/食用/甘蔗/有生/津/润肺/止咳/功效/肺燥/咳嗽/尤为/适宜/可单/饮/甘蔗汁/或用/蔗浆/粳米/糯米/煮成/稀薄/粥/食用/豆腐/浆/随息/居/饮食/谱/云/豆浆/清肺/补胃/润燥/化痰/燥热/型/干咳/少/痰/宜食/蜂蜜/善于/润燥/可治/肺燥/咳嗽/干咳/无痰/燥/愈者/单/蜂蜜/<span class="number">15</span>/<span class="number">30</span>/克/开水/冲服/早晚/次/可用/蜂蜜/<span class="number">50</span>/克/熟猪油/<span class="number">50</span>/克/同熬/匀/后备/每日/早晚/开水/冲服/调羹/饴糖/日华子/本草/记载/饴糖/消痰/止嗽/并润/五脏/凡燥/痰/少/痰/宜用/饴糖/<span class="number">30</span>/克/白萝卜/汁/<span class="number">100</span>/克/搅匀/蒸熟/分/次/服食/吃/天/润肺/止咳/效果/白木耳/滋阴/润肺/生津/止咳/适宜/肺燥/干咳/无痰/食用/增订/伪药/条辨/记载/白木耳/治肺/热/肺燥/干/咳痰/嗽/柿霜/润燥/化痰/止咳/作用/能治肺/热燥/医学/衷中/参西录/中/说得好/柿霜/入/肺/甘凉/滑润/其甘/能益/肺气/其凉/清肺/热/其滑/能利/肺/痰/其润/能滋/肺燥/每次/柿霜/<span class="number">10</span>/克/开水/冲服/每日/次/北沙参/养阴清/肺/祛痰/止咳/适宜/肺热燥/咳者/煎/水/喝/若用/北沙参/麦门冬/<span class="number">10</span>/克/川贝母/克/煎/服则/更妙/海/松子/润肺/燥/肺燥/咳者/宜食/玄感传/尸方/中有/风髓/汤/一法/治/肺燥/咳嗽/松子/仁/一两/<span class="number">30</span>/克/胡桃/仁/二两/<span class="number">100</span>/克/研膏/熟蜜/半两/<span class="number">15</span>/克/收之/每服/二钱/克/食后/沸汤/点服/采用/士材/三书/中/办法/用海/松子/仁/<span class="number">30</span>/克/粳米/<span class="number">50</span>/克/煮成/稀薄/粥/食用/花生/润肺/止咳/作用/适宜/燥/咳之人/服食/药性/考/中/记载/落花生/干咳/宜餐/滋燥润火/民间/常用/花生仁/大枣/蜂蜜/冰糖/<span class="number">30</span>/克/水/煎/吃/花生/枣/饮汤/日服/次/干咳/无痰/少/痰/颇/宜/白砂糖/润肺/生津/肺燥/咳嗽/之人宜/服食/本草纲目/云/白砂糖/润/心肺/燥热/治嗽/消痰/白砂糖/煎/炼而成/冰块/状/结晶/同样/润肺/止咳/作用/含化/煎/水/饮/燥热/均/宜/橄榄/清肺/生津/止咳/作用/本草/新/中/指出/润肺/滋阴/消痰/理气/止/咳嗽/中国/药科/大学/叶橘/泉/教授/认为/橄榄/清肺/解毒/化痰/之功/橄榄/润肺/滋阴/生/津液/故燥/咳之人/宜食/橄榄/清肺/消痰/作用/肺热/咳嗽/宜/榧子/润肺/燥/止/咳嗽/作用/本草/备要/记载/榧子/润肺/杀虫/生/生编/言/治咳嗽/本草/新/中/治肺/火/止/咳嗽/燥热/型/咳嗽/食/最宜/燕窝/性味/甘平/养阴润/燥/作用/本草/新/中曾/大养/肺/阴/化痰/止嗽/补而能/清/食物/宜忌/认为/润肺/消痰/涎/本草/新/指出/大补/元气/润肺/滋阴/治/虚劳/咳嗽/燥热/咳嗽/久/痰/少/痰/食/尤宜/芝麻/性味/甘辛/有润/五脏/作用/肺燥/干咳/之人/宜食/民间/有用/黑芝麻/<span class="number">125</span>/克/冰糖/<span class="number">30</span>/克/共/捣烂/每次/开水/冲服/<span class="number">15</span>/<span class="number">30</span>/克/早晚/各服/一次/专治/干咳/症/黄精/性子/味甘/润肺/养阴生/津/肺燥/型/咳嗽/久/痰/宜食/四川/中药/志/中/指出/补肾/润肺/益气/滋阴/治肺/虚/咳嗽/福建省/民间/常/以此/冰糖/炖/食/以治/肺燥/干咳/石斛/有生/津养/阴/作用/药品/化义/中/说得好/石斛/气味/轻清/合肺/之性/性凉/清/肺之宜/肺为/娇脏/独此/最为/相配/主治/肺气久/虚/咳嗽/不止/肺/虚/肺燥/久/咳少/痰/食/最宜/柿饼/性味/甘涩/凉/本草/通玄/中/认为/润/心肺/消痰/古代/医家/常用/治疗/肺燥/干咳/无痰/咳痰/带血/民间/有用/柿饼/川贝母/末/克/柿饼/挖/开去/核/纳入/川贝/末/饭上/蒸熟/一次/食尽/日服/次/肺燥/型/咳嗽/颇/宜/猪肉/滋阴/润燥/作用/尤其/肥/猪肉/干咳/燥/咳者/宜食/本草/备要/言/猪肉/生痰/惟风/痰/湿痰/寒痰/忌/老人/燥/痰/干咳/更须/肥/浓以/滋润/不可/拘泥于/猪肉/生痰/随息/居/饮食/谱/中/介绍/治/干嗽/猪肉/煮汤/吹/油/饮/阿胶/性子/味甘/滋阴/肺燥/干咳/肺/阴虚/所致/久/不止/食/尤宜/明/·/李时珍/言/阿胶/补血/液/故能/清肺/益阴而治/诸证/圣济总录/阿胶/饮/阿胶/为主/治久/咳嗽/甜/杏仁/性/平味甘/润肺/止咳/平喘/对燥/咳虚喘者/尤宜/食物/中药/便方/介绍/肺病/虚弱/老年/咳嗽/干咳/无痰/甜/杏仁/炒熟/每日/早/晚嚼食/～/<span class="number">10</span>/粒/或加/砂糖/一同/捣烂/细研/开水/冲服/日/次/鸭肉/性平/味甘咸/滋阴/止咳/本草/汇/中曾/滋阴/除蒸/化虚/痰/止/咳嗽/随息/居/饮食/谱/认为/鸭肉/滋/五脏/之阴/清/虚劳/之热/止嗽/故对/肺燥/型/咳嗽/干咳/无痰/少/痰/宜食/鸭蛋/滋阴/止咳/作用/肺燥/咳嗽/宜/风寒/型/咳嗽/之人/宜吃些/花生/赤/砂糖/南瓜/大蒜/薤白/砂仁/桂皮/香醋/咖啡/风热型/咳嗽/还宜/服食/苹果/草莓/菠萝/橄榄/椰子/浆/菊花/脑/瓠子/节瓜/苦瓜/地瓜/黄瓜/菜瓜/榧子/莴苣/茭白/薤菜/芹菜/绿豆芽/肺燥/型/咳嗽/宜/吃/牛奶/胖大海/青菜/无花果/梨子/桑椹/枇杷</span><br><span class="line">样本的TopK(<span class="number">10</span>)词：[(<span class="string">'咳嗽'</span>, <span class="number">25</span>), (<span class="string">'克'</span>, <span class="number">22</span>), (<span class="string">'肺燥'</span>, <span class="number">19</span>), (<span class="string">'润肺'</span>, <span class="number">17</span>), (<span class="string">'干咳'</span>, <span class="number">16</span>), (<span class="string">'痰'</span>, <span class="number">14</span>), (<span class="string">'止咳'</span>, <span class="number">12</span>), (<span class="string">'作用'</span>, <span class="number">11</span>), (<span class="string">'滋阴'</span>, <span class="number">10</span>), (<span class="string">'本草'</span>, <span class="number">9</span>)]</span><br></pre></td></tr></table></figure>
 <p>用户可以加载自己的自定义词典：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Jieba加载用户自定义词典</span></span><br><span class="line">jieba.load_userdict(<span class="string">'./data/user_dict.utf8'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Jieba加载用户自定义词典</span></span><br><span class="line">jieba.load_userdict(<span class="string">'./data/user_dict.utf8'</span>)</span><br></pre></td></tr></table></figure>
 <p>要求用户词典格式一般如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">朝三暮四 <span class="number">3</span> i</span><br><span class="line">大数据 <span class="number">5</span></span><br><span class="line">汤姆 nz</span><br><span class="line">公主坟</span><br></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">朝三暮四 <span class="number">3</span> i</span><br><span class="line">大数据 <span class="number">5</span></span><br><span class="line">汤姆 nz</span><br><span class="line">公主坟</span><br></pre></td></tr></table></figure>
 <p>每一行分为三个部分：词语、词频（可省略）、词性（可省略）；用空格隔开，顺序不可以颠倒；</p>
 <p>词典文件需要是 <strong><em>utf8</em></strong> 编码</p>
 
+    </main>
+    <footer class="post-footer">
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/02/Python-NLP-Chapter3/" data-id="cjtzj6zfc000648wdg9e1yx87" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jieba/">Jieba</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP/">NLP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/中文分词/">中文分词</a></li></ul>
-
-    </footer>
-  </div>
-  
-    
- <script src="/jquery/jquery.min.js"></script>
-  <div id="random_posts">
-    <h2>推荐文章</h2>
-    <div class="random_posts_ul">
-      <script>
-          var random_count =4
-          var site = {BASE_URI:'/'};
-          function load_random_posts(obj) {
-              var arr=site.posts;
-              if (!obj) return;
-              // var count = $(obj).attr('data-count') || 6;
-              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
-              arr = arr.slice(0, random_count);
-              var html = '<ul>';
-            
-              for(var j=0;j<arr.length;j++){
-                var item=arr[j];
-                html += '<li><strong>' + 
-                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
-                (item.title || item.uri) + '</a></strong>';
-                if(item.excerpt){
-                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
-                }
-                html +='</li>';
-                
-              }
-              $(obj).html(html + '</ul>');
-          }
-          $('.random_posts_ul').each(function () {
-              var c = this;
-              if (!site.posts || !site.posts.length){
-                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
-              } 
-               else{
-                load_random_posts(c);
-              }
-          });
-      </script>
-    </div>
-  </div>
-
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2019/03/31/Python-NLP-Chapter2/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">Python-NLP-Chapter2</div>
-    </a>
-  
-</nav>
-
-  
-</article>
- 
-     
-  <div class="comments" id="comments">
-    
-     
-       
-      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-    
-       
-      
-      
-  </div>
- 
-  
-
-</section>
-           
-    <aside id="sidebar">
-  
-    
-
-  
-    
-    <div class="widget-wrap">
-    
-      <div class="widget" id="toc-widget-fixed">
-      
-        <strong class="toc-title">文章目录</strong>
-        <div class="toc-widget-list">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter3-中文分词技术"><span class="toc-number">1.</span> <span class="toc-text">Chapter3 中文分词技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#List"><span class="toc-number">1.1.</span> <span class="toc-text">List</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#中文分词简介"><span class="toc-number">1.2.</span> <span class="toc-text">中文分词简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#规则分词"><span class="toc-number">1.3.</span> <span class="toc-text">规则分词</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#正向最大匹配法"><span class="toc-number">1.3.1.</span> <span class="toc-text">正向最大匹配法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逆向最大匹配法"><span class="toc-number">1.3.2.</span> <span class="toc-text">逆向最大匹配法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#双向最大匹配"><span class="toc-number">1.3.3.</span> <span class="toc-text">双向最大匹配</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#统计分词"><span class="toc-number">1.4.</span> <span class="toc-text">统计分词</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#语言模型"><span class="toc-number">1.4.1.</span> <span class="toc-text">语言模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HMM模型"><span class="toc-number">1.4.2.</span> <span class="toc-text">HMM模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他统计分词算法"><span class="toc-number">1.4.3.</span> <span class="toc-text">其他统计分词算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#混合分词"><span class="toc-number">1.5.</span> <span class="toc-text">混合分词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#中文分词工具——Jieba"><span class="toc-number">1.6.</span> <span class="toc-text">中文分词工具——Jieba</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Jieba的三种分词模式"><span class="toc-number">1.6.1.</span> <span class="toc-text">Jieba的三种分词模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实战：高频词提取"><span class="toc-number">1.6.2.</span> <span class="toc-text">实战：高频词提取</span></a></li></ol></li></ol></li></ol>
-          </div>
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/NLP/" rel="tag"><i class="fas fa-tags"></i>NLP</a>
+        
+        <a class="post-tag button" href="/tags/Python/" rel="tag"><i class="fas fa-tags"></i>Python</a>
+        
+        <a class="post-tag button" href="/tags/Jieba/" rel="tag"><i class="fas fa-tags"></i>Jieba</a>
+        
+        <a class="post-tag button" href="/tags/中文分词/" rel="tag"><i class="fas fa-tags"></i>中文分词</a>
+        
       </div>
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/03/31/Python-NLP-Chapter2/" rel="next" title="Python-NLP-Chapter2"><i class="fas fa-angle-left"></i><span class="nav-title">Python-NLP-Chapter2</span></a>
+      
     </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+</div>
 
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
   
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Maple W">
+  
+  <h1 class="author-name">Maple W</h1>
+  <h2 class="author-description">A blog of Maple W</h2>
+  <div class="site-count">
     
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">6</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">2</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">6</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
 
-  
-    
-  
-    
-  
-    
 
-  
-    <form class="search" action method="get" accept-charset="utf-8">
-  <input type="text" class="st-default-search-input" maxlength="20" style="height:40px" placeholder="Search">
-</form>
-
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-  
-  _st('install','s6-6Ju7bTPhxkF1WdtXs','2.0.0');
-</script>
-  
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#Chapter3-中文分词技术"><span class="toc-text">Chapter3 中文分词技术</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#List"><span class="toc-text">List</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#中文分词简介"><span class="toc-text">中文分词简介</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#规则分词"><span class="toc-text">规则分词</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#正向最大匹配法"><span class="toc-text">正向最大匹配法</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#逆向最大匹配法"><span class="toc-text">逆向最大匹配法</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#双向最大匹配"><span class="toc-text">双向最大匹配</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#统计分词"><span class="toc-text">统计分词</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#语言模型"><span class="toc-text">语言模型</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#HMM模型"><span class="toc-text">HMM模型</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#其他统计分词算法"><span class="toc-text">其他统计分词算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#混合分词"><span class="toc-text">混合分词</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#中文分词工具——Jieba"><span class="toc-text">中文分词工具——Jieba</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Jieba的三种分词模式"><span class="toc-text">Jieba的三种分词模式</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#实战：高频词提取"><span class="toc-text">实战：高频词提取</span></a></li></ol></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:maple_w@qq.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/floatingmaple" target="_blank">GitHub</a></li>
+        
+      </ul>
+    </div>
+    
+    
+  </div>
 </aside>
 
+
+          
+        </div>
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-left">
-      &copy; 2014 - 2019 Maple W&nbsp;|&nbsp;
-      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
-     <div id="footer-right">
-      联系方式&nbsp;|&nbsp;maple_w@qq.com
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Maple W</span><span class="year"><i class="far fa-copyright"></i>2019 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">BY-SA 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
     </div>
   </div>
-  <script type="text/javascript">
-    (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-    })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-    
-    _st('install','s6-6Ju7bTPhxkF1WdtXs','2.0.0');
-  </script>
 </footer>
- <script src="/jquery/jquery.min.js"></script>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">首页</a>
-  
-    <a href="/archives" class="mobile-nav-link">归档</a>
-  
-    <a href="/about" class="mobile-nav-link">关于</a>
-  
-</nav>
-    <img class="back-to-top-btn" src="/images/fly-to-top.png">
-<script>
-// Elevator script included on the page, already.
-window.onload = function() {
-  var elevator = new Elevator({
-    selector:'.back-to-top-btn',
-    element: document.querySelector('.back-to-top-btn'),
-    duration: 1000 // milliseconds
-  });
-}
-</script>
-      
-
-  
-    <script>
-      var cloudTieConfig = {
-        url: document.location.href, 
-        sourceId: "",
-        productKey: "e2fb4051c49842688ce669e634bc983f",
-        target: "cloud-tie-wrapper"
-      };
-    </script>
-    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
-    
-
-  
 
 
-
-
-
-
-
-<!-- author:forvoid begin -->
-<!-- author:forvoid begin -->
-
-<!-- author:forvoid end -->
-
-<!-- author:forvoid end -->
-
-
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      })
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      })
-    </script>
-    <script type="text/javascript" src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-
-
- <script src="/js/is.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-<script src="/js/elevator.js"></script>
-  </div>
-</body>
+  </body>
 </html>

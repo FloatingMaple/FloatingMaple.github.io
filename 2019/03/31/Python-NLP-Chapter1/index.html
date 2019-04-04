@@ -1,103 +1,235 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
-  <title>Python-NLP-Chapter1 | Maple&#39;s Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Chapter 1 NLP基础List NLP基础概念 NLP的发展与应用 NLP常用术语以及扩展介绍  NLP的概念NLP（Natural Language Processing ，自然语言处理），研究用计算机来 处理、理解以及运用人类语言 ，达到人与计算机之间进行有效通讯。 NLP的基本分类 自然语言理解 音系学 词态学 句法学 语义句法学 语用学   自然语言生成 自然语言文本    NLP">
-<meta name="keywords" content="NLP">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Python-NLP-Chapter1">
-<meta property="og:url" content="http://yoursite.com/2019/03/31/Python-NLP-Chapter1/index.html">
-<meta property="og:site_name" content="Maple&#39;s Blog">
-<meta property="og:description" content="Chapter 1 NLP基础List NLP基础概念 NLP的发展与应用 NLP常用术语以及扩展介绍  NLP的概念NLP（Natural Language Processing ，自然语言处理），研究用计算机来 处理、理解以及运用人类语言 ，达到人与计算机之间进行有效通讯。 NLP的基本分类 自然语言理解 音系学 词态学 句法学 语义句法学 语用学   自然语言生成 自然语言文本    NLP">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-02T08:38:07.075Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python-NLP-Chapter1">
-<meta name="twitter:description" content="Chapter 1 NLP基础List NLP基础概念 NLP的发展与应用 NLP常用术语以及扩展介绍  NLP的概念NLP（Natural Language Processing ，自然语言处理），研究用计算机来 处理、理解以及运用人类语言 ，达到人与计算机之间进行有效通讯。 NLP的基本分类 自然语言理解 音系学 词态学 句法学 语义句法学 语用学   自然语言生成 自然语言文本    NLP">
-  
-    <link rel="alternate" href="/atom.xml" title="Maple&#39;s Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon(2).ico">
-  
-  
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    <meta name="google-site-verification" content="cyNQUDlHaMwGNl5QY-arT68kgoG0r8DlIn-O3sXKdus">
+    
+    
+    <meta name="keywords" content="blog, IT, Maple">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Maple's Blog" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
 
-</head>
-</html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
     
-    <div id="header-inner" class="inner">
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ["$","$"], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      }
+    });
+    </script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += " has-jax";
+      }
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>Python-NLP-Chapter1 | Maple's Blog - The future commences now</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Maple's Blog</a></h1>
+        <h2 class="subtitle">The future commences now</h2>
       </div>
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">首页</a>
-        
-          <a class="main-nav-link" href="/archives">归档</a>
-        
-          <a class="main-nav-link" href="/about">关于</a>
-        
-      </nav>
       
     </div>
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Maple&#39;s Blog</a>
-      </h1>
-      
-    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
   </div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-Python-NLP-Chapter1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/31/Python-NLP-Chapter1/" class="article-date">
-  <time datetime="2019-03-31T09:54:53.000Z" itemprop="datePublished">2019-03-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python自然语言处理实战/">Python自然语言处理实战</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Python-NLP-Chapter1
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/31/Python-NLP-Chapter1/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Maple W">
+       <meta itemprop="description" content="A blog of Maple W">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Maple's Blog">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Python-NLP-Chapter1</h1>
+      <div class="post-meta">
         
-        <h1 id="Chapter-1-NLP基础"><a href="#Chapter-1-NLP基础" class="headerlink" title="Chapter 1 NLP基础"></a>Chapter 1 NLP基础</h1><h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><ul>
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-03-31T17:54:53+08:00">2019-03-31 17:54:53</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python自然语言处理实战/" itemprop="url" rel="index"><span itemprop="name">Python自然语言处理实战</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="Chapter-1-NLP基础"><a href="#Chapter-1-NLP基础" class="headerlink" title="Chapter 1 NLP基础"></a>Chapter 1 NLP基础</h1><h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><ul>
 <li>NLP基础概念</li>
 <li>NLP的发展与应用</li>
 <li>NLP常用术语以及扩展介绍</li>
@@ -215,247 +347,157 @@
 </li>
 </ol>
 
+    </main>
+    <footer class="post-footer">
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/31/Python-NLP-Chapter1/" data-id="cjtzj6zf1000048wd9xndngvd" class="article-share-link">分享</a>
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/NLP/" rel="tag"><i class="fas fa-tags"></i>NLP</a>
+        
+      </div>
       
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP/">NLP</a></li></ul>
-
     </footer>
-  </div>
+  </article>
   
-    
- <script src="/jquery/jquery.min.js"></script>
-  <div id="random_posts">
-    <h2>推荐文章</h2>
-    <div class="random_posts_ul">
-      <script>
-          var random_count =4
-          var site = {BASE_URI:'/'};
-          function load_random_posts(obj) {
-              var arr=site.posts;
-              if (!obj) return;
-              // var count = $(obj).attr('data-count') || 6;
-              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
-              arr = arr.slice(0, random_count);
-              var html = '<ul>';
-            
-              for(var j=0;j<arr.length;j++){
-                var item=arr[j];
-                html += '<li><strong>' + 
-                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
-                (item.title || item.uri) + '</a></strong>';
-                if(item.excerpt){
-                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
-                }
-                html +='</li>';
-                
-              }
-              $(obj).html(html + '</ul>');
-          }
-          $('.random_posts_ul').each(function () {
-              var c = this;
-              if (!site.posts || !site.posts.length){
-                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
-              } 
-               else{
-                load_random_posts(c);
-              }
-          });
-      </script>
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/03/31/Python-NLP-Abstract/" rel="next" title="Python-NLP-Abstract"><i class="fas fa-angle-left"></i><span class="nav-title">Python-NLP-Abstract</span></a>
+      
     </div>
-  </div>
-
-    
-<nav id="article-nav">
-  
-    <a href="/2019/03/31/Python-NLP-Chapter2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          Python-NLP-Chapter2
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/03/31/Python-NLP-Abstract/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">Python-NLP-Abstract</div>
-    </a>
-  
-</nav>
-
-  
-</article>
- 
-     
-  <div class="comments" id="comments">
-    
-     
-       
-      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-    
-       
+    <div class="page-nav-prev page-nav-item">
       
+      <a href="/2019/03/31/Python-NLP-Chapter2/" rel="prev" title="Python-NLP-Chapter2"><span class="nav-title">Python-NLP-Chapter2</span><i class="fas fa-angle-right"></i></a>
       
-  </div>
- 
+    </div>
+  </nav>
   
+  
+</div>
 
-</section>
-           
-    <aside id="sidebar">
-  
-    
-
-  
-    
-    <div class="widget-wrap">
-    
-      <div class="widget" id="toc-widget-fixed">
-      
-        <strong class="toc-title">文章目录</strong>
-        <div class="toc-widget-list">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-1-NLP基础"><span class="toc-number">1.</span> <span class="toc-text">Chapter 1 NLP基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#List"><span class="toc-number">1.1.</span> <span class="toc-text">List</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NLP的概念"><span class="toc-number">1.2.</span> <span class="toc-text">NLP的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NLP的基本分类"><span class="toc-number">1.3.</span> <span class="toc-text">NLP的基本分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NLP的研究任务"><span class="toc-number">1.4.</span> <span class="toc-text">NLP的研究任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NLP相关知识构成"><span class="toc-number">1.5.</span> <span class="toc-text">NLP相关知识构成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本术语"><span class="toc-number">1.5.1.</span> <span class="toc-text">基本术语</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#知识结构"><span class="toc-number">1.5.2.</span> <span class="toc-text">知识结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语料库-中文"><span class="toc-number">1.6.</span> <span class="toc-text">语料库(中文)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#探讨NLP的几个层面"><span class="toc-number">1.7.</span> <span class="toc-text">探讨NLP的几个层面</span></a></li></ol></li></ol>
           </div>
-      </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
     </div>
-
+  </div>
+  <div class="search-result-box" id="search-result"></div>
   
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Maple W">
+  
+  <h1 class="author-name">Maple W</h1>
+  <h2 class="author-description">A blog of Maple W</h2>
+  <div class="site-count">
     
-
-  
     
-  
     
-  
     
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">6</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">2</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">6</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
 
-  
-    <form class="search" action method="get" accept-charset="utf-8">
-  <input type="text" class="st-default-search-input" maxlength="20" style="height:40px" placeholder="Search">
-</form>
 
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-  
-  _st('install','s6-6Ju7bTPhxkF1WdtXs','2.0.0');
-</script>
-  
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#Chapter-1-NLP基础"><span class="toc-text">Chapter 1 NLP基础</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#List"><span class="toc-text">List</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#NLP的概念"><span class="toc-text">NLP的概念</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#NLP的基本分类"><span class="toc-text">NLP的基本分类</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#NLP的研究任务"><span class="toc-text">NLP的研究任务</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#NLP相关知识构成"><span class="toc-text">NLP相关知识构成</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#基本术语"><span class="toc-text">基本术语</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#知识结构"><span class="toc-text">知识结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#语料库-中文"><span class="toc-text">语料库(中文)</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#探讨NLP的几个层面"><span class="toc-text">探讨NLP的几个层面</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:maple_w@qq.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/floatingmaple" target="_blank">GitHub</a></li>
+        
+      </ul>
+    </div>
+    
+    
+  </div>
 </aside>
 
+
+          
+        </div>
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-left">
-      &copy; 2014 - 2019 Maple W&nbsp;|&nbsp;
-      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
-     <div id="footer-right">
-      联系方式&nbsp;|&nbsp;maple_w@qq.com
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Maple W</span><span class="year"><i class="far fa-copyright"></i>2019 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">BY-SA 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
     </div>
   </div>
-  <script type="text/javascript">
-    (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-    })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-    
-    _st('install','s6-6Ju7bTPhxkF1WdtXs','2.0.0');
-  </script>
 </footer>
- <script src="/jquery/jquery.min.js"></script>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">首页</a>
-  
-    <a href="/archives" class="mobile-nav-link">归档</a>
-  
-    <a href="/about" class="mobile-nav-link">关于</a>
-  
-</nav>
-    <img class="back-to-top-btn" src="/images/fly-to-top.png">
-<script>
-// Elevator script included on the page, already.
-window.onload = function() {
-  var elevator = new Elevator({
-    selector:'.back-to-top-btn',
-    element: document.querySelector('.back-to-top-btn'),
-    duration: 1000 // milliseconds
-  });
-}
-</script>
-      
-
-  
-    <script>
-      var cloudTieConfig = {
-        url: document.location.href, 
-        sourceId: "",
-        productKey: "e2fb4051c49842688ce669e634bc983f",
-        target: "cloud-tie-wrapper"
-      };
-    </script>
-    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
-    
-
-  
 
 
-
-
-
-
-
-<!-- author:forvoid begin -->
-<!-- author:forvoid begin -->
-
-<!-- author:forvoid end -->
-
-<!-- author:forvoid end -->
-
-
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      })
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      })
-    </script>
-    <script type="text/javascript" src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-
-
- <script src="/js/is.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-<script src="/js/elevator.js"></script>
-  </div>
-</body>
+  </body>
 </html>

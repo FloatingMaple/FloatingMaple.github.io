@@ -1,0 +1,41 @@
+.main {
+  font: 16px Roboto, "Noto Sans", "Noto Sans CJK", Helvetica, Arial, sans-serif, "Roboto Slab", "Noto Serif", "Noto Serif CJK", Georgia, "Times New Roman", serif;
+  margin-top: -3em;
+}
+.main .main-container {
+  width: auto;
+  background: #eee;
+  box-sizing: border-box;
+  box-shadow: 0 0.5em 1em 0.5em rgba(0,0,0,0.19);
+  border-bottom-left-radius: 0.3em;
+  border-bottom-right-radius: 0.3em;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -o-box-orient: horizontal;
+  flex-direction: row;
+  -o-box-pack: justify;
+  justify-content: space-between;
+  -o-box-align: stretch;
+  align-items: stretch;
+  -webkit-box-lines: single;
+  -moz-box-lines: single;
+  -o-box-lines: single;
+  flex-wrap: nowrap;
+  padding: 0;
+}
+.main .main-container .content {
+  -o-box-flex: 1;
+  box-flex: 1;
+  flex: 1 0 auto;
+  width: 75%;
+}
+@media (max-width: 60em) {
+  .main .main-container {
+    -o-box-orient: vertical;
+    flex-direction: column;
+  }
+  .main .main-container .content {
+    width: 100%;
+  }
+}
