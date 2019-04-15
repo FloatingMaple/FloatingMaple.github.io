@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    <meta name="google-site-verification" content="cyNQUDlHaMwGNl5QY-arT68kgoG0r8DlIn-O3sXKdus">
+    
+    
+    <meta name="keywords" content="blog, IT, Maple">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Maple's Blog" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ["$","$"], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      }
+    });
+    </script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += " has-jax";
+      }
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">複製</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">複製</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已複製";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "複製";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>Paper-TextTruth | Maple's Blog - The future commences now</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Maple's Blog</a></h1>
+        <h2 class="subtitle">The future commences now</h2>
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切換導航欄"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首頁</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">歸檔</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分類</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">標籤</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">關於</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/Paper-TextTruth/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Maple W">
+       <meta itemprop="description" content="A blog of Maple W">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Maple's Blog">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Paper-TextTruth</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-04-15T21:41:31+08:00">2019-04-15 21:41:31</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/论文阅读/" itemprop="url" rel="index"><span itemprop="name">论文阅读</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="TextTruth"><a href="#TextTruth" class="headerlink" title="TextTruth:"></a>TextTruth:</h1><p><strong>An Unsupervised Approach to Discover Trustworthy Information from Multi-Sourced Text Data</strong></p>
+<p>一种无监督方法，从多源文本数据中发现可信信息</p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p><strong>Truth discovery   真实信息发现/真值发现</strong></p>
+<p><strong>含义：</strong></p>
+<p>​    能够在不受任何监督的情况下从嘈杂的多源数据中提取可信的信息。</p>
+<p><strong>问题：</strong></p>
+<p>​    现有方法多针对结构化数据；</p>
+<p>​    文本数据有其独特的特点，无法满足从原始文本数据中提取可信信息的强烈需求</p>
+<p><strong>主要挑战：</strong></p>
+<ul>
+<li>文本答案的多因素属性(答案可能包含多个关键要素)</li>
+<li>单词用法的多样性（不同的单词可能有相同的语义）</li>
+</ul>
+<p><strong>本文方法：</strong></p>
+<ul>
+<li>将从特定问题的答案中提取的关键词组合成多个可解释的因素；</li>
+<li>从而推断出答案因素和答案提供者的可信度</li>
+<li>之后，每个问题的答案都可以根据因素的可信度进行排序</li>
+<li>非监督方法，能够应用于涉及文本数据的各种应用场景</li>
+<li>能够准确选择可信答案，即使答案涉及多因素</li>
+</ul>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><strong>海量数据在线平台：</strong></p>
+<p>​    <em>Amazon Mechanical Turk ； Stack Exchange ； Yahoo Answers</em></p>
+<p><strong>问题：</strong></p>
+<p>​    此类多源数据通常由非专家在线用户提供，因此数据中可能存在错误甚至冲突</p>
+<p><strong>两个基本原则：</strong>（真值发现的）</p>
+<ul>
+<li>如果用户提供了很多值得信赖的信息或真实答案，其可靠性就很高</li>
+<li>如果一个答案得到了很多可靠用户的支持，该答案更可能是正确的</li>
+</ul>
+<p><strong>文本数据的两个特性：</strong></p>
+<ul>
+<li>答案可能是多要素的，给定的文本答案很难覆盖所有要素</li>
+<li>单词用法的多样性，用户可能通过不同的关键词传达非常相似的意思</li>
+</ul>
+<p><img src="/2019/04/15/Paper-TextTruth/1555292296700.png" alt="Figure 1"></p>
+<p>​    左图：用户、答案、问题之间的关系</p>
+<p>​    中图：例证展示关键词、答案要素【特性2】</p>
+<p>​    右图：用户的答案中包含的要素【特性1】</p>
+<p><strong>TextTruth：</strong></p>
+<p>​    将每个答案中的关键词作为输入，输出其候选答案可信度的排名</p>
+<ol>
+<li>步骤：<ol>
+<li>首先将文本答案中的关键词转换为经过训练的可计算向量表示（细粒度）    </li>
+<li>通过对语义相似的关键词进行聚类，对答案的多样性进行建模（从每个答案要素的角度分析可信性）</li>
+</ol>
+</li>
+<li>优点：<ol>
+<li>通过对每个答案要素的可信度进行评估，可以处理文本答案部分正确现象</li>
+<li>通过将答案关键词建模为向量表示形式，使得答案中的要素可计算，从而解决文本数据中用词多样性问题</li>
+</ol>
+</li>
+</ol>
+<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><h3 id="Truth-Discovery"><a href="#Truth-Discovery" class="headerlink" title="Truth Discovery"></a>Truth Discovery</h3><ul>
+<li><p>概念</p>
+<p>从相互冲突的多源数据中识别出可信信息</p>
+</li>
+<li><p>处理场景</p>
+<ul>
+<li>不同数据类型</li>
+<li>数据源依赖关系</li>
+<li>细粒度数据源可靠性</li>
+<li>实体/对象依赖关系</li>
+<li>长尾数据</li>
+</ul>
+</li>
+</ul>
+<h3 id="Community-Question-Answering"><a href="#Community-Question-Answering" class="headerlink" title="Community Question Answering"></a>Community Question Answering</h3><ul>
+<li><p>概念</p>
+<p>CQA，社区问答系统</p>
+</li>
+<li><p>现有工作分类</p>
+<ul>
+<li>从众包答案中提取特征，将答案质量评估任务转化为分类或排序问题<ul>
+<li>通常需要高质量训练集和各种有用的特性来训练模型，实际应用较为困难</li>
+</ul>
+</li>
+<li>转化为专家寻找问题（expert finding problem），基于答案提供者来推断答案的质量<ul>
+<li>需要外部信息， 例如询问者-回答者交互、投票信息等</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Answer-Selection"><a href="#Answer-Selection" class="headerlink" title="Answer Selection"></a>Answer Selection</h3><ul>
+<li><p>概念</p>
+<p>答案选择，从一组候选句子中选择最合适的答案</p>
+</li>
+<li><p>不同方法</p>
+<ul>
+<li>基于词汇特征</li>
+<li>基于神经网络的模型表示一个句子在向量空间中的意义，并借此比问题和候选答案</li>
+<li>引入注意力机制，增强句子表征学习</li>
+</ul>
+</li>
+</ul>
+<h2 id="Problem-Formulation"><a href="#Problem-Formulation" class="headerlink" title="Problem Formulation"></a>Problem Formulation</h2><p><strong>术语：</strong></p>
+<ul>
+<li><p>Question 问题</p>
+<p>一个问题 <strong><em>q</em></strong> 包含 <strong><em>N~q~</em></strong> 个单词，并且能够被用户回答</p>
+</li>
+<li><p>Answer 回答</p>
+<p>用户 <strong><em>u</em></strong> 对于问题 <strong><em>q</em></strong> 给出的一个回答表示为 <strong><em>a~qu~</em></strong></p>
+</li>
+<li><p>Answer Keyword 答案关键词</p>
+<p>答案关键词是答案中的领域转由内容单词/短语</p>
+<p>用户 <strong><em>u</em></strong> 对问题 <strong><em>q</em></strong> 给出的答案中的第<strong>m</strong>个答案关键词表示为 <strong><em>x~qum~</em></strong></p>
+</li>
+<li><p>Answer Factor 答案要素</p>
+<p>答案要素是答案的关键点，用答案关键词的簇表示</p>
+<p>问题 <strong><em>q</em></strong> 的答案中第 <strong>k</strong> 个答案要素表示为 <strong><em>c~qk~</em></strong></p>
+</li>
+<li><p>Problem Definition 问题定义</p>
+<p>对每个问题，不同用户可能提供不同答案；答案可能由包含多个要素的复合句组成；答案可能部分正确</p>
+<p>用户集 $ {u}_1^U$      问题集 ${q}<em>1^Q$     答案集${ a</em>{qu} }_{q,u=1,1}^{Q,U}$     <strong>U</strong>  用户数量    <strong>Q</strong>  问题数量    </p>
+<p>目的：提取出每个问题的<strong>高可信度答案</strong>和答案中的<strong>高可信度关键要素</strong></p>
+</li>
+</ul>
+<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><ul>
+<li><p><strong>问题</strong></p>
+<ul>
+<li>在将真值发现方法应用于复杂自然语言问题寻找可信答案时，应该考虑到答案之间的语义相关性，从而准确估计用户的可信度。但是学习整个答案的准确表示向量很困难，特别是上下文语料库不丰富时</li>
+<li>自然语言复杂性，答案的意义过于复杂，无法用一个向量表示</li>
+</ul>
+</li>
+<li><p><strong>处理方式</strong></p>
+<ul>
+<li>使用更加细粒度的语义单元（semantic units），例如答案要素（answer factors）来确定答案的可信度</li>
+</ul>
+</li>
+<li><p><strong>处理步骤</strong></p>
+<ul>
+<li><p>对每个问题，首先提取每个答案中的关键词，并学习其向量表示</p>
+</li>
+<li><p>然后将这些词/短语级关键词聚类到语义聚类中，即要素(factors)</p>
+<p>这些要素代表了问题答案中所有可能的关键点，可以用来确定答案的可信度；</p>
+<p>对于每个簇中的关键字，由于他们具有非常相似的语义含义，他们的可信度应该几乎相同。</p>
+</li>
+<li><p>用户可能有不同的可信度，能够通过他们提供的答案反映出来</p>
+</li>
+<li><p>提出一种两步方法估计每个答案的可信度</p>
+<ul>
+<li>指定一个考虑用户可靠性的概率模型来建模关键词的生成<ul>
+<li>首先生成答案要素和其语义参数的混合</li>
+<li>然后生成双重用户可信变量，对某个用户提供的答案要素的准确性和全面性进行建模</li>
+<li>最后根据语义、答案要素的可信度、提供答案的用户的可信度来选择答案要素；并通过VMF分布生成关键词嵌入向量</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>优点</strong></p>
+<ul>
+<li>答案要素和用户可信度的设计考虑了答案的多因素特性</li>
+<li>关键词嵌入向量的生成也捕捉到了词汇用法的多样性</li>
+<li>因此能够捕获文本数据的独特特征</li>
+</ul>
+</li>
+</ul>
+<h3 id="Generative-Model"><a href="#Generative-Model" class="headerlink" title="Generative Model"></a>Generative Model</h3><p>​    建立一个概率模型共同学习每个问题的<strong>答案要素</strong>和每个答案要素的<strong>真值标签（truth labels）</strong></p>
+<p>​    对一个答案 $a_{qu}$ ，提取领域特定的答案关键词（keywords），并得到它们的归一化（normalized）向量表示</p>
+<p>​    所有向量表示的集合记作  ${v_{qum}}$  ，也作为概率模型的观察（observation）</p>
+<p><img src="/2019/04/15/Paper-TextTruth/1555298663041.png" alt="Figure 2"></p>
+<p>​    提出模型的盘子表示法(Plate notation)；白色圆圈表示潜在变量，灰色圆圈表示观察，其他表示超参数</p>
+<hr>
+<p><strong>模型组成：</strong></p>
+<h4 id="Answer-Factor-Modeling"><a href="#Answer-Factor-Modeling" class="headerlink" title="Answer Factor Modeling"></a>Answer Factor Modeling</h4><p>答案要素建模</p>
+<p>​    模型首先根据狄利克雷分布(Dirichlet distribution)生成要素的混合。</p>
+<p>​    形式上，混合分布 $\pi_q$ 生成：(服从概率分布)<br>$$<br>\pi \sim Dirichlet(\beta)<br>$$<br>​    其中，$\beta$ 是 $K_q$ 维向量，$K_q$ 表示问题 <strong><em>q</em></strong> 的答案中所含的要素个数</p>
+<p>​    对于问题 <strong><em>q</em></strong> 下的第 <strong>k</strong> 个答案要素，通过一个二元真值标签  $t_{qk}$ 对其可信度进行建模。</p>
+<p>​    模型首先生成先验事实概率 $ \gamma _{qk}$ ，它决定了每个要素为真值的先验分布，服从超参数为 $\alpha_1^{(a)}$ 和 $\alpha <em>0^{(a)}$ 的Beta分    布<br>$$<br>\gamma</em>{qk} \sim Beta(\alpha_1^{(a)},\alpha_0^{(a)})<br>$$<br>​    然后真值标签（truth label） $t_{qk} $ 由参数为 $\gamma_{qk} $ 的伯努利分布（Bernoulli distribution）生成<br>$$<br>t_{qk} \sim Bernoulli(\gamma_{qk})<br>$$<br>​    最后，为了对每个答案要素的语义特征进行建模，通过其共轭先验分布 $\Phi (\mu_{qk},\kappa_{qk};m_0,R_0,c) $ 定义vMF分布    的质心参数（centroid parameter） $\mu_{qk}$ 、集中参数（concentrate parameter） $\kappa_{qk}$ 。<br>$$<br>\mu_{qk},\kappa_{qk} \sim \Phi (\mu_{qk},\kappa_{qk};m_0,R_0,c)<br>$$<br>​    其中，$\Phi (\mu_{qk},\kappa_{qk};m_0,R_0,c)$ 定义：</p>
+<p>​                            $\Phi (\mu_{qk},\kappa_{qk};m_0,R_0,c) \propto {C_D(\kappa_{qk})}^cexp(\kappa_{kq}R_0m_0^T\mu_{qk})$ </p>
+<p>​    $C_D(\kappa) = \frac{\kappa^{D/2-1}}{I_{D/2-1(\kappa)}}$    ;   $I_{D/2-1}(·)$ 是第一类修正贝塞尔函数（modified Bessel function of the first kind）</p>
+<h4 id="User-Reliability-Modeling"><a href="#User-Reliability-Modeling" class="headerlink" title="User Reliability Modeling"></a>User Reliability Modeling</h4><p>用户可信度建模</p>
+<p>​    <strong>每个用户的可信度是由其提供的答案推断出来的。</strong></p>
+<p>​    由于用户提供答案的策略不同（有些人可能只提供很有信心的答案，一些人的答案中可能含有不同可信度的    答案要素），需要使用二重评分（two-fold score）来为用户可信度建模</p>
+<p>​    <strong>假设</strong>我们事先知道所有的答案要素（answer factors）和它们的真值标签（truth labels），对所有问题和答    案：</p>
+<p>​        $TP_u $     用户 <strong><em>u</em></strong> 的答案所覆盖的可信要素     $FP_u $     用户 <strong><em>u</em></strong> 的答案所覆盖的不可信要素</p>
+<p>​        $FN_u$     用户 <strong><em>u</em></strong> 的答案未覆盖的可信要素     $FN_u $     用户 <strong><em>u</em></strong> 的答案未覆盖的不可信要素</p>
+<table>
+<thead>
+<tr>
+<th>真实情况</th>
+<th>预测结果</th>
+<th>预测结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>正例</td>
+<td>反例</td>
+</tr>
+<tr>
+<td>正例</td>
+<td>TP【真正例】</td>
+<td>FN【假反例】</td>
+</tr>
+<tr>
+<td>反例</td>
+<td>FP【假正例】</td>
+<td>TN【真反例】</td>
+</tr>
+</tbody>
+</table>
+<p>​        $false\space positive\space  rate = \frac{FP_u}{FP_u+TN_u} $     $true\space positive\space rate = \frac{TP_u}{TP_u+FN_u}$</p>
+<p>​    即可利用假正例率 <strong><em>FPR</em></strong> 、真正例率 <strong><em>TPR</em></strong> 来充分表征用户 <strong><em>u</em></strong> 的可信度</p>
+<p>​    <strong>但是在生成过程中，答案要素及其真值标签是事先不知道的</strong></p>
+<p>​    定义二重用户可信度变量 $\phi_u^0$  和  $\phi_u^1$  对用户 <strong><em>u</em></strong> 的答案所覆盖的 <strong><em>FPR</em></strong> 、 <strong><em>TPR</em></strong>  进行建模：</p>
+<p>​    对于每个用户 <strong><em>u</em></strong> ，我们通过两个Beta分布生成 $\phi_u^0$  和  $\phi_u^1$<br>$$<br>\phi_u^0 \sim Beta(\alpha_{0,1},\alpha_{0,0})    \qquad\qquad\qquad<br> (False\space Positive\space Rate)<br>\<br> \phi_u^1 \sim Beta(\alpha_{1,1},\alpha_{1,0})    \qquad\qquad\qquad<br> (True\space Positive\space Rate)<br>$$<br>​    其中 $\alpha_{0,1}$  假正例计数    $\alpha_{0,0}$ 真反例计数    $\alpha_{1,1}$ 真正例计数    $\alpha_{1,0}$ 假反例计数</p>
+<h4 id="Observation-Modeling"><a href="#Observation-Modeling" class="headerlink" title="Observation Modeling"></a>Observation Modeling</h4><p>观察建模</p>
+<p>​    使用关键词的向量表示作为观察（observations）</p>
+<p>​    对用户 <strong><em>u</em></strong> 对问题 <strong><em>q</em></strong> 的第 <strong>m</strong> 个单词表示，指定了如下的生成过程：</p>
+<ul>
+<li><p>首先，定义一个二元指标（binary indicator） $y_{u,qk}$  ，表示基于用户 <strong><em>u</em></strong> 的可信度时，问题 <strong><em>q</em></strong> 的答案中第 <strong>k</strong> 个答案要素是否应该被用户 <strong><em>u</em></strong> 所覆盖。</p>
+<p>对于问题 <strong><em>q</em></strong> ，如果其真值标签 $t_{qk} = 1$ ，用户 <strong><em>u</em></strong> 的回答覆盖第 <strong>k</strong> 个答案要素的概率遵循可信度参数为 $\phi_u^0 $ 的伯努利分布（Bernoulli distribution）<br>$$<br>y_{u,qk} \sim Bernoulli(\phi_u^0) \qquad\qquad\qquad If t_{qk}=0,<br>\<br>y_{u,qk} \sim Bernoulli(\phi_u^1) \qquad\qquad\qquad If t_{qk}=1,<br>$$<br>至此，已经确定了答案 $a_{qu}$ 应该覆盖的答案要素集，并且考虑了用户 <strong><em>u</em></strong> 的可信度</p>
+</li>
+<li><p>然后，对于答案 $a_{qu}$ 中的第 <strong>m</strong> 个关键词，其要素标签（factor label） $z_{qum} $ 由概率密度函数表示为：</p>
+</li>
+</ul>
+<p>$$<br>P(z_{qum}=k|\pi_q,y_{u,qk}) \propto<br>\begin{cases}<br>\pi_{qk} \qquad &amp; if\space y_{u,qk}=1, \<br>0 &amp; if\space y_{u,qk}=0.<br>\end{cases}<br>$$</p>
+<p>​    概率密度函数综合考虑了答案要素混合分布（answer factor mixture distribution）和二元指标 $y_{u,q·}$ ，这意    味着在确定一个答案关键词时考虑到了语义和用户可信度</p>
+<ul>
+<li><p>确定要素标签后，模型对描述其对应的要素的语义含义的关键词向量进行采样</p>
+<p>该过程中不应该涉及用户可信度</p>
+<p>关键词的向量表示（$v_{qum}$）是从参数为 $\mu_{qk}$ , $\kappa_{qk}$ 的<strong>vMF</strong>分布中随机抽样：<br>$$<br>v_{qum} \sim vMF(\mu_{qk},\kappa_{qk}).<br>$$<br>对于一个遵循<strong>vMF</strong>分布的 <strong>D</strong> 维单元语义向量（unit semantic vector） <strong><em>v</em></strong> ，其概率密度函数为：<br>$$<br>p(v_{qum}|\mu_{qk},\kappa_{qk})=C_D(\kappa_{qk})exp(\kappa_{qk}\mu_{qk}^Tv_{qum})<br>$$<br>对<strong>vMF</strong>分布，有两个参数：</p>
+<p>​    平均方向（mean direction） $\mu_{qk}$ ,  集中参数（concentration parameter） $\kappa_{qk} $   ($\kappa_{qk} &gt;0$)</p>
+<p>$v_{qum}$ 在单位球（the unit sphere）上的分布集中在平均方向 $\mu_{qk}$ 的方向上，当 $\kappa_{qk}$ 越大时越集中</p>
+<p>在本文场景中，均值向量 $\mu$ 作为一个单位球上的语义关注（semantic focus on the unit sphere），并围绕其产生相关的语义映射（produces relevant semantic embeddings around it）</p>
+</li>
+</ul>
+<h4 id="Overall-generative-process"><a href="#Overall-generative-process" class="headerlink" title="Overall generative process"></a>Overall generative process</h4><p>​    <img src="/2019/04/15/Paper-TextTruth/1555321921375.png" alt="Figure 3"></p>
+<h3 id="Trustworthy-Aware-Answer-Scoring"><a href="#Trustworthy-Aware-Answer-Scoring" class="headerlink" title="Trustworthy-Aware Answer Scoring"></a>Trustworthy-Aware Answer Scoring</h3><p>信任感知的答案评分</p>
+<p>​    答案的可信度应该由<strong>其提供的正确信息的量来评估</strong></p>
+<p>​    给定问题 <strong><em>q</em></strong> 的每个答案要素的推断真值标签（inferred truth labels），根据与真值标签（truth label）$t_{qk}$</p>
+<p>​    $t_{qk}=1$ 的答案要素相关的答案 $a_{qu}$ 中答案关键词的数量对答案进行评分：<br>$$<br>score_{qu} = \sum_{k=1}^{K_q}N_{u,qk}\Bbb I(t_{qk}=1),<br>$$<br>​    其中    </p>
+<p>​            $K_q $ 是问题 <strong><em>q</em></strong> 的答案要素的数量    $N_{u,qk}$ 表示用户 <strong><em>u</em></strong> 提供的，且被聚簇到要素 <strong><em>k</em></strong> 中的关键词数量</p>
+<p>​            $\Bbb I(t_{qk}=1) =1 \quad if\space t_{qk}=1 $         $\Bbb I(t_{qk}=1) =0 \quad if\space t_{qk}=0$</p>
+<h3 id="Model-Fitting"><a href="#Model-Fitting" class="headerlink" title="Model Fitting"></a>Model Fitting</h3><p>模型拟合</p>
+<p>​    估计潜在变量和用户可信度参数的方法</p>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><h3 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h3><p>数据集</p>
+<ul>
+<li><p>SuperUser Dataset  &amp;  ServerFault Dataset</p>
+<ul>
+<li><p>介绍：</p>
+<p>来自社区问答CQA网站 <em>SuperUser.com</em> 和 <em>ServerFault.com</em> ,主要分别关注日常电脑使用和服务器管理方面的问题。</p>
+</li>
+<li><p>任务：</p>
+<p>为每个问题提取最可信的答案</p>
+</li>
+<li><p>使用来自网站的答案投票作为评估的基本事实（groundtruths）</p>
+</li>
+</ul>
+</li>
+<li><p>Student Exam Dataset</p>
+<ul>
+<li><p>介绍：</p>
+<p>北得克萨斯大学一个本科生班级提供的计算机科学导论作业的答案，由30名学生提交</p>
+</li>
+<li><p>任务：</p>
+<p>为每个问题提取Top-K可信的学生答案</p>
+</li>
+<li><p>groundtruth由教师给出，所有的答案由两个评委独立评分，使用从0(完全错误)-5(完美答案)的整数范围</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Data Statistics.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>SuperUser</th>
+<th>ServerFault</th>
+<th>Student Exam</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>of Questions</td>
+<td>3379</td>
+<td>7621</td>
+<td>80</td>
+</tr>
+<tr>
+<td>of Users</td>
+<td>1036</td>
+<td>1920</td>
+<td>30</td>
+</tr>
+<tr>
+<td>of Answers</td>
+<td>16014</td>
+<td>40373</td>
+<td>2273</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pre-Processing 预处理</strong></p>
+<p>​    对所有的数据集，抛弃所有代码块、HTML标记、文本中的停止符；</p>
+<p>​    使用实体字典（entity dictionary）和Stanford POS-Tagger 提取答案关键词</p>
+<p>​    为训练词向量表示，使用所有抓取的文本作为语料库</p>
+<p>​    使用 <em>gensim</em> 包中的 Skip-gram 结构学习每个答案关键词的向量表示</p>
+<p>​    词向量维度为100，上下文窗口大小为5，最小出现次数为20</p>
+<h3 id="Comparison-Methods"><a href="#Comparison-Methods" class="headerlink" title="Comparison Methods"></a>Comparison Methods</h3><ul>
+<li><p>Bag-of-Word（BOW） Similarity</p>
+<p>利用词袋模型，问题向量与其对应的答案向量之间的相似性对答案进行排序</p>
+</li>
+<li><p>Topic Similarity</p>
+<p>利用LDA模型对每个问题及对应的答案提取一个100维的主题表示，类似BOW，根据问题的余弦相似度进行排序</p>
+</li>
+<li><p>CRH + Topic Dist.</p>
+</li>
+<li><p>CRH + Word Vec.</p>
+</li>
+<li><p>CATD + Topic Dist.</p>
+</li>
+<li><p>CATD + Word Vec.</p>
+</li>
+</ul>
+<p><strong>Evaluation Metrics 评价指标</strong></p>
+<ul>
+<li>在CQA数据集上，使用每个问题返回最佳答案的精确度（precision）</li>
+<li>在学生测试数据集上，使用每个问题返回的Top-K的答案的平均得分</li>
+</ul>
+<h3 id="Performance-and-Analysis"><a href="#Performance-and-Analysis" class="headerlink" title="Performance and Analysis"></a>Performance and Analysis</h3><table>
+<thead>
+<tr>
+<th>Method</th>
+<th>ServerFault</th>
+<th>SuperUser</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BOW Similarity</td>
+<td>0.2077</td>
+<td>0.1944</td>
+</tr>
+<tr>
+<td>Topic Similarity</td>
+<td>0.2462</td>
+<td>0.2462</td>
+</tr>
+<tr>
+<td>CATD + Topic Dist.</td>
+<td>0.2311</td>
+<td>0.2308</td>
+</tr>
+<tr>
+<td>CATD + Word Vec.</td>
+<td>0.1821</td>
+<td>0.2234</td>
+</tr>
+<tr>
+<td>CRH + Topic Dist.</td>
+<td>0.2453</td>
+<td>0.2453</td>
+</tr>
+<tr>
+<td>CRH + Word Vec.</td>
+<td>0.1847</td>
+<td>0.2231</td>
+</tr>
+<tr>
+<td>TextTruth</td>
+<td><strong>0.3985</strong></td>
+<td><strong>0.4019</strong></td>
+</tr>
+</tbody>
+</table>
+<p><img src="/2019/04/15/Paper-TextTruth/1555334285637.png" alt="Figure 4"></p>
+<p><strong>Analysis</strong></p>
+<ul>
+<li><p>基于检索的方法（BOW Similarity、Topic Similarity）</p>
+<p>仅根据问题和答案之间的语义相似性对答案进行排序。</p>
+<p>问题本身不一定会包含理想答案中应该包含的所有语义。</p>
+<p>因此只能发现相关的答案，不能发现可信的答案</p>
+</li>
+<li><p>现有的真值发现方法能够捕获答案排序的用户可信度，但并不理想</p>
+<p>因为将答案视为一个完整的语义单元，忽略了每个答案的语义可能是复杂的，单个向量无法捕获这些答案之间的内在关联</p>
+<p>CRH和CATD将这些单个向量表示的加权聚合作为“真实”语义表示来评估用户可靠性，只会产生不准确的表示，进一步导致不正确的汇总结果</p>
+</li>
+</ul>
+<h3 id="Case-Study"><a href="#Case-Study" class="headerlink" title="Case Study"></a>Case Study</h3><p><img src="/2019/04/15/Paper-TextTruth/1555334682417.png" alt="Figure 5"></p>
+<p>​    蓝色的是估计的可信的关键词，红色的是估计不可信的或不相关的关键词</p>
+<p><strong>表现分析：</strong></p>
+<p>​    可以看到能够自动选择对问题有意义的关键词，例如 <strong><em>node</em></strong> 、<strong><em>tree</em></strong> 、<strong><em>root</em></strong></p>
+<p>​    可以看到排名最高的答案中可信关键词比排名靠后的不可信答案中的多</p>
+<p>​    如果是使用现有的方法，问题本身只包括一个关键词 <strong><em>tree</em></strong> ，基于检索的方法会将不可信答案排在Top2之前，    因为包含的关键词与问题中的完全相同；其次看到正确的关键词涉及多个要素，这在自然语言问答中也十分    常见，现有的方法也无法成功处理。</p>
+<h3 id="User-Reliability-Validation"><a href="#User-Reliability-Validation" class="headerlink" title="User Reliability Validation"></a>User Reliability Validation</h3><p>​    CQA数据集中没有直接的用户可信度值，研究学生考试数据集中估计的用户可信度。 </p>
+<p><img src="/2019/04/15/Paper-TextTruth/1555335156210.png" alt="Figure 6"></p>
+<p>​    蓝点表示用户，y轴为用户可信度的groundtruth，x轴为估计的用户可信度</p>
+<p>​    可以看到，groundtruth用户可信度Y增加时，估计的用户可靠性得分X通常会增加</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>由于自然语言的语义模糊性和文本答案的复杂性，现有的真值发现方法都存在对非结构化文本数据的处理问题。</p>
+<p>本文提出了一个概率模型 TextTruth，该模型将从答案中提取的关键要素向量表示作为输入，并基于每个答案中关键要素的可信度进行排序输出。</p>
+<p>具体来说，模型通过对答案要素嵌入表示的生成过程建模，共同学习每个答案要素聚类的聚类标签和真值标签。</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Data-Mining/" rel="tag"><i class="fas fa-tags"></i>Data Mining</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/04/02/Python-NLP-Chapter3/" rel="next" title="Python-NLP-Chapter3"><i class="fas fa-angle-left"></i><span class="nav-title">Python-NLP-Chapter3</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Maple W">
+  
+  <h1 class="author-name">Maple W</h1>
+  <h2 class="author-description">A blog of Maple W</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">歸檔</div>
+      <div><a href="/archives/">7</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分類</div>
+      <div><a href="/categories/">3</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">標籤</div>
+      <div><a href="/tags/">7</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目錄</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#TextTruth"><span class="toc-text">TextTruth:</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Abstract"><span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Related-Work"><span class="toc-text">Related Work</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Truth-Discovery"><span class="toc-text">Truth Discovery</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Community-Question-Answering"><span class="toc-text">Community Question Answering</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Answer-Selection"><span class="toc-text">Answer Selection</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Problem-Formulation"><span class="toc-text">Problem Formulation</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Methodology"><span class="toc-text">Methodology</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Overview"><span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Generative-Model"><span class="toc-text">Generative Model</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Answer-Factor-Modeling"><span class="toc-text">Answer Factor Modeling</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#User-Reliability-Modeling"><span class="toc-text">User Reliability Modeling</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Observation-Modeling"><span class="toc-text">Observation Modeling</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Overall-generative-process"><span class="toc-text">Overall generative process</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Trustworthy-Aware-Answer-Scoring"><span class="toc-text">Trustworthy-Aware Answer Scoring</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Model-Fitting"><span class="toc-text">Model Fitting</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Experiments"><span class="toc-text">Experiments</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Datasets"><span class="toc-text">Datasets</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Comparison-Methods"><span class="toc-text">Comparison Methods</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Performance-and-Analysis"><span class="toc-text">Performance and Analysis</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Case-Study"><span class="toc-text">Case Study</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#User-Reliability-Validation"><span class="toc-text">User Reliability Validation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交鏈接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:maple_w@qq.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/floatingmaple" target="_blank">GitHub</a></li>
+        
+      </ul>
+    </div>
+    
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到頂部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Maple W</span><span class="year"><i class="far fa-copyright"></i>2019 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">BY-SA 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站點訪問量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站點用戶數" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="頁面訪問量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 強力驅動 | 主題 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

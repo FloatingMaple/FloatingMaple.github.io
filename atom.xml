@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-02T08:40:35.683Z</updated>
+  <updated>2019-04-15T14:14:09.802Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Paper-TextTruth</title>
+    <link href="http://yoursite.com/2019/04/15/Paper-TextTruth/"/>
+    <id>http://yoursite.com/2019/04/15/Paper-TextTruth/</id>
+    <published>2019-04-15T13:41:31.000Z</published>
+    <updated>2019-04-15T14:14:09.802Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;TextTruth&quot;&gt;&lt;a href=&quot;#TextTruth&quot; class=&quot;headerlink&quot; title=&quot;TextTruth:&quot;&gt;&lt;/a&gt;TextTruth:&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;An Unsupervised Approach to
+        
+      
+    
+    </summary>
+    
+      <category term="论文阅读" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
+    
+      <category term="Data Mining" scheme="http://yoursite.com/tags/Data-Mining/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python-NLP-Chapter3</title>
     <link href="http://yoursite.com/2019/04/02/Python-NLP-Chapter3/"/>
     <id>http://yoursite.com/2019/04/02/Python-NLP-Chapter3/</id>
     <published>2019-04-02T08:35:42.000Z</published>
-    <updated>2019-04-02T08:40:35.683Z</updated>
+    <updated>2019-04-15T14:32:16.617Z</updated>
     
     <summary type="html">
     
