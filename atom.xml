@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-15T14:14:09.802Z</updated>
+  <updated>2019-04-16T00:49:41.852Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2019/04/15/Paper-TextTruth/"/>
     <id>http://yoursite.com/2019/04/15/Paper-TextTruth/</id>
     <published>2019-04-15T13:41:31.000Z</published>
-    <updated>2019-04-15T14:14:09.802Z</updated>
+    <updated>2019-04-16T00:49:41.852Z</updated>
     
     <summary type="html">
     
@@ -170,7 +170,11 @@
       
         
         
-          &lt;h4 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot;
+          &lt;h4 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;域名&lt;br&gt;hpcc.ahu.edu.cn&lt;/li&gt;
+&lt;li&gt;配置情况&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div
         
       
     
