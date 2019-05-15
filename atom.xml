@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-20T03:26:18.940Z</updated>
+  <updated>2019-05-12T01:53:15.818Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>paper-ComplEx-NNE+AER</title>
+    <link href="http://yoursite.com/2019/05/12/paper-ComplEx-NNE-AER/"/>
+    <id>http://yoursite.com/2019/05/12/paper-ComplEx-NNE-AER/</id>
+    <published>2019-05-12T01:49:28.000Z</published>
+    <updated>2019-05-12T01:53:15.818Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Improving-Knowledge-Graph-Embedding-Using-Simple-Constraints&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="论文阅读" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
+    
+      <category term="KG embedding" scheme="http://yoursite.com/tags/KG-embedding/"/>
+    
+  </entry>
   
   <entry>
     <title>2019网络行为分析研讨会</title>

@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    <meta name="google-site-verification" content="cyNQUDlHaMwGNl5QY-arT68kgoG0r8DlIn-O3sXKdus">
+    
+    
+    <meta name="keywords" content="blog, IT, Maple">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Maple's Blog" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ["$","$"], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      }
+    });
+    </script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += " has-jax";
+      }
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>paper-ComplEx-NNE+AER | Maple's Blog - The future commences now</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Maple's Blog</a></h1>
+        <h2 class="subtitle">The future commences now</h2>
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/12/paper-ComplEx-NNE-AER/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Maple W">
+       <meta itemprop="description" content="A blog of Maple W">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Maple's Blog">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">paper-ComplEx-NNE+AER</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-12T09:49:28+08:00">2019-05-12 09:49:28</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/论文阅读/" itemprop="url" rel="index"><span itemprop="name">论文阅读</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="Improving-Knowledge-Graph-Embedding-Using-Simple-Constraints"><a href="#Improving-Knowledge-Graph-Embedding-Using-Simple-Constraints" class="headerlink" title="Improving Knowledge Graph Embedding Using Simple Constraints"></a>Improving Knowledge Graph Embedding Using Simple Constraints</h1><p>通过使用简单约束提升知识图谱嵌入</p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
+<li><p>Work: </p>
+<p>工作内容：</p>
+<ul>
+<li>Embedding Knowledge graphs into continuous vector spaces.</li>
+</ul>
+<p>​    将知识图谱嵌入到连续向量空间中</p>
+</li>
+<li><p>Early works:</p>
+<p>早期工作：</p>
+<ul>
+<li>Via simple models developed over KG triples</li>
+</ul>
+<p>​    通过在知识图谱中的三元组上开发的简单模型</p>
+</li>
+<li><p>Recent works：</p>
+<p>最近工作：</p>
+<ul>
+<li>designing more complicated triple scoring models、incorporating extra information beyond triples</li>
+</ul>
+<p>​    设计更加复杂的元组得分模型、利用元组之外的其他信息</p>
+</li>
+<li><p>This paper：</p>
+<p>该论文：</p>
+<ul>
+<li>using very simple constraints</li>
+</ul>
+<p>​    利用简单的约束</p>
+<ul>
+<li><em>non-negativity constraints</em> on <strong>entity representations</strong></li>
+</ul>
+<p>​    实体表示上：非负性约束        </p>
+<p>​    help to learn compact and interpretable representations for entities</p>
+<p>​    帮助学习紧凑的、可解释的实体表示 </p>
+<ul>
+<li><em>approximate entailment constraints</em> on <strong>relation representations</strong></li>
+</ul>
+<p>​    关系表示上：近似包含约束</p>
+<p>​    further encode regularities of logical entailment between relations into their distributed  representations</p>
+<p>​    将关系之间逻辑包含约束规则进一步编码到它们的分布表示中</p>
+<ul>
+<li><p>These constrains impose prior beliefs upon the structure of the embedding space,without negative impacts on efficiency or scalability.</p>
+<p>这些约束将先验信念强加于嵌入空间的结构上，而不会对效率或可扩展性产生负面影响。</p>
+</li>
+<li><p>The constraints imposed indeed improve model interpretability, leading to a substantially increased structuring of the embedding space.</p>
+<p>施加的约束确实提高了模型的可解释性，从而大大增加了嵌入空间的结构。</p>
+</li>
+</ul>
+</li>
+<li><p>Code and data</p>
+<p>代码和数据</p>
+<ul>
+<li><a href="https://github.com/iieir-km/ComplEx-NNE_AER" target="_blank" rel="noopener">https://github.com/iieir-km/ComplEx-NNE_AER</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Web-scale knowledge graphs (KGs):</p>
+<p>网络规模的知识图谱:</p>
+<p>​    Freebase 、 DBpedia、Google’s Knowledge Vault</p>
+<p>Typical KG ：</p>
+<p>典型的知识图谱：</p>
+<p>​    a multirelational graph composed of entities as nodes and relations as different types of edges, where  each edge is represented as a triple of the form (head entity, relation, tail entity).</p>
+<p>​    由作为节点的实体和作为不同类型的边的关系组成的多关系图，其中每条边都表示为三元组，形如(头实体、关系、尾实体)。</p>
+<p>Knowledge graph embedding：</p>
+<p>知识图谱嵌入：</p>
+<p>​    embed components of a KG (i.e., entities and relations) into a continuous vector space,so as to simplify manipulation while preserving the inherent structure of the KG.</p>
+<p>​    嵌入知识图谱的组件（实体、关系）到连续向量空间中，从而能够在保留知识图谱的固有结构的同时简化操作</p>
+<p>Early Work：</p>
+<p>早期工作：</p>
+<p>​    via just simple models developed over KG triples e.g. TransE、HolE</p>
+<p>​    通过在三元组上开发的简单模型</p>
+<p>Recent Work：</p>
+<p>最近的工作：</p>
+<p>​    designing more complicated triple scoring models e.g. NTN 、incorporating extra information beyond KG triples</p>
+<p>​    设计更复杂的三元组得分模型、使用三元组之外的额外信息</p>
+<p>This paper：</p>
+<p>本论文：</p>
+<p>​    investigates the potential of using very simple constrains to improve the KG embedding task</p>
+<p>​    研究了使用非常简单的约束改进KG嵌入任务的潜力</p>
+<p>​    <strong>Two types of constraints：</strong></p>
+<p>​    <strong>两种约束：</strong></p>
+<ol>
+<li><p>non-negativity constraints on entity representations</p>
+<p>=&gt; learn compact representations for entities,which would naturally induce sparsity and interprtability</p>
+</li>
+<li><p>approximate entailment constraints over relation representations</p>
+<p>=&gt; further encode regularities of logical entailment between relations into their distributed representations,which might be advantageous to downstream tasks like link prediction and relation extraction</p>
+<p>实体表示上的非负性约束 =&gt; 学习实体的紧凑表示，这自然会导致稀疏性和可解释性</p>
+</li>
+</ol>
+<ol>
+<li>关系表示上的近似蕴涵约束 =&gt; 进一步将关系之间逻辑蕴涵的规则编码到它们的分布式表示中，这可能有利于后续的任务，如链接预测和关系提取</li>
+</ol>
+<p>​    These constraints impose prior beliefs upon the  structure of the embedding space,and will help us to learn more predictive embeddings,without significantly increasing the space or time complexity.</p>
+<p>​    这些约束将先验信念强加于嵌入空间的结构，并将帮助我们学习更多的预测性嵌入，而不会显著增加空间或时间复杂性。</p>
+<p>​    <strong>Difference</strong>：</p>
+<p>​    与其他方法的区别：</p>
+<ol>
+<li><p>it imposes constraints directly on entity and relation representations without grounding, and can easily scale up to large KGs;</p>
+<p>它直接对实体和关系表示施加约束，没有基础(工作)，并且可以很容易地扩展到大型KG</p>
+</li>
+<li><p>the constraints, i.e., non-negativity and approximate entailment derived automatically from statistical properties, are quite universal, requiring no manual effort and applicable to almost all KGs;</p>
+<p>使用的约束，例如非负性和近似蕴含是由统计特性自动导出的，是相当普遍的，不需要人工操作，几乎适用于所有KG</p>
+</li>
+<li><p>it learns an individual representation for each entity, and can successfully make predictions between unpaired entities.</p>
+<p>它学习每个实体的单独表示，并能够成功地在未配对的实体之间进行预测。</p>
+</li>
+</ol>
+<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><h3 id="Early-works"><a href="#Early-works" class="headerlink" title="Early works"></a>Early works</h3><p>Early Works on this topic devised very simple models on the basis of triples observed in a given KG:</p>
+<p>早期工作：基于在给定KG中观察到的三元组设计非常简单的模型</p>
+<p>​    TransE：takes relations as translating operations between head and tail entities</p>
+<p>​    将关系作为头和尾实体之间的转换操作</p>
+<p>​    RESCAL: models triples through bilinear opeartions over entity and relation representations</p>
+<p>​    通过实体和关系表示上的双线性操作对三元组建模</p>
+<h3 id="Later-attempts"><a href="#Later-attempts" class="headerlink" title="Later attempts"></a>Later attempts</h3><p>Later attempts in two groups:</p>
+<p>后来的尝试多在两个方面：</p>
+<ol>
+<li><p>tried to design more complicated scoring models </p>
+<p>尝试设计更加复杂的得分模型</p>
+<p>e.g. TransE extensions 、 RESCAL extensions 、 (deep)neural network models</p>
+</li>
+<li><p>tried to integrate extra information beyond triples</p>
+<p>尝试整合三元组以外的其他信息</p>
+<p>e.g. entity types、relation paths、textual descriptions</p>
+</li>
+</ol>
+<h3 id="In-this-paper"><a href="#In-this-paper" class="headerlink" title="In this paper"></a>In this paper</h3><p>​    using very simple constraints to improve KG embedding</p>
+<p>​    利用简单约束提升KG嵌入表现</p>
+<p>​    e.g. non-negativity constraints 、approximate entailment constraints 非负性约束、近似蕴含约束</p>
+<p>​    We investigate the ability of non-negativity constraints to learn more accurate KG  embeddings with good interpretability </p>
+<p>​    研究了非负性约束的能力，已学习更加准确的、具有良好解释性的KG嵌入</p>
+<p>​    </p>
+<h2 id="Our-Approach"><a href="#Our-Approach" class="headerlink" title="Our Approach"></a>Our Approach</h2><h3 id="A-Basic-Embedding-Model"><a href="#A-Basic-Embedding-Model" class="headerlink" title="A Basic Embedding Model"></a>A Basic Embedding Model</h3><p>​    ComplEx represents each entity/relation as a complex-valued vector in a same d dimensionality embedding space</p>
+<p>​    ComplEx将每个实体和关系表示为同一个d维嵌入空间中的复值向量</p>
+<p>​    Ecah <strong>x</strong> in this space consists of a real vector component Re(x) and an imaginary vector component IM(x)</p>
+<p>​    该空间中的每个x都由一个实值向量部分和一个虚值向量部分组成 <strong>x</strong>=Re(<strong>x</strong>)+<em>i</em>IM(<strong>x</strong>)</p>
+<p>​    Score: a multi-linear dot product </p>
+<p>​    使用一个多重线性点积函数作为评分函数</p>
+<script type="math/tex; mode=display">
+\phi(e_i,r_k,e_j)\overset{\Delta}{=}Re(<\vec{e_i},\vec{r_k},\bar{e_j}>) \\
+ \overset{\Delta}{=}Re(\sum_{l}{[\vec{e_i}}]_l{[\vec{r_k}}]_l{[\bar{e_j}}]_l)</script><p>​    其中$ \vec{e}、\vec{r} $ 是实体、关系对应的向量表示，$ \bar{e} $ 是 $\vec{e}$ 的共轭向量，$[·]_l$ 是一个向量的第l个条目(entry)，Re(·) 表示取复值的实部</p>
+<h3 id="Non-negativity-of-Entity-Representations"><a href="#Non-negativity-of-Entity-Representations" class="headerlink" title="Non-negativity of Entity Representations"></a>Non-negativity of Entity Representations</h3><p>​    Entities have non-negative (and bounded) vectorial representations</p>
+<p>​    实体有非负（且有限界的）向量表示</p>
+<p>​    In fact，these distributed representations can be taken as feature vectors for entities，with latent semantics encoded in different dimensions</p>
+<p>​    这些分散的表示能够作为实体的特征向量，拥有编码在不同维度的潜在语义</p>
+<p>​    <strong>Previous approaches：</strong></p>
+<p>​    no limit the range of such feature values，both positive and negative properties of an entity can be encoded in its representation</p>
+<p>​    没有约束这些特征值的范围，意味着一个实体的正负属性都能编码到其表示中</p>
+<p>​    <strong>Point：</strong></p>
+<p>​    uneconomical to store all negative properties of an entity or a concept</p>
+<p>​    存储一个实体或概念的所有负属性是浪费的</p>
+<p>​    e.g.</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在描述 “猫 cat”时，</span><br><span class="line">人们通常使用正属性，例如 猫是哺乳动物、猫吃鱼、猫有四条腿 ；</span><br><span class="line">但是几乎不会使用负属性，例如 猫不是交通工具、猫没有轮子、猫不能用来通信</span><br></pre></td></tr></table></figure>
+<p>​    <strong>This paper:</strong></p>
+<p>​    Impose non-negativity constraints on entity representations,by using only positive properties will be stored in these representations.</p>
+<p>​    对实体表示施加非负性约束，即在实体表示中只存储正属性</p>
+<p>​    To better compare different entities on the same scale ,we further require entities representations to stay within the hypercube of $[0,1]^d$ ,as approximately Boolean embeddings , i.e. </p>
+<p>​    为了更好的在相同尺度上比较不同实体，要求实体表示在d维的[0,1]超立方内，近似布尔嵌入</p>
+<script type="math/tex; mode=display">
+\vec{0} \leq Re(\vec{e}),Im(\vec{e}) \leq \vec{1} ,\forall e\in \mathcal{E}</script><p>​    0,1是d维向量，他们的所有项entry都是0或1，≥、≤、= denote the entry-wise comparisons throughout the paper whenever applicable.</p>
+<p>​    non-negativity , in most cases , will further induce sparsity and interpretability</p>
+<p>​    在大多数情况下，非负性将进一步导致稀疏性和可解释性</p>
+<h3 id="Approximate-Entailment-for-Relations"><a href="#Approximate-Entailment-for-Relations" class="headerlink" title="Approximate Entailment for Relations"></a>Approximate Entailment for Relations</h3><p>​    approximate entailment constraints over relation representations </p>
+<p>​    关系表示上的近似蕴含约束</p>
+<p>​    <strong>approximate entailment：</strong></p>
+<p>​    近似蕴含（近似继承）</p>
+<p>​    an ordered pair of relations that the former <strong>approximately</strong> entails the latter</p>
+<p>​    一个有序关系对，前者<strong>近似地</strong>引起后者</p>
+<p>​    e.g. <strong>BornInCountry</strong> and <strong>Nationality</strong></p>
+<p>​    一个人出生在一个国家，很可能，但是不是必然拥有该国家的国籍</p>
+<p>​    each such relation pair is associated with a weight to indicate the confidence level of entailment</p>
+<p>​    每个这样的关系对都对应着一个权重来表示其蕴含的信任等级，更大的权重表示更高的信任等级</p>
+<p>​    denote： $ r_p \overset{\lambda}{\rightarrow} r_q $  ,$r_p、r_q$ relations，$\lambda$ confidence level，set of all  $\tau$</p>
+<p>​    通过上式描述关系p、q之间的近似蕴含，其信任等级为λ ，所有近似蕴含的集合表示为T</p>
+<p>​    This kind of entailment can be derived automatically from a KG by modern rule mining systems</p>
+<p>​    这种蕴含（继承）能够由现在的规则挖掘系统自动导出</p>
+<p>​    <strong><em>Strict entailment</em>：</strong></p>
+<p>​    在深入探索近似蕴含之前，先探索严格蕴含（严格继承），例如 λ=+∞ ，严格蕴含 $r_p\rightarrow r_q$ 表示如果关系rp成立，那么关系rq一定成立，可以近似建模：要求</p>
+<script type="math/tex; mode=display">
+\phi(e_i,r_p,e_j) \leq \phi(e_i,r_q,e_j), \forall e_i,e_j \in \mathcal{E}</script><p>​    即根据该嵌入模型，如果 $(e_i,r_p,e_j)$ 是一个正确事实，拥有较高的得分 $ \phi(e_i,r_p,e_j)$ ，那么拥有更高的得分的三元组 $(e_i,r_q,e_j)$ 也应该被预测为一个正确事实</p>
+<p>​    Note that given  the non-negativity constraints defined by Eq. (2), a  sufficient condition for Eq. (3) to hold, is to further  impose：</p>
+<p>​    注意，给定Eq.(1)所定义的非负约束条件，则进一步施加Eq.(2)成立的充分条件：</p>
+<script type="math/tex; mode=display">
+Re(\vec{r_p}) \leq Re(\vec{r_q}), \quad Im(\vec{r_q})=Im(\vec{r_p})</script><p>​    <strong><em>Modeling of approximate entailment:</em></strong></p>
+<script type="math/tex; mode=display">
+\begin{align}
+\lambda(Re(\vec{r_p})-Re(\vec{r_q})) \le \vec{\alpha}    \\
+\lambda(Im(\vec{r_p})-Im(\vec{r_q}))^2 \le \vec{\beta}
+\end{align}</script><p>​    α、β ≥ 0 是松弛变量，$(·)^2$ 表示一个项(向量中的)对操作（entry-wise）</p>
+<p>​    Entailments with higher confidence levels show less tolerance for violating the constraints</p>
+<p>​    蕴含的信任等级越高，表现出对违反该约束的更低容忍，当λ=+∞时，Eqs.4、5退化为Eq.3</p>
+<p>​    The above analysis indicates that our approach can model entailment simply by imposing constraints over relation representations, without traversing all possible (ei,ej) entity pairs (i.e., grounding) .In addition, different confidence levels are encoded in the constraints, making our approach moderately tolerant of uncertainty.</p>
+<p>​    上述分析表明，该方法能够通过对关系表示施加约束，而不遍历所有可能的实体对。同时，约束中编码了不同的置信级别，使得我们的方法对不确定性具有一定的容忍度。</p>
+<h3 id="The-Overall-Model"><a href="#The-Overall-Model" class="headerlink" title="The Overall Model"></a>The Overall Model</h3><p>​    整体模型：</p>
+<script type="math/tex; mode=display">
+\min _{\Theta,\{\boldsymbol{\alpha}, \boldsymbol{\beta}\}} \sum_{\mathcal{D}+\cup \mathcal{D}^{-}} \log \left(1+\exp \left(-y_{i j k} \phi\left(e_{i}, r_{k}, e_{j}\right)\right)\right)+\mu \sum_{\mathcal{T}} \mathbf{1}^{\top}(\boldsymbol{\alpha}+\boldsymbol{\beta})+\eta\|\Theta\|_{2}^{2}\\
+\begin{array}{l}{\text { s.t. } \lambda\left(\operatorname{Re}\left(\mathbf{r}_{p}\right)-\operatorname{Re}\left(\mathbf{r}_{q}\right)\right) \leq \boldsymbol{\alpha}} \\ {\lambda\left(\operatorname{Im}\left(\mathbf{r}_{p}\right)-\operatorname{Im}\left(\mathbf{r}_{q}\right)\right)^{2} \leq \boldsymbol{\beta}} \\ {\boldsymbol{\alpha}, \boldsymbol{\beta} \geq \mathbf{0}, \quad \forall r_{p} \stackrel{\lambda}{\rightarrow} r_{q} \in \mathcal{T}} \\ {\mathbf{0} \leq \operatorname{Re}(\mathbf{e}), \operatorname{Im}(\mathbf{e}) \leq \mathbf{1}, \quad \forall e \in \mathcal{E}}\end{array}</script><p>​        其中，$ \Theta \triangleq\{\mathbf{e} : e \in \mathcal{E}\} \cup\{\mathbf{r} : r \in \mathcal{R}\} $ 是所有实体和关系表示的集合，</p>
+<p>​                    $ \mathcal{D}^+ $ $\mathcal{D^-}$ 分别是训练三元组中的正例和负例集合，</p>
+<p>​                    $y_{ijk}=\pm 1$ 是三元组$\left(e_{i}, r_{k}, e_{j}\right)$ 为正或负的标签。</p>
+<p>​    在该式中，第一部分是一个典型的对率损失函数（logistic loss），令三元组的分数接近它们的标签（which enforces triples to have scores close to their labels）；第二部分是近似蕴含约束中松弛变量的和（the sum of slack variables in the approximate entailment constraints），补偿系数为 $\mu \geq 0$  ；最后一部分是L2正则项以防止过拟合</p>
+<p>​    第二部分的 motivation 动机：虽然我们允许这些约束中的松弛，但我们希望总的松弛量较小，以便更好地满足约束</p>
+<p>​    为了解决这一优化问题，将近似蕴涵约束(以及相应的松弛变量)转换为惩罚项并添加到目标函数中，而非负约束保持不变，则上式可以写成：</p>
+<script type="math/tex; mode=display">
+\begin{aligned} \min _{\Theta} & \sum_{\mathcal{D}^{+} \cup \mathcal{D}^{-}} \log \left(1+\exp \left(-y_{i j k} \phi\left(e_{i}, r_{k}, e_{j}\right)\right)\right) \\ &+\mu \sum_{\mathcal{T}} \lambda \mathbf{1}^{\top}\left[\operatorname{Re}\left(\mathbf{r}_{p}\right)-\operatorname{Re}\left(\mathbf{r}_{q}\right)\right]_{+} \\ &+\mu \sum_{\mathcal{T}} \lambda \mathbf{1}^{\top}\left(\operatorname{Im}\left(\mathbf{r}_{p}\right)-\operatorname{Im}\left(\mathbf{r}_{q}\right)\right)^{2}+\eta\|\Theta\|_{2}^{2} \end{aligned}
+\\
+
+s.t.  0 \leq \operatorname{Re}(\mathbf{e}), \operatorname{Im}(\mathbf{e}) \leq \mathbf{1}, \quad \forall e \in \mathcal{E}</script><p>​    其中 $ [\mathbf{x}]_{+}=\max (\mathbf{0}, \mathbf{x}) $  </p>
+<p>​    使用mini-batch的SGD方法优化，使用AdaGrad调整学习率。</p>
+<h2 id="Experiments-and-Results"><a href="#Experiments-and-Results" class="headerlink" title="Experiments and Results"></a>Experiments and Results</h2><h3 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h3><p><img src="/2019/05/12/paper-ComplEx-NNE-AER/1556852029458.png" alt="1556852029458"></p>
+<p>​    使用AMIE+ 自动提取近似蕴含约束，考虑信任度高于0.8的</p>
+<p><img src="/2019/05/12/paper-ComplEx-NNE-AER/1556851994080.png" alt="1556851994080"></p>
+<h3 id="Link-Prediction"><a href="#Link-Prediction" class="headerlink" title="Link Prediction"></a>Link Prediction</h3><p><strong>链接预测</strong></p>
+<p>​    <strong>task:</strong></p>
+<p>​        predict a triple with one e missisng</p>
+<p>​        预测有一个实体丢失的三元组 </p>
+<p>​    <strong>Evaluation Protocol：评价方案：</strong></p>
+<p>​        MRR mean reciprocal rank 平均倒序排名</p>
+<p>​        HITS@N </p>
+<p>​    <strong>Comparison Setting： 对照设置：</strong></p>
+<ul>
+<li><p>仅仅利用三元组而不利用附加信息    e.g. TransE、DistMult、HolE、<strong>ComplEx</strong>、ANALOGY</p>
+</li>
+<li><p>集成了逻辑背景知识的对ComplEx的扩展    e.g. RUGE 、ComplExR</p>
+</li>
+<li><p>在WN18和FB15K上的其他方法    e.g. R-GCN、ConvE、Single DistMult</p>
+<p><strong>Our Approach：</strong></p>
+</li>
+</ul>
+<ul>
+<li><p>ComplEx-NNE：</p>
+<p>Only the Non-Negativity constraints on Entity representations</p>
+<p>仅仅使用实体表示的非负性约束，即 μ=0</p>
+</li>
+<li><p>ComplEx-NNE+AER：</p>
+<p>further imposes the Approximate Entailment constraints over Relatio representations</p>
+<p>在上面的基础上添加了关系的近似蕴含约束 ，即 μ&gt;0 </p>
+<p><strong>Implementation Details: 实现细节：</strong></p>
+<p><strong>Experimental Results：实验结果：</strong></p>
+<p>​    <img src="/2019/05/12/paper-ComplEx-NNE-AER/1556889205329.png" alt="1556889205329"></p>
+<p><img src="/2019/05/12/paper-ComplEx-NNE-AER/1556889226631.png" alt="1556889226631"></p>
+</li>
+</ul>
+<h3 id="Analysis-on-Entity-Representations"><a href="#Analysis-on-Entity-Representations" class="headerlink" title="Analysis on Entity Representations"></a>Analysis on Entity Representations</h3><p><strong>实体表示分析</strong></p>
+<p>​    Visualization of real components of entity representations learned</p>
+<p>​    对学习到的实体表示的可视化结果表明，ComplEx-NNE+AER 能够使学到的向量更加稀疏，同类实体的表示也相对更加集中</p>
+<p><img src="/2019/05/12/paper-ComplEx-NNE-AER/1557151470381.png" alt="1557151470381"></p>
+<p>​    Values range from 0 (white) via 0.5 (orange) to 1 (black). </p>
+<p>​    Semantic purity 语义纯净度</p>
+<p>​    语义纯净度是指对于一个维度，该维度取值较大的实体都应该尽可能的属于同一类别，我们用熵来衡量语义纯    净度，熵越低，语义纯净度越高。</p>
+<p><img src="/2019/05/12/paper-ComplEx-NNE-AER/1557151582038.png" alt="1557151582038"></p>
+<p>​    Average entropy over all dimensions of real components of entity representations learned </p>
+<p>​    不同K值下学习到的实体表示的平均熵</p>
+<h3 id="Analysis-on-Relation-Representations"><a href="#Analysis-on-Relation-Representations" class="headerlink" title="Analysis on Relation Representations"></a>Analysis on Relation Representations</h3><p><strong>关系表示分析</strong></p>
+<p>​    group relation pairs involved in the DB100K entailment constraints into 3 classes</p>
+<p>​    <strong>equivalence</strong>, <strong>inversion</strong>, and <strong>others</strong>.</p>
+<p>​    从每个类中选择两对关系，并将这些关系表示形象化，对于每个关系随机从它的实分量和虚分量中选取5个维</p>
+<p>​    度。通过施加近似蕴含约束，这些关系表示能够更好的编码逻辑规则</p>
+<pre><code>- 第一类（等价 equivalence）的关系对倾向于相同的表示  $\mathbf{r}_{p} \approx \mathbf{r}_{q}$ 
+- 第二类（相反 inversion）的关系对 复共轭表示 $\mathbf{r}_{p} \approx \overline{\mathbf{r}}_{q}$
+- 第三类（其他 others）$ \operatorname{Re}\left(\mathbf{r}_{p}\right) \leq \operatorname{Re}\left(\mathbf{r}_{q}\right) $   $ \operatorname{Im}\left(\mathbf{r}_{p}\right) \approx \operatorname{Im}\left(\mathbf{r}_{q}\right) $
+</code></pre><p><img src="/2019/05/12/paper-ComplEx-NNE-AER/1557217726241.png" alt="1557217726241"></p>
+<p>​    </p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>Using <strong>very simple constraints</strong> to improve KG embedding</p>
+<p>Studied：</p>
+<ul>
+<li><p>non-negativity constraints to learn compact,interpretable entity representations</p>
+<p>非负性约束，学习紧凑的、可解释的实体表示</p>
+</li>
+<li><p>approximate entailment constraints to further encode logical regularities into relation representations</p>
+<p>近似蕴含约束，将逻辑规则进一步编码的关系表示</p>
+</li>
+</ul>
+<p>Impose <strong>prior beliefs</strong> upon the structure of the embedding space </p>
+<p>将<strong>先验信念</strong>强加于嵌入空间的结构上，不会显著增加空间或时间复杂度。</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/KG-embedding/" rel="tag"><i class="fas fa-tags"></i>KG embedding</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/04/20/2019网络行为分析研讨会/" rel="next" title="2019网络行为分析研讨会"><i class="fas fa-angle-left"></i><span class="nav-title">2019网络行为分析研讨会</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Maple W">
+  
+  <h1 class="author-name">Maple W</h1>
+  <h2 class="author-description">A blog of Maple W</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">9</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">4</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">9</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#Improving-Knowledge-Graph-Embedding-Using-Simple-Constraints"><span class="toc-text">Improving Knowledge Graph Embedding Using Simple Constraints</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Abstract"><span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Related-Work"><span class="toc-text">Related Work</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Early-works"><span class="toc-text">Early works</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Later-attempts"><span class="toc-text">Later attempts</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#In-this-paper"><span class="toc-text">In this paper</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Our-Approach"><span class="toc-text">Our Approach</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#A-Basic-Embedding-Model"><span class="toc-text">A Basic Embedding Model</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Non-negativity-of-Entity-Representations"><span class="toc-text">Non-negativity of Entity Representations</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Approximate-Entailment-for-Relations"><span class="toc-text">Approximate Entailment for Relations</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#The-Overall-Model"><span class="toc-text">The Overall Model</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Experiments-and-Results"><span class="toc-text">Experiments and Results</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Datasets"><span class="toc-text">Datasets</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Link-Prediction"><span class="toc-text">Link Prediction</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Analysis-on-Entity-Representations"><span class="toc-text">Analysis on Entity Representations</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Analysis-on-Relation-Representations"><span class="toc-text">Analysis on Relation Representations</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:maple_w@qq.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/floatingmaple" target="_blank">GitHub</a></li>
+        
+      </ul>
+    </div>
+    
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Maple W</span><span class="year"><i class="far fa-copyright"></i>2019 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">BY-SA 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
